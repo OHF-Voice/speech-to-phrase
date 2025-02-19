@@ -28,16 +28,14 @@ lists:
   minutes_small:
     range:
       from: 2
-      to: 9
+      to: 19
   minutes_large:
     range:
-      from: 10
+      from: 20
       to: 100
       step: 10
   minutes_extra:
     values:
-      - in: fifteen
-        out: 15
       - in: forty five
         out: 45
   minutes_half:
