@@ -10,7 +10,7 @@ lists:
       - "amarillo"
       - "verde"
       - "azul"
-      - "(lila|morado|púrpura)"
+      - "(lila|morado|morada|púrpura)"
       - "marrón"
       - "(rosa|rosado)"
   brightness:
@@ -75,6 +75,8 @@ intents:
     data:
       - sentences:
           - "no importa"
+          - "déjalo"
+          - "olvídalo"
 
   # date, time, weather
   HassGetCurrentTime:
@@ -104,6 +106,7 @@ intents:
       # turn on
       - sentences:
           - "(enciende|prend(e|é)) las luces"
+          - "(enciende|prend(e|é)) la luz"
 
       - sentences:
           - "(enciende|prend(e|é)) <name>"
@@ -117,6 +120,7 @@ intents:
 
       - sentences:
           - "(enciende|prend(e|é)) las luces <area_floor>"
+          - "(enciende|prend(e|é)) la luz <area_floor>"
 
       # open
       - sentences:
@@ -137,13 +141,13 @@ intents:
 
       # script
       - sentences:
-          - "ejecuta <name>"
+          - "(ejecuta|arranca|llama) <name>"
         requires_context:
           domain: script
 
       # scene
       - sentences:
-          - "activa <name>"
+          - "(activa|pon) <name>"
         requires_context:
           domain: scene
 
@@ -152,6 +156,7 @@ intents:
       # turn off
       - sentences:
           - "apaga las luces"
+          - "apaga la luz"
 
       - sentences:
           - "apaga <name>"
@@ -165,6 +170,7 @@ intents:
 
       - sentences:
           - "apaga las luces <area_floor>"
+          - "apaga la luz <area_floor>"
 
       # close
       - sentences:
@@ -188,86 +194,91 @@ intents:
     data:
       # brightness
       - sentences:
-          - "ajusta [el] brillo de <name> al {brightness} por ciento"
+          - "(ajusta|pon) [el] brillo de <name> al {brightness} por ciento"
         requires_context:
           domain: light
 
       - sentences:
-          - "ajusta [el] brillo de las luces <area> al {brightness} por ciento"
+          - "(ajusta|pon) [el] brillo de las luces <area> al {brightness} por ciento"
+          - "(ajusta|pon) [el] brillo de la luz <area> al {brightness} por ciento"
 
       # color
       - sentences:
-          - "ajusta [el] color de <name> a {color}"
-          - "ajusta [el] color de las luces <area> de <name> a {color}"
+          - "(ajusta|pon) {color} <name>"
+          - "(ajusta|pon) [el] color de <name> [a] {color}"
+          - "(ajusta|pon) [el] color de las luces <area> de <name> [a] {color}"
+          - "(ajusta|pon) [el] color de la luz <area> de <name> [a] {color}"
         requires_context:
           domain: light
 
       - sentences:
-          - "ajusta [el] color de las luces <area> a {color}"
+          - "(ajusta|pon) [el] color de las luces <area> [a] {color}"
+          - "(ajusta|pon) [el] color de la luz <area> [a] {color}"
 
   # timers
   HassStartTimer:
     data:
       # seconds
       - sentences:
-          - "inicia [un] temporizador de {seconds} segundos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {seconds} segundos"
 
       # minutes
       - sentences:
-          - "inicia [un] temporizador de 1 minuto"
-          - "inicia [un] temporizador de {minutes_small} minutos"
-          - "inicia [un] temporizador de {minutes_large} minutos"
-          - "inicia [un] temporizador de {minutes_extra} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) 1 minuto"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_small} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_large} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_extra} minutos"
 
       # minutes half
       - sentences:
-          - "inicia [un] temporizador de 1 minuto {minutes_half:seconds}"
-          - "inicia [un] temporizador de {minutes_small} minutos {minutes_half:seconds}"
-          - "inicia [un] temporizador de {minutes_large} minutos {minutes_half:seconds}"
-          - "inicia [un] temporizador de {minutes_extra} minutos {minutes_half:seconds}"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) 1 minuto {minutes_half:seconds}"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_small} minutos {minutes_half:seconds}"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_large} minutos {minutes_half:seconds}"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {minutes_extra} minutos {minutes_half:seconds}"
 
       # hours
       - sentences:
-          - "inicia [un] temporizador de 1 hora"
-          - "inicia [un] temporizador de {hours} horas"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) 1 hora"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {hours} horas"
 
       # hours half
       - sentences:
-          - "inicia [un] temporizador de 1 hora {hours_half:minutes}"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) 1 hora {hours_half:minutes}"
 
       # hours + minutes
       - sentences:
-          - "inicia [un] temporizador de 1 hora y 1 minuto"
-          - "inicia [un] temporizador de {hours} horas y {minutes_small} minutos"
-          - "inicia [un] temporizador de {hours} horas y {minutes_large} minutos"
-          - "inicia [un] temporizador de {hours} horas y {minutes_extra} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) 1 hora y 1 minuto"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {hours} horas y {minutes_small} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {hours} horas y {minutes_large} minutos"
+          - "(inicia|iniciame|pon|ponme|arranca|ajusta) [un] temporizador (de|a) {hours} horas y {minutes_extra} minutos"
 
   HassCancelTimer:
     data:
       - sentences:
-          - "cancela el temporizador"
+          - "cancela [el] temporizador"
 
   HassCancelAllTimers:
     data:
       - sentences:
-          - "cancela todos los temporizadores"
+          - "cancela [todos] los temporizadores"
 
   HassPauseTimer:
     data:
       - sentences:
-          - "pausa el temporizador"
+          - "pausa [el] temporizador"
 
   HassUnpauseTimer:
     data:
       - sentences:
-          - "continúa el temporizador"
+          - "continúa [el] temporizador"
 
   HassTimerStatus:
     data:
       - sentences:
-          - "estado de temporizador"
+          - "estado [de] temporizador"
           - "estado de[l] [mi[s]] temporizador[es]"
           - "cuánto falta para [el|los|mi[s]] temporizador[es]"
+          - "cuánto queda [para] [del|el|los|mi[s]] temporizador[es]"
 
   # media players
   HassMediaPause:
@@ -284,9 +295,13 @@ intents:
     data:
       - sentences:
           - "continúa [la música]"
+          - "sigue poniendo [la música]"
+          - "pon de nuevo [la música]"
 
       - sentences:
           - "continúa <name>"
+          - "sigue poniendo <name>"
+          - "pon de nuevo <name>"
         requires_context:
           domain: media_player
 
@@ -305,14 +320,22 @@ intents:
     data:
       - sentences:
           - "cuál es la temperatura"
+          - "qué temperatura hace"
+          - "cuánto calor hace"
+          - "cuánto frío hace"
 
       - sentences:
           - "cuál es la temperatura de[l] <name>"
+          - "qué temperatura (da|tiene) <name>"
+          - "di[me] la temperatura de[l] <name>"
         requires_context:
           domain: climate
 
       - sentences:
           - "cuál es la temperatura en <area_floor>"
+          - "qué temperatura hace en <area_floor>"
+          - "cuánto calor hace en <area_floor>"
+          - "cuánto frío hace en <area_floor>"
 
   # questions
   HassGetState:
@@ -345,6 +368,7 @@ intents:
       # sensors, etc.
       - sentences:
           - "cuál es <name>"
+          - "cómo está <name>"
         requires_context:
           domain:
             - sensor
