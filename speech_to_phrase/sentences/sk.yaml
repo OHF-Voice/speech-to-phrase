@@ -1,0 +1,339 @@
+language: sk
+
+lists:
+  color:
+    values:
+      - "biel(a|ou)"
+      - "čiern(a|ou)"
+      - "červen(á|ou)"
+      - "oranžov(á|ou)"
+      - "žlt(á|ou)"
+      - "zelen(á|ou)"
+      - "modr(á|ou)"
+      - "fialov(á|ou)"
+      - "hned(á|ou)"
+  brightness:
+    range:
+      type: "percentage"
+      from: 10
+      to: 100
+      step: 10
+  seconds:
+    range:
+      from: 10
+      to: 100
+      step: 10
+  minutes_small:
+    range:
+      from: 2
+      to: 9
+  minutes_large:
+    range:
+      from: 10
+      to: 100
+      step: 10
+  minutes_extra:
+    values:
+      - in: pätnásť
+        out: 15
+      - in: štyridsať päť
+        out: 45
+  minutes_half:
+    values:
+      - in: pol
+        out: 30
+  hours_half:
+    values:
+      - in: pol
+        out: 30
+  hours:
+    range:
+      from: 1
+      to: 100
+  cover_classes:
+    values:
+      - in: "(otvoren[<y_e>]|roztiahnut[<y_e>])"
+      - in: "(zatvoren[<y_e>]|zatiahnut[<y_e>])"
+      - in: "[sa] otvára[jú] [sa]"
+      - in: "[sa] zatvára[jú] [sa]"
+
+expansion_rules:
+  v: "(v|vo|na)"
+  miesto: "[v] {area}"
+  podlazie: "[(na|v)] [podlaž(ie|í)] {floor}"
+
+  y_e: "(ý|á|é|ých)"
+  ktore: "(ktor<y_e>|ak[<y_e>])"
+  je_su: "(bol[(a|o|i|y)]|je|sú|bud(e|ú))"
+  aky_je: "((<ktore>|koľko)[  <je_su>])"
+
+intents:
+  # nevermind
+  HassNevermind:
+    data:
+      - sentences:
+          - "[to] nevadí"
+          - "zabudni na to"
+
+  # date, time, weather
+  HassGetCurrentTime:
+    data:
+      - sentences:
+          - "koľko je hodín"
+
+  HassGetCurrentDate:
+    data:
+      - sentences:
+          - "aký je dátum"
+
+  HassGetWeather:
+    data:
+      - sentences:
+          - "<aky_je> počasie"
+      - sentences:
+          - "<aky_je> počasie <v> {name}"
+        requires_context:
+          domain: weather
+
+  # turn on/off
+  # open/close
+  # lock/unlock
+  HassTurnOn:
+    data:
+      # turn on
+      - sentences:
+          - "zapnúť svetlá"
+
+      - sentences:
+          - "zapnúť {name}"
+          - "zapnúť {name} <miesto>"
+          - "zapnúť {name} <podlazie>"
+        requires_context:
+          domain:
+            - light
+            - switch
+
+      - sentences:
+          - "zapnúť svetlá <miesto>"
+          - "zapnúť svetlá <podlazie>"
+
+      # open
+      - sentences:
+          - "otvoriť {name}"
+        requires_context:
+          domain:
+            - cover
+            - valve
+
+      - sentences:
+          - "otvoriť {cover_classes} <miesto>"
+
+      - sentences:
+          - "otvoriť {cover_classes} <podlazie>"
+
+      # lock
+      - sentences:
+          - "zamknúť {name}"
+        requires_context:
+          domain: lock
+
+      # script
+      - sentences:
+          - "spustiť {name}"
+        requires_context:
+          domain: script
+
+      # scene
+      - sentences:
+          - "aktivovať {name}"
+        requires_context:
+          domain: scene
+
+  HassTurnOff:
+    data:
+      # turn off
+      - sentences:
+          - "vypnúť svetlá"
+
+      - sentences:
+          - "vypnúť {name}"
+        requires_context:
+          domain:
+            - light
+            - switch
+
+      - sentences:
+          - "vypnúť svetlá <miesto>"
+          - "vypnúť svetlá <podlazie>"
+
+      - sentences:
+          - "vypnúť svetlá <miesto>"
+          - "vypnúť svetlá <podlazie>"
+
+      # close
+      - sentences:
+          - "zatvoriť {name}"
+        requires_context:
+          domain:
+            - cover
+            - valve
+
+      - sentences:
+          - "otvoriť {cover_classes} <miesto>"
+          - "otvoriť {cover_classes} <podlazie>"
+
+      # unlock
+      - sentences:
+          - "odomknúť {name}"
+        requires_context:
+          domain: lock
+
+  # # light brightness/color
+  HassLightSet:
+    data:
+      # brightness
+      - sentences:
+          - "nastaviť jas {name} na {brightness} percent"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "[nastaviť] jas <miesto> na {brightness} percent"
+
+      - sentences:
+          - "[nastaviť] jas <podlazie> na {brightness} percent"
+
+      # color
+      - sentences:
+          - "[nastaviť] farbu [svetiel] {name} na {color}"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "[nastaviť] farbu [svetiel] <miesto> na {color}"
+
+      - sentences:
+          - "[nastaviť] farbu [svetiel] <podlazie> na {color}"
+
+  # timers
+  HassStartTimer:
+    data:
+      # seconds
+      - sentences:
+          - "časovač na {seconds} sekúnd"
+          - "odpočítaj {seconds} sekúnd"
+
+      # minutes
+      - sentences:
+          - "odpočítaj [jednu] minútu"
+          - "odpočítaj ({minutes_small}|{minutes_large}|{minutes_extra}) minút"
+
+  HassCancelTimer:
+    data:
+      - sentences:
+          - "zastaviť časovač"
+
+  HassCancelAllTimers:
+    data:
+      - sentences:
+          - "zastav všetky časovače"
+
+  HassPauseTimer:
+    data:
+      - sentences:
+          - "pozastaviť časovače"
+
+  HassUnpauseTimer:
+    data:
+      - sentences:
+          - "pokračovať v odpočítávaní"
+
+  HassTimerStatus:
+    data:
+      - sentences:
+          - "koľko zostáva"
+          - "koľko do konca odpočítavania"
+
+  # media players
+  HassMediaPause:
+    data:
+      - sentences:
+          - "pozastaviť [(hudbu|prehrávanie)]"
+
+      - sentences:
+          - "pozastaviť {name}"
+        requires_context:
+          domain: media_player
+
+  HassMediaUnpause:
+    data:
+      - sentences:
+          - "pokračovať [v prehrávaní]"
+
+      - sentences:
+          - "pokračovať na {name}"
+        requires_context:
+          domain: media_player
+
+  HassMediaNext:
+    data:
+      - sentences:
+          - "(ďalšiu|preskočiť) [(pieseň|skladbu|stopu)]"
+
+      - sentences:
+          - "(ďalšiu|preskočiť) [(pieseň|skladbu|stopu)] na {name}"
+        requires_context:
+          domain: media_player
+
+  # temperature
+  HassGetTemperature:
+    data:
+      - sentences:
+          - "(koľko|aká) je teplota"
+
+      - sentences:
+          - "(koľko|aká) je teplota {name}"
+        requires_context:
+          domain: climate
+
+      - sentences:
+          - "(koľko|aká) je teplota <miesto>"
+
+      - sentences:
+          - "(koľko|aká) je teplota <podlazie>"
+
+  # # questions
+  HassGetState:
+    data:
+
+      # doors, etc.
+      - sentences:
+          - "[aký je] stav {name}"
+        requires_context:
+          domain:
+            - cover
+            - valve
+        lists:
+          state:
+            values:
+              - open
+              - closed
+
+      # locks
+      - sentences:
+          - "[aký je] stav {name}"
+        requires_context:
+          domain: lock
+        lists:
+          state:
+            values:
+              - locked
+              - unlocked
+
+  # todo
+  HassListAddItem:
+    data:
+      - sentences:
+          - "pridať {todo_item} na [môj] {name} [zoznam]"
+        requires_context:
+          domain: todo
