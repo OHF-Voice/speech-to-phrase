@@ -80,7 +80,7 @@ expansion_rules:
   brightness: "{brightness} Prozent"
   # Timers
   timer_set: "starte|setze|stelle|erstelle"
-  timer_cancel: "beende|stoppe"
+  timer_cancel: "beende|stopp[e]|lösch[e]"
   # Media Players
   naechster: "nächste[r|s|n]"
   starte: (starte|spiele)
