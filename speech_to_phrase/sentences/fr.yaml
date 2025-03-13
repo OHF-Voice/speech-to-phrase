@@ -371,21 +371,16 @@ intents:
   # HassStartTimer
   HassStartTimer:
     data:
-      # seconds
       - sentences:
           - "minuteur {seconds} secondes"
-      
-      # minutes
-      - sentences:
+          - "(démarre|mets) [un] minuteur de {seconds} secondes"
           - "minuteur {minutes} minutes"
-
-      # hours
-      - sentences:
+          - "(démarre|mets) [un] minuteur de {minutes} minutes"
           - "minuteur {hours} heures"
-
-      # hours + minutes
-      - sentences:
+          - "(démarre|mets) [un] minuteur de {hours} heures"
           - "minuteur {hours} heures et {minutes} minutes"
+          - "(démarre|mets) [un] minuteur [de] {hours} heures et {minutes} minutes"
+          - "(démarre|mets) [un] minuteur [de] {minutes} minutes et {seconds} secondes"
 
   # HassCancelTimer:
   HassCancelTimer:
@@ -407,6 +402,7 @@ intents:
       # No name
       - sentences:
           - "<mets> [le] minuteur en pause"
+          - "<pause> [le] minuteur"
 
   # HassUnpauseTimer
   HassUnpauseTimer:
