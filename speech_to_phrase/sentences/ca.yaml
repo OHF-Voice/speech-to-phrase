@@ -1,0 +1,462 @@
+language: ca
+
+lists:
+  color:
+    values:
+      - "(blanc|blanca|blancs|blanques)"
+      - "(negre|negra|negres)"
+      - "(vermell|vermella|vermells|vermelles|roig|roja|roigs|rojos|roges)"
+      - "(taronja|taronges|carbassa|carbasses|carabassa|carabasses)"
+      - "(groc|groga|grocs|grogues)"
+      - "(verd|verda|verds|verdes)"
+      - "(blau|blava|blaus|blaves)"
+      - "(lila|morat|morada|porpra|púrpura|liles|morats|morades|porpres|púrpures)"
+      - "(marró|marrona|marrons|marrones)"
+      - "rosa"
+      - "turquesa"
+  brightness:
+    range:
+      type: "percentage"
+      from: 10
+      to: 100
+      step: 10
+  seconds:
+    range:
+      from: 10
+      to: 100
+      step: 5
+  minutes_small:
+    range:
+      from: 2
+      to: 9
+  minutes_large:
+    range:
+      from: 10
+      to: 100
+      step: 10
+  minutes_extra:
+    values:
+      - in: fifteen
+        out: 15
+      - in: "Quaranta Cinc"
+        out: 45
+  minutes_half:
+    values:
+      - in: "i mitja"
+        out: 30
+  hours_half:
+    values:
+      - in: "i mitja"
+        out: 30
+  hours:
+    range:
+      from: 2
+      to: 24
+  cover_classes:
+    values:
+      - "tendal[s]"
+      - "persian(a|es)"
+      - "cortin(a|es)"
+      - "port(a|es) de(l|s) (garatge|pàrquing)"
+      - "port(a|es)"
+      - "reixat"
+      - "portic(ó|ons)"
+      - "finestr(a|es)"
+	  
+expansion_rules:
+  actual: "(ara|actual[ment])"
+  pronom_singular: "((el|la|es|sa) |l'|s')"
+  pronom_plural: "(els|les|es|ses)"
+  pronom: "(<pronom_singular>|<pronom_plural>)"
+  preposicio_base: "(<preposicio_base_singular>|<preposicio_base_plural>)"
+  preposicio_base_singular: "(en|de|del|a|al)"
+  preposicio_base_plural: "(dels|als)"
+  preposicio_singular: "<preposicio_base_singular> [<pronom_singular>]"
+  preposicio_singular_masc: "(de|del|pel|al|a|en|en el)"
+  preposicio: "<preposicio_base> [<pronom>]"
+  name: "[<pronom_singular>]{name}"
+  area: "[<preposicio_singular>]{area}"
+  pis: "[<preposicio_singular>]{floor}"
+  quin_es: "(quin|quina|què) és"
+  lluentor: "{brightness}[<percent>]"
+  al_stt_typo: "(del|el|en|o)"
+  engega: "(encén|encendre|engega|posa|activa|<engega_stt_typo>)[r|t]"
+  engega_stt_typo: "((en|em)[ ](geguen|gendra|llega|sembla))|(Àngela|cosa|posen|posem|General)"
+  apaga: "(apaga|atura|desconnecta|para)[r|t]|<apaga_stt_typo>"
+  apaga_stt_typo: "((potser|a) paga[r]|aparga|apaguen|apa ara|a part [de])"
+  tanca: "tanca[r|t]|<tanca_stt_typo>"
+  tanca_stt_typo: "(tanquen)"
+  obre: "(obr(e|i|ir)|obert|òbriga)"
+  llums: "([el|la|es|sa] llum|[els|les|es|ses] llums|<llums_typo>)"
+  llums_typo: "[[d]el[s]|la|les] (juny|junta|junts)"
+  temp: "(temperatura)"
+  graus: "{temperature} [graus]"
+  pujar: "([a]puja|aixeca)[r|t]"
+  baixar: "[a]baixa[r|t]"
+  configura: "(posa[r]|puja[r]|configura[r]|ajusta[r]|canvia[r]|establ(ir|eix|ix))"
+  posició: "{position}[<percent>]"
+  percent: "(%|per[ ]cent)"
+  cancela: "cancel[·l]a[r|t]"
+  seguent: "següent|(proper|pròxim)[a]"
+  anterior: "[l'|s'](anterior|enrer(e|a)|últim[a])|d'abans"
+  element: "(element|ítem|pista|peça|música|cançó|tema|tonada|mitjà|canal|recurs|vídeo|clip|film)"
+  reproduir: "reprodu(ir|eix|ix)|passa[r] [endavant]|(toca|posa|fica|salta|canvia|escolta|continua)[r]"
+  reproduir_again: "(reproduir|posar|ficar|escoltar)"
+  reactiva: "(reanuda[r]|reactiva[r]|repr(è|e)n[dre]|continua[r]|segu(ir|eix|ix))"
+  objectes_amb_clau: "port(a|es)|pany[s]|portic(ó|ons)"
+  hora: "hor(a|es)"
+  now: "[ara|ara mateix|avui]"
+  how_much: "(quan|(quant|quin)[s|a|es]|què)"
+  again: "([un|una] altr(e|a) (cop|vegada)|de nou)"
+  torna_a: "(torna[r] a)"
+  can_you: "[pots|podries]"
+  temps: "temps|clima"
+  al_lloc: "(a |al |a l'){name}"
+  
+  # Timers
+  temporitzador: "(temporitzador|compte enrere|minuter|cronòmetre)"
+  timer_set: "(posa|crea|comença|inicia|activa|programa|fixa|estableix|engega|<timer_set_typos>)[r|t|'m]"
+  timer_set_typos: "(cosa)"
+  timer_cancel: "(cancel[·l]a|atura|para|deixa|elimina)[r|t]"
+  timer_duration_seconds: "{timer_seconds:seconds} segon[s]"
+  timer_duration_minutes: "({timer_minutes:minutes} minut[s][ [i ]{timer_seconds:seconds} segon[s]])|({timer_minutes:minutes} minut[s] i {timer_half:seconds})|({timer_half:seconds} minut[s])"
+  timer_duration_hours: "({timer_hours:hours} <hora>)|({timer_hours:hours} <hora> [i ]{timer_minutes:minutes} minut[s][ [i ]{timer_seconds:seconds} segon[s]])|({timer_hours:hours} <hora> i {timer_half:minutes}[ [i ]{timer_seconds:seconds} segon[s]])|({timer_half:minutes} <hora>)"
+  timer_duration: "<timer_duration_seconds>|<timer_duration_minutes>|<timer_duration_hours>"
+
+  timer_start_seconds: "{timer_seconds:start_seconds} segon[s]"
+  timer_start_minutes: "{timer_minutes:start_minutes} minut[s][ [i ]{timer_seconds:start_seconds} segon[s]]"
+  timer_start_hours: "{timer_hours:start_hours} <hora> [[i ]{timer_minutes:start_minutes} minut[s][ [i ]{timer_seconds:start_seconds} segon[s]]]"
+  timer_start: "<timer_start_seconds>|<timer_start_minutes>|<timer_start_hours>"
+  
+intents:
+  # nevermind
+  HassNevermind:
+    data:
+      - sentences:
+          - "No passa res"
+          - "Deixa-ho estar"
+          - "No hi pensis més"
+          - "Tant és"
+          - "No importa"
+
+  # date, time, weather
+  HassGetCurrentTime:
+    data:
+      - sentences:
+          - "[que ][em |me ][podries dir[-me]] quin[a] hora és"
+          - "[em |me ][pots (dir|donar)[-me]] (l'|s'|la )hora"
+          - "[saps|digues|ara] quin[a] hora és [ara|ara mateix]"
+          - "[saps|digues|ara] quin[a] és (l'|s'|la )hora [d'ara]"
+          - "(saps|digues|diga|digue|dis)[-me|'m] (l'|s'|la )hora [d'ara [mateix]]"
+
+  HassGetCurrentDate:
+    data:
+      - sentences:
+          - "[saps] quin dia és [avui]"
+          - "avui quin dia és"
+          - "[saps|digues[-me]|digue['m]|diga['m]|dis-me] [en] quin[a] (dia|jorn|data) (és|som|estem) [avui|hui]"
+          - "[avui|hui] quin[a] (dia|jorn|data) (és|som|estem)"
+
+  HassGetWeather:
+    data:
+      - sentences:
+          - "quin temps fa"
+          - "com és el temps"
+
+      - sentences:
+          - "quin temps [hi] (ha|fa) [<now>] <al_lloc>"
+          - "(quin[a]|com) (és|està) [la previsió] (el|del) <temps> [<now>] <al_lloc>"
+          - "qu(e|è) diu [la previsió] (el|del) <temps> [<now>] <al_lloc>"
+          - "fa bon temps [<now>] <al_lloc>"
+        requires_context:
+          domain: weather
+
+  # turn on/off
+  # open/close
+  # lock/unlock
+  HassTurnOn:
+    data:
+      # turn on
+      - sentences:
+          - "turn on [the] lights"
+
+      - sentences:
+          - "[<torna_a>|<can_you>] (<engega>|<obre>) <name>"
+          - "[<torna_a>|<can_you>] (<engega>|<obre>) <name> <area>"
+          - "[<torna_a>|<can_you>] (<engega>|<obre>) <name> <pis>"
+        requires_context:
+          domain:
+            - light
+            - switch
+            - fan
+            - media_player
+            - input_boolean
+
+      - sentences:
+          - "[<torna_a>|<can_you>] (<engega>|<obre>) <pronom_singular> llum <area>"
+          - "[<can_you>] (<engega>|<obre>) [tot[e]s] <pronom_plural> llums <area>"
+          - "(<engega>|<obre>) <llums_typo> <area>"
+
+      - sentences:
+          - "[<torna_a>|<can_you>] (<engega>|<obre>) <pronom_singular> llum <pis>"
+          - "[<can_you>] (<engega>|<obre>) [tot[e]s] <pronom_plural> llums <pis>"
+          - "(<engega>|<obre>) <llums_typo> <pis>"
+
+      # open
+      - sentences:
+          - "(<obre>|<pujar>) <name>"
+        requires_context:
+          domain:
+            - cover
+
+      - sentences:
+          - "(<obre>|<pujar>) [<pronom>] {cover_classes} <area>"
+
+      - sentences:
+          - "(<obre>|<pujar>) [<pronom>] {cover_classes} <pis>"
+
+      # lock
+      - sentences:
+          - "(tanca|bloqueja)[r|t] <name>"
+        requires_context:
+          domain: lock
+
+      # script
+      - sentences:
+          - "(executa|inicia|arrenca|activa) (l'script|el script) <name>"
+        requires_context:
+          domain: script
+
+      # scene
+      - sentences:
+          - "(<engega>|activa) (la escena|l'escena) <name>"
+        requires_context:
+          domain: scene
+
+  HassTurnOff:
+    data:
+      # turn off
+      - sentences:
+          - "[<can_you>] (<apaga>|<tanca>) tots els llums"
+
+      - sentences:
+          - "[<can_you>] (<apaga>|<tanca>) <pronom_singular> <name>"
+        requires_context:
+          domain:
+            - light
+            - switch
+            - fan
+            - media_player
+            - input_boolean
+
+      - sentences:
+          - "[<torna_a>|<can_you>] (<apaga>|<tanca>) <pronom_singular> llum <area>"
+          - "[<can_you>] (<apaga>|<tanca>) [tot[e]s] <pronom_plural> llums <area>"
+          - "(<apaga>|<tanca>) <llums_typo> <area>"
+
+      - sentences:
+          - "[<torna_a>|<can_you>] (<apaga>|<tanca>) <pronom_singular> llum <pis>"
+          - "[<can_you>] (<apaga>|<tanca>) [tot[e]s] <pronom_plural> llums <pis>"
+          - "(<apaga>|<tanca>) <llums_typo> <pis>"
+
+      # close
+      - sentences:
+          - "(<tanca>|<baixar>) <name>"
+        requires_context:
+          domain:
+            - cover
+
+      - sentences:
+          - "(<tanca>|<baixar>) [<pronom>] {cover_classes} <area>"
+          - "(<tanca>|<baixar>) [<pronom>] {cover_classes} <pis>"
+
+      # unlock
+      - sentences:
+          - "(desblo(queja|ca))[r|t] <name>"
+        requires_context:
+          domain: lock
+
+  # light brightness/color
+  HassLightSet:
+    data:
+      # brightness
+      - sentences:
+          - "<configura> <llums> <name> (al|<al_stt_typo>) <lluentor>"
+          - "<engega> <llums> <name> (al|<al_stt_typo>) <lluentor>"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "<configura> <llums> <area> (al|<al_stt_typo>) <lluentor>"
+          - "<engega> <llums> <area> (al|<al_stt_typo>) <lluentor>"
+
+      - sentences:
+          - "<configura> <llums> <pis> (al|<al_stt_typo>) <lluentor>"
+          - "<engega> <llums> <pis> (al|<al_stt_typo>) <lluentor>"
+
+      # color
+      - sentences:
+          - "<configura> <name> de color {color}"
+          - "<configura> de color {color} <name>"
+        requires_context:
+          domain: light
+
+      - sentences:
+          - "<configura> les llums <area> de color {color}"
+          - "<configura> de color {color} totes les llums <area>"
+
+      - sentences:
+          - "<configura> les llums <pis> de color {color}"
+          - "<configura> de color {color} totes les llums <pis>"
+
+  # timers
+  HassStartTimer:
+    data:
+      - sentences:
+          - <temporitzador> [<of>]<timer_duration>
+          - <timer_set> [el|un] <temporitzador> [<of>]<timer_duration>
+          - <timer_set> [el|un] <temporitzador> [<of>]<timer_duration> [amb nom|anomenat|denominat] {timer_name:name}
+          - <timer_set> [el|un] <temporitzador> [amb nom|anomenat|denominat] {timer_name:name} [<of>]<timer_duration>
+		expansion_rules:
+		  of: "en |de |d'"
+
+  HassCancelTimer:
+    data:
+      - sentences:
+          - "<timer_cancel> [el] temporitzador"
+
+  HassCancelAllTimers:
+    data:
+      - sentences:
+          - "<timer_cancel> tot[s] els [meus] <temporitzador>s"
+
+  HassPauseTimer:
+    data:
+      - sentences:
+          - "(pausa[r]|posa[r] en espera) [el] [meu] temporitzador"
+
+  HassUnpauseTimer:
+    data:
+      - sentences:
+          - "<reactiva> [amb] [<pronom_singular_temporitzador>] [meu|mon] <temporitzador>"
+		expansion_rules:
+          pronom_singular_temporitzador: "el|es"
+
+  HassTimerStatus:
+    data:
+      - sentences:
+          - "<quant_queda> (el|al|de|del|pel) [meu] <temporitzador> [<dades>]"
+          - "<quant_queda> perquè [s']acabi el [meu] <temporitzador> [<dades>]"
+          - "<quant_queda> per acabar el [meu] <temporitzador> [<dades>]"
+          - "com (va|està) el [meu] <temporitzador> [<dades>]"
+        expansion_rules:
+          quant_queda: "<how_much> [de] [temps|estona] [li] (queda|resta|falta)"
+          of: "[de |de la |d']"
+          dades: "<of>(<timer_start>|{timer_name:name})|<area>"
+
+  # media players
+  HassMediaPause:
+    data:
+      - sentences:
+          - "(pausa[r]) la <element>"
+
+      - sentences:
+          - "(pausa[r]) [<pronom>] <name>"
+        requires_context:
+          domain: media_player
+
+  HassMediaUnpause:
+    data:
+      - sentences:
+          - "<reactiva> [<pronom>] <element>"
+
+      - sentences:
+          - "<reactiva> [<pronom>] <name>"
+        requires_context:
+          domain: media_player
+
+  HassMediaNext:
+    data:
+      - sentences:
+          - "[vull|pots] <reproduir> [a|amb] [<pronom_singular>] <element> <seguent>"
+          - "[vull|pots] <reproduir> [a|amb] [<pronom_singular>] <seguent> <element>"
+
+      - sentences:
+          - "<seguent> [<element>] [<preposicio_base_singular>] <name>"
+          - "<reproduir> [a|al|a la|la] <seguent> [<element>] [<preposicio_base_singular>] <name>"
+        requires_context:
+          domain: media_player
+
+  # temperature
+  HassGetTemperature:
+    data:
+      - sentences:
+          - "quina <temp> fa [<actual>]"
+          - "quina és la <temp> [<actual>]"
+          - "(quanta|quina) calor [que] fa [<actual>]"
+
+      - sentences:
+          - "quina <temp> te [<actual>] <name>"
+          - "quina és la <temp> [<actual>] <name>"
+        requires_context:
+          domain: climate
+
+      - sentences:
+          - "quina <temp> fa [<actual>] <area>"
+          - "quina és la <temp> [<actual>] <area>"
+          - "(quanta|quina) calor [que] fa [<actual>] <area>"
+
+      - sentences:
+          - "quina <temp> fa [<actual>] <pis>"
+          - "quina és la <temp> [<actual>] <pis>"
+          - "(quanta|quina) calor [que] fa [<actual>] <pis>"
+
+  # questions
+  HassGetState:
+    data:
+
+      # doors, etc.
+      - sentences:
+          - "quin és l'estat [de|del|de la] <name> {state}"
+        requires_context:
+          domain:
+            - cover
+        lists:
+          state:
+            values:
+              - obert[a]
+              - tanca[t|da]
+
+      # locks
+      - sentences:
+          - "quin és l'estat [de|del|de la] <name> {state}"
+        requires_context:
+          domain: lock
+        lists:
+          state:
+            values:
+              - (tancat|bloquejat)
+              - desblo(quejat|cat)
+
+      # sensors, etc.
+      - sentences:
+          - "Quin és <name>"
+        requires_context:
+          domain:
+            - sensor
+            - binary_sensor
+
+  # todo
+  HassListAddItem:
+    data:
+      - sentences:
+          - "<add> <item> (a|en) la [meva] llista (de|del|de la|amb nom|anomenada) {name}"
+          - "<add> <item> (a|en) <my_list>"
+          - "<add> <item> al cistell [de|del] {name}"
+          - "<add> (a|en) <my_list> [un[a|es]|que] <item>"
+        requires_context:
+          domain: todo
+        expansion_rules:
+          my_list: "[la] [meva] llista [de|del|de la] {name}"
+          item: "{shopping_list_item:item}"
+          add: "(afeg[e]ix|posa)"
