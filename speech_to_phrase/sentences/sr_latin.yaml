@@ -1,0 +1,343 @@
+language: sr-Latn
+
+lists:
+  color:
+    values:
+      - "belo|bela"
+      - "crno|crna"
+      - "crveno|crvena"
+      - "narandžast|narandžasta"
+      - "žuta|žut"
+      - "zeleno|zelena"
+      - "plavo|plava"
+      - "ljubičasto|ljubičasta"
+      - "smeđe|smeđa"
+      - "ružičasto|ružičasta"
+      - "tirkizno|tirkizna"
+  brightness:
+    range:
+      type: "percentage"
+      from: 10
+      to: 100
+      step: 10
+  seconds:
+    range:
+      from: 10
+      to: 100
+      step: 5
+  minutes_small:
+    range:
+      from: 2
+      to: 9
+  minutes_large:
+    range:
+      from: 10
+      to: 100
+      step: 10
+  minutes_extra:
+    values:
+      - in: petnest
+        out: 15
+      - in: četrdeset pet
+        out: 45
+  minutes_half:
+    values:
+      - in: pola
+        out: 30
+  hours_half:
+    values:
+      - in: pola
+        out: 30
+  hours:
+    range:
+      from: 2
+      to: 24
+  cover_classes:
+    values:
+      - blinds
+      - curtain[s]
+      - window[s]
+
+intents:
+  HassNevermind:
+    data:
+      - sentences:
+          - "nema veze"
+
+  HassGetCurrentTime:
+    data:
+      - sentences:
+          - "(Koliko je sati|Koje je vreme) [[sada]]"
+          - "Koliko je sati [[sada]]"
+
+HassGetCurrentDate:
+  data:
+    - sentences:
+        - "(Koji je|Kakav je) datum [[danas]]"
+        - "(Koji je|Kakav je) današnji datum"
+
+HassGetWeather:
+  data:
+    - sentences:
+        - "(Kakvo je vreme|Kako je vreme)"
+    - sentences:
+        - "(Kakvo je vreme u {name}|Kako je vreme u {name})"
+        - "(Kakvo je vreme|Kako je vreme) u {name}"
+      requires_context:
+        domain: weather
+
+HassTurnOn:
+  data:
+    - sentences:
+        - "uključi svetla"
+    - sentences:
+        - "uključi {name}"
+        - "uključi {name} u {area}"
+        - "uključi {name} na {floor} spratu"
+      requires_context:
+        domain:
+          - light
+          - switch
+          - fan
+          - media_player
+          - input_boolean
+
+HassTurnOn:
+  data:
+    - sentences:
+        - "uključi svetla"
+    - sentences:
+        - "uključi {name}"
+        - "uključi {name} u {area}"
+        - "uključi {name} na {floor} spratu"
+      requires_context:
+        domain:
+          - light
+          - switch
+          - fan
+          - media_player
+          - input_boolean
+    - sentences:
+        - "uključi sva {area} svetla"
+        - "uključi svetla u {area}"
+    - sentences:
+        - "uključi sva {floor} spratna svetla"
+        - "uključi svetla na {floor} spratu"
+    - sentences:
+        - "otvori {name}"
+      requires_context:
+        domain:
+          - cover
+    - sentences:
+        - "otvori {cover_classes} u {area}"
+        - "otvori {area} {cover_classes}"
+    - sentences:
+        - "otvori {cover_classes} na {floor} spratu"
+        - "otvori {floor} sprat {cover_classes}"
+    - sentences:
+        - "zaključaj {name}"
+      requires_context:
+        domain: lock
+    - sentences:
+        - "pokreni {name} skriptu"
+      requires_context:
+        domain: script
+    - sentences:
+        - "aktiviraj {name} scenu"
+      requires_context:
+        domain: scene
+
+HassTurnOff:
+  data:
+    - sentences:
+        - "isključi svetla"
+    - sentences:
+        - "isključi {name}"
+      requires_context:
+        domain:
+          - light
+          - switch
+          - fan
+          - media_player
+          - input_boolean
+    - sentences:
+        - "isključi sva {area} svetla"
+        - "isključi svetla u {area}"
+    - sentences:
+        - "isključi sva {floor} spratna svetla"
+        - "isključi svetla na {floor} spratu"
+    - sentences:
+        - "zatvori {name}"
+      requires_context:
+        domain:
+          - cover
+    - sentences:
+        - "zatvori {cover_classes} u {area}"
+        - "zatvori {area} {cover_classes}"
+        - "zatvori {cover_classes} na {floor} spratu"
+        - "zatvori {floor} sprat {cover_classes}"
+    - sentences:
+        - "otključaj {name}"
+      requires_context:
+        domain: lock
+
+HassLightSet:
+  data:
+    - sentences:
+        - "postavi jačinu svetla {name} na {brightness} procenata"
+        - "postavi jačinu {name} na {brightness} procenata"
+      requires_context:
+        domain: light
+    - sentences:
+        - "postavi jačinu svetla u {area} na {brightness} procenata"
+        - "postavi jačinu {area} na {brightness} procenata"
+    - sentences:
+        - "postavi jačinu svetla na {floor} spratu na {brightness} procenata"
+        - "postavi jačinu svetla {floor} sprata na {brightness} procenata"
+    - sentences:
+        - "postavi boju {name} na {color}"
+        - "postavi boju {name} na {color}"
+      requires_context:
+        domain: light
+    - sentences:
+        - "postavi boju {area} svetala na {color}"
+        - "postavi {area} svetla na {color}"
+        - "postavi boju svetala u {area} na {color}"
+    - sentences:
+        - "postavi boju {floor} spratnih svetala na {color}"
+        - "postavi {floor} spratna svetla na {color}"
+        - "postavi boju svetala na {floor} spratu na {color}"
+
+HassStartTimer:
+  data:
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer na {seconds} sekundi"
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 minut"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_small} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_large} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_extra} minuta"
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 i {minutes_half:seconds} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_small} i {minutes_half:seconds} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_large} i {minutes_half:seconds} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {minutes_extra} i {minutes_half:seconds} minuta"
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 sat"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {hours} sati"
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 i {hours_half:minutes} sati"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {hours} i {hours_half:hours} sati"
+    - sentences:
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 sat i 1 minut"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 sat i {minutes_small} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 sat i {minutes_large} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) 1 sat i {minutes_extra} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {hours} sati i {minutes_small} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {hours} sati i {minutes_large} minuta"
+        - "(postavi|pokreni|kreiraj) tajmer (na|za) {hours} sati i {minutes_extra} minuta"
+
+HassCancelTimer:
+  data:
+    - sentences:
+        - "(otkaži|zaustavi|isključi) tajmer"
+
+HassCancelAllTimers:
+  data:
+    - sentences:
+        - "(otkaži|zaustavi|isključi) sve tajmere"
+
+HassPauseTimer:
+  data:
+    - sentences:
+        - "pauziraj tajmer"
+
+HassUnpauseTimer:
+  data:
+    - sentences:
+        - "nastavi tajmer"
+
+HassTimerStatus:
+  data:
+    - sentences:
+        - "status tajmera"
+        - "status tajmera"
+        - "koliko je vremena preostalo na tajmeru"
+
+HassMediaPause:
+  data:
+    - sentences:
+        - "pauziraj muziku"
+    - sentences:
+        - "pauziraj {name}"
+      requires_context:
+        domain: media_player
+
+HassMediaUnpause:
+  data:
+    - sentences:
+        - "nastavi muziku"
+    - sentences:
+        - "nastavi {name}"
+      requires_context:
+        domain: media_player
+
+HassMediaNext:
+  data:
+    - sentences:
+        - "(sledeća|preskoči) [[ova ](pesma|numera)]"
+    - sentences:
+        - "(sledeća|preskoči) [[pesma|numera]] na {name}"
+      requires_context:
+        domain: media_player
+
+HassGetTemperature:
+  data:
+    - sentences:
+        - "(koja je|koliko je) temperatura"
+    - sentences:
+        - "(koja je|koliko je) temperatura {name}"
+        - "(koja je|koliko je) temperatura na {name}"
+      requires_context:
+        domain: climate
+    - sentences:
+        - "(koja je|koliko je) temperatura u {area}"
+        - "(koja je|koliko je) temperatura {area}"
+    - sentences:
+        - "(koja je|koliko je) temperatura na {floor} spratu"
+        - "(koja je|koliko je) temperatura {floor} sprata"
+
+HassGetState:
+  data:
+    - sentences:
+        - "je {name} {state}"
+      requires_context:
+        domain:
+          - cover
+        lists:
+          state:
+            values:
+              - otvoreno
+              - zatvoreno
+    - sentences:
+        - "je {name} {state}"
+      requires_context:
+        domain: lock
+        lists:
+          state:
+            values:
+              - zaključano
+              - otključano
+    - sentences:
+        - "šta je {name}"
+      requires_context:
+        domain:
+          - sensor
+          - binary_sensor
+
+HassListAddItem:
+  data:
+    - sentences:
+        - "dodaj {todo_item} u {name} listu"
+      requires_context:
+        domain: todo
