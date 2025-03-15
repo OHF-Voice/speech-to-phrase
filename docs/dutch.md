@@ -54,6 +54,10 @@
     - Requires a [media player][] entity that is paused
 - "volgende nummer"
     - Requires a [media player][] entity to that is playing and supports next track
+- "zet het volume op 50%"
+    - Requires a  entity that supports volume control
+"zet het volume harder/zachter"
+    - Requires a  entity that supports volume control
 
 ## Timers
 
@@ -67,6 +71,22 @@
 - "annuleer timer"
 - "annuleer alle timers"
 - "timer status"
+
+## Scripts 
+
+ - "start het Script Goede Nacht"
+     - Requires a  entity named "Goede Nacht"
+
+## Scenes
+ - "activeer de Scène Avond"
+     - Requires a  entity named "Avond"
+
+## Climate
+  - "zet de thermostaat op 21 graden"
+     - Requires a  entity that supports temperature control
+
+  - "verhoog/verlaag de temperatuur met 2 graden"
+     - Requires a  entity that supports temperature control
 
 ## Miscellaneous
 
