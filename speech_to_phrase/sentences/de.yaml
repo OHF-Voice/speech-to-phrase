@@ -452,3 +452,11 @@ intents:
           domain:
             - sensor
             - binary_sensor
+  # todo
+  HassListAddItem:
+    data:
+      - sentences:
+          - "[füge|setze] {todo_item} auf [die|den] {name} [liste|zettel]"
+        requires_context:
+          domain: todo
+
