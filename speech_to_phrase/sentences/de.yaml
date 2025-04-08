@@ -142,7 +142,7 @@ intents:
     data:
       # turn on all lights
       - sentences:
-          - "<schalte> <alle_lichter> an"
+          - "<schalte> <alle_lichter> (an|ein)"
         slots:
           domain: "light"
         metadata:
@@ -152,9 +152,9 @@ intents:
       # named light or switch in area and
       # named light or switch on floor
       - sentences:
-          - "<schalte> <name> an"
-          - "<schalte> <name> <area_floor> an"
-          - "<schalte> <area_floor> <name> an"
+          - "<schalte> <name> (an|ein)"
+          - "<schalte> <name> <area_floor> (an|ein)"
+          - "<schalte> <area_floor> <name> (an|ein)"
         requires_context:
           domain:
             - "light"
@@ -165,8 +165,8 @@ intents:
 
       # turn on all lights in area or on floor
       - sentences:
-          - "<schalte> <alle_lichter> <area_floor> an"
-          - "<schalte> <area_floor> <alle_lichter> an"
+          - "<schalte> <alle_lichter> <area_floor> (an|ein)"
+          - "<schalte> <area_floor> <alle_lichter> (an|ein)"
 
       # open named cover or valve
       # named cover or valve in area and
