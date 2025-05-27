@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions to Speech-to-Phrase are welcome! There are two parts to are required for a language to be supported:
+Contributions to Speech-to-Phrase are welcome! There are two parts that are required for a language to be supported:
 
 1. A [speech-to-text model](#speech-to-text-models)
 2. A set of [sentence templates](#snetence-templates)
