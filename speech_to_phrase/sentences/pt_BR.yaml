@@ -1,0 +1,155 @@
+---
+language: "pt_BR"
+
+lists:
+  color:
+    - "branco"
+    - "preto"
+    - "vermelho"
+    - "laranja"
+    - "amarelo"
+    - "verde"
+    - "azul"
+    - "roxo"
+    - "marrom"
+    - "rosa"
+    - "turquesa"
+
+data:
+  # cancel
+  - "(cancele|cancela[r]|para[r]|pare)"
+
+  # date and time
+  - "que horas são"
+  - "que dia é hoje"
+
+  # # weather
+  # - "(what's|what is) the weather [like]"
+  # - sentences:
+  #     - "(what's|what is) the {name} weather [like]"
+  #     - "(what's|what is) the weather [like] in {name}"
+  #   domains:
+  #     - "weather"
+
+  # # lights (area)
+  # - "turn (on|off) [the] lights [in here]"
+  # - "turn [the] lights (on|off) [in here]"
+  # - "turn (on|off) [all|the|all of the] {area} lights"
+  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
+  # - "set [the] brightness [in here] to {brightness} percent"
+  # - "set [the] brightness of [the] {area} to {brightness} percent"
+  # - "set [the] {area} brightness to {brightness} percent"
+  # - "set [the] lights [in here] to {color}"
+  # - "set [[the] color of the] lights [in here] to {color}"
+  # - "set [the] [color of [the]] {area} lights to {color}"
+  # - "set [the] {area} lights to {color}"
+  # - "set lights in [the] {area} to {color}"
+
+  # # lights (name)
+  # - sentences:
+  #     - "set [the] brightness of [the] {name} to {brightness} percent"
+  #     - "set [the] {name} brightness to {brightness} percent"
+  #   domains:
+  #     - "light"
+  #   light_supports_brightness: true
+
+  # - sentences:
+  #     - "set [the] [color of [the]] {name} to {color}"
+  #     - "set [the] {name} [color] to {color}"
+  #   domains:
+  #     - "light"
+  #   light_supports_color: true
+
+  # # doors and windows
+  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
+  # - "(open|close) [the] {area} (blinds|curtains|windows)"
+  # - sentences:
+  #     - "(open|close) [the] {name}"
+  #     - "(open|close) [the] {name} in [the] {area}"
+  #     - "is [the] {name} (open|closed)"
+  #   domains:
+  #     - "cover"
+
+  # # locks
+  # - sentences:
+  #     - "(lock|unlock) [the] {name}"
+  #     - "is [the] {name} (locked|unlocked)"
+  #   domains:
+  #     - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(liga[r]|ligue|acende[r]|acenda|ativa[r]|ative) [o|os|a|as] {name}"
+      # - "turn (on|off) [the] {name} in [the] {area}"
+      # - "turn [the] {name} in [the] {area} (on|off)"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # # scripts and scenes
+  # - sentences:
+  #     - "run [the] {name} [script]"
+  #   domains:
+  #     - "script"
+
+  # - sentences:
+  #     - "activate [the] {name} [scene]"
+  #   domains:
+  #     - "scene"
+
+  # # timers
+  # - "(set|start|create) [a] timer for {seconds} seconds"
+  # - "(set|start|create) [a] timer for 1 minute"
+  # - "(set|start|create) [a] timer for {minutes} minutes"
+  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
+  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
+  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
+  # - "(set|start|create) [a] timer for 1 hour"
+  # - "(set|start|create) [a] timer for {hours} hours"
+  # - "(set|start|create) [a] timer for {hours} and a half hours"
+  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
+  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
+  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
+
+  # - "(cancel|stop) [the|my] timer"
+  # - "(cancel|stop) all [[of ](the|my)] timers"
+  # - "(pause|resume) [the|my] timer"
+  # - "timer status"
+  # - "status of [the|my] timer[s]"
+  # - "[how much] time [is] left on [the|my] timer[s]"
+
+  # # media
+  # - "(pause|resume)"
+  # - "next [(track|item)]"
+  # - "skip [[this ](track|song)]"
+  # - sentences:
+  #     - "(pause|resume) [the] {name}"
+  #     - "next [(track|item)] on [the] {name}"
+  #     - "skip [[the ](track|song)] on [the] {name}"
+  #   domains:
+  #     - "media_player"
+
+  # # temperature
+  # - "(what is|what's) the (temp|temperature)"
+  # - "(what is|what's) the (temp|temperature) in [the] {area}"
+  # - "(what is|what's) the {area} (temp|temperature)"
+  # - sentences:
+  #     - "(what is|what's) the {name} (temp|temperature)"
+  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
+  #   domains:
+  #     - "climate"
+
+  # # sensors
+  # - sentences:
+  #     - "what is [the [value of [the]]] {name}"
+  #   domains:
+  #     - "sensor"
+
+  # # todo
+  # - sentences:
+  #     - "add {todo_item} to [the|my] {name}"
+  #   domains:
+  #     - "todo"
