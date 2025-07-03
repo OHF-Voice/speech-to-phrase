@@ -3,22 +3,22 @@ language: "mn"
 
 # lists:
 #   color:
-#     - "white"
-#     - "black"
-#     - "red"
-#     - "orange"
-#     - "yellow"
-#     - "green"
-#     - "blue"
-#     - "purple"
-#     - "brown"
-#     - "pink"
-#     - "turquoise"
+#     - "цагаан"
+#     - "хар"
+#     - "улаан"
+#     - "улбар шар"
+#     - "шар"
+#     - "ногоон"
+#     - "цэнхэр"
+#     - "үзмэн ягаан"
+#     - "бор"
+#     - "ягаан"
+#     - "оюу"
 
 data:
   # cancel
-  - "зүгээр"
-  - "хамаагүй"
+  - "цуцлах"
+  - "болих"
 
   # # date and time
   # - "(what's|what is) the [current] time"
