@@ -52,15 +52,15 @@ data:
 
   # lights (name)
   - sentences:
-      - "[яркость|яркость света] {name} [на|до] {brightness>}"
-      - "установи [яркость|яркость света] {name} [на|до] {brightness>}"
+      - "[яркость|яркость света] {name} [на|до] {brightness}"
+      - "установи [яркость|яркость света] {name} [на|до] {brightness}"
     domains:
       - "light"
     light_supports_brightness: true
 
   - sentences:
-      - "{name} [на] {color}
-      - "установи {name} [на] {color}
+      - "{name} [на] {color}"
+      - "установи {name} [на] {color}"
       - "установи {color} [цвет] [у|на] {name}"
       
     domains:
