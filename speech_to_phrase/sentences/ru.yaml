@@ -91,11 +91,11 @@ data:
       - "input_boolean"
       - "scene"
 
-  # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  # scripts and scenes
+  - sentences:
+      - "[активируй|<turn_on>] [скрипт ]{name}"
+    domains:
+      - "script"
       
 
   # timers
@@ -136,14 +136,13 @@ data:
     domains:
       - "media_player"
 
-  # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  # temperature
+
+  - sentences:
+      - "какая[ сейчас] температура[ установлена| задана]( на| y) {name}"
+      - "сколько[ сейчас] градусов[ установлено| задано]( на| y) {name}"
+    domains:
+      - "climate"
 
   # sensors
   - sentences:
