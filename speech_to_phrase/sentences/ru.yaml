@@ -147,6 +147,6 @@ data:
       - "sensor"
 
   - sentences:
-      - "(добавь {todo_item} в {name}"
+      - "добавь {todo_item} в {name}"
     domains:
       - "todo"
