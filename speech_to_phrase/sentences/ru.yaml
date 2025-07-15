@@ -93,7 +93,7 @@ data:
 
   # scripts and scenes
   - sentences:
-      - "[активируй|<turn_on>] [скрипт ]{name}"
+      - "[активируй|включи|запусти] [скрипт ]{name}"
     domains:
       - "script"
       
