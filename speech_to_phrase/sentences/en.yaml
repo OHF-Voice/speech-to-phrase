@@ -71,14 +71,14 @@ data:
   - sentences:
       - "(open|close) [the] {name}"
       - "(open|close) [the] {name} in [the] {area}"
-      - "is [the] {name} (open|closed)"
+      - "(is|are) [the] {name} (open|closed)"
     domains:
       - "cover"
 
   # locks
   - sentences:
       - "(lock|unlock) [the] {name}"
-      - "is [the] {name} (locked|unlocked)"
+      - "(is|are) [the] {name} (locked|unlocked)"
     domains:
       - "lock"
 
