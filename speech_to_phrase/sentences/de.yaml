@@ -39,41 +39,43 @@ data:
       - "weather"
 
   # # lights (area)
-  # - "turn (on|off) [the] lights [in here]"
-  # - "turn [the] lights (on|off) [in here]"
-  # - "turn (on|off) [all|the|all of the] {area} lights"
-  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
-  # - "set [the] brightness [in here] to {brightness} percent"
-  # - "set [the] brightness of [the] {area} to {brightness} percent"
-  # - "set [the] {area} brightness to {brightness} percent"
-  # - "set [the] lights [in here] to {color}"
-  # - "set [[the] color of the] lights [in here] to {color}"
-  # - "set [the] [color of [the]] {area} lights to {color}"
-  # - "set [the] {area} lights to {color}"
-  # - "set lights in [the] {area} to {color}"
+  - "(schalte|mach[e]) (an|ein|aus) [alle|die|alle die] lichter [hier|hier drin]"
+  - "(schalte|mach[e]) [alle|die|alle die] lichter (an|ein|aus) [hier|hier drin]"
+  - "(schalte|mach[e]) (an|ein|aus) [alle|die|alle die] lichter in [der|dem] {area}"
+  - "(schalte|mach[e]) [alle|die|alle die] lichter in [der|dem] {area} (an|ein|aus)"
+
+  - "stell[e] [die] helligkeit [hier|hier drin] auf {brightness} prozent"
+  - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
+  - "stell[e] [die] {area} helligkeit auf {brightness} prozent"
+
+  - "stell[e] [die] lichter [hier|hier drin] auf {color}"
+  - "stell[e] [[die] farbe von den] lichtern [hier|hier drin] auf {color}"
+  - "stell[e] [die] [farbe von [den]] {area} lichtern auf {color}"
+  - "stell[e] [die] {area} lichter auf {color}"
+  - "stell[e] lichter in [der|dem] {area} auf {color}"
 
   # # lights (name)
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
+  - sentences:
+      - "stell[e] [die] helligkeit von [der|dem] {name} auf {brightness} prozent"
+      - "stell[e] [die] {name} helligkeit auf {brightness} prozent"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
-  # - sentences:
-  #     - "set [the] [color of [the]] {name} to {color}"
-  #     - "set [the] {name} [color] to {color}"
-  #   domains:
-  #     - "light"
-  #   light_supports_color: true
+  - sentences:
+      - "stell[e] [die] [farbe von [der|dem]] {name} auf {color}"
+      - "stell[e] [die] {name} [farbe] auf {color}"
+    domains:
+      - "light"
+    light_supports_color: true
 
   # doors and windows
-  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
-  # - "(open|close) [the] {area} (blinds|curtains|windows)"
+  - "(öffne|schließ[e]) [die|den|das] (jalousien|vorhänge|fenster|rolläden) in [der|dem] {area}"
+  - "(öffne|schließ[e]) [die|den|das] {area} (jalousien|vorhänge|fenster)"
   - sentences:
       - "(öffne|schließ[e]) [den|die|das] {name}"
-  #     - "(open|close) [the] {name} in [the] {area}"
-  #     - "is [the] {name} (open|closed)"
+      - "(öffne|schließ[e]) [den|die|das] {name} in [der|dem] {area}"
+      - "ist [der|die|das] {name} (offen|geschlossen)"
     domains:
       - "cover"
 
@@ -86,9 +88,10 @@ data:
 
   # generic on/off
   - sentences:
-      - "(schalte|mach[e]) [den|die|das] {name} (an|aus)"
-      # - "turn (on|off) [the] {name} in [the] {area}"
-      # - "turn [the] {name} in [the] {area} (on|off)"
+      - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus)"
+      - "(schalte|mach[e]) (an|ein|aus) [den|die|das] {name}"
+      - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
+      - "(schalte|mach[e]) [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
     domains:
       - "light"
       - "switch"
@@ -136,20 +139,21 @@ data:
   #     - "media_player"
 
   # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the (temp|temperature) in [the] {area}"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  - "wie[ (hoch|niedrig)] ist die temperatur"
+  - "wie[ (hoch|niedrig)] ist die temperatur in [der|dem] {area}"
+  - "wie[ (hoch|niedrig)] ist die {area} temperatur"
+   - sentences:
+      - "wie[ (hoch|niedrig)] ist die {name} temperatur"
+      - "wie[ (hoch|niedrig)] ist die temperatur von [der|dem] {name}"
+     domains:
+       - "climate"
 
   # # sensors
-  # - sentences:
-  #     - "what is [the [value of [the]]] {name}"
-  #   domains:
-  #     - "sensor"
+  - sentences:
+      - "wie ist [der [wert von [dem|der]]] {name}"
+      - "wie hoch ist [der [wert von [dem|der]]] {name}"
+    domains:
+      - "sensor"
 
   # todo
   - sentences:
