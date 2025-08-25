@@ -133,7 +133,9 @@ async def _retrain_once(state: State, force_retrain: bool = False) -> None:
     )
     _LOGGER.debug("HA system language: %s", hass_info.system_language)
     if hass_info.pipeline_languages:
-        _LOGGER.debug("HA pipeline language(s): %s", hass_info.pipeline_languages)
+        _LOGGER.debug(
+            "HA pipeline language(s): %s", sorted(hass_info.pipeline_languages)
+        )
 
     settings.default_language = hass_info.system_language
     things = hass_info.things
@@ -144,6 +146,12 @@ async def _retrain_once(state: State, force_retrain: bool = False) -> None:
         len(things.floors),
         len(things.extra_sentences),
     )
+
+    if things.custom_sentences:
+        _LOGGER.debug(
+            "Got custom sentences for language(s): %s",
+            sorted(things.custom_sentences.keys()),
+        )
 
     languages_to_train = list(hass_info.pipeline_languages) + [
         hass_info.system_language

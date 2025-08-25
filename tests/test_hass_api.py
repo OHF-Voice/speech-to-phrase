@@ -126,6 +126,7 @@ async def test_system_and_pipeline_languages() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": ["trigger 1", "trigger 2"]}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -188,6 +189,7 @@ async def test_unexposed_and_disabled_entities() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -235,6 +237,7 @@ async def test_areas_and_floors() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -300,6 +303,7 @@ async def test_entity_names() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -375,6 +379,7 @@ async def test_light_features() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -454,6 +459,7 @@ async def test_fan_features() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -533,6 +539,7 @@ async def test_cover_features() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -614,6 +621,7 @@ async def test_media_player_features() -> None:
                 "conversation/sentences/list",
                 {"result": {"trigger_sentences": []}},
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
@@ -720,9 +728,63 @@ async def test_automation_script_answers() -> None:
                     }
                 },
             ),
+            ("conversation/agent/homeassistant/custom_sentences", {"result": {}}),
         ]
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
         ha_info = await get_hass_info("<token>", "<url>")
         assert set(ha_info.things.extra_sentences) == {"answer 1", "answer 2"}
+
+
+@pytest.mark.asyncio
+async def test_custom_sentences() -> None:
+    """Test retrieval of custom sentences."""
+    mock_websocket = MockWebsocket(
+        [
+            (None, {"type": "auth_required"}),
+            ("auth", {"type": "auth_ok"}),
+            ("get_config", {"result": {"language": "en"}}),
+            (
+                "assist_pipeline/pipeline/list",
+                {"result": {"pipelines": [{"stt_language": "en"}]}},
+            ),
+            (
+                "homeassistant/expose_entity/list",
+                {"result": {"exposed_entities": {}}},
+            ),
+            (
+                "get_states",
+                {"result": []},
+            ),
+            ("config/floor_registry/list", {"result": []}),
+            ("config/area_registry/list", {"result": []}),
+            ("config/entity_registry/get_entries", {"result": {}}),
+            (
+                "conversation/sentences/list",
+                {"result": {"trigger_sentences": []}},
+            ),
+            (
+                "conversation/agent/homeassistant/custom_sentences",
+                {
+                    "result": {
+                        "en": {
+                            "language": "en",
+                            "intents": {
+                                "TestIntent": {"data": {"sentences": ["test sentence"]}}
+                            },
+                        }
+                    }
+                },
+            ),
+        ]
+    )
+
+    with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
+        ha_info = await get_hass_info("<token>", "<url>")
+        assert ha_info.things.custom_sentences == {
+            "en": {
+                "language": "en",
+                "intents": {"TestIntent": {"data": {"sentences": ["test sentence"]}}},
+            }
+        }

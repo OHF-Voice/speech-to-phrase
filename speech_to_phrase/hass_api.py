@@ -2,6 +2,7 @@
 
 import hashlib
 import logging
+import json
 import re
 from collections.abc import Generator
 from dataclasses import dataclass, field, fields
@@ -111,6 +112,7 @@ class Things:
     areas: List[Area] = field(default_factory=list)
     floors: List[Floor] = field(default_factory=list)
     extra_sentences: List[str] = field(default_factory=list)
+    custom_sentences: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     _hash: str = ""
 
     def get_hash(self) -> str:
@@ -129,6 +131,10 @@ class Things:
 
             for extra_sentence in sorted(self.extra_sentences):
                 hasher.update(extra_sentence.encode("utf-8"))
+
+            for lang, lang_sentences in sorted(self.custom_sentences.items()):
+                hasher.update(lang.encode("utf-8"))
+                hasher.update(json.dumps(lang_sentences).encode("utf-8"))
 
             self._hash = hasher.hexdigest()
 
@@ -458,6 +464,17 @@ async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
                         continue
 
                     things.extra_sentences.append(answer_sentence)
+
+            # Get custom sentences
+            await websocket.send_json(
+                {
+                    "id": next_id(),
+                    "type": "conversation/agent/homeassistant/custom_sentences",
+                }
+            )
+            msg = await websocket.receive_json()
+            if msg["success"]:
+                things.custom_sentences = msg["result"]
 
     return HomeAssistantInfo(
         system_language=system_language,

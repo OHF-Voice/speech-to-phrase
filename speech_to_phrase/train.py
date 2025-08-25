@@ -114,6 +114,13 @@ def _create_intents(model: Model, settings: Settings, things: Things) -> Intents
         }
         sentences_dict["intents"] = intents_dict
 
+    if things.custom_sentences:
+        for lang, lang_intents in things.custom_sentences.items():
+            if (lang != model.language) and (lang != model.language_family):
+                continue
+
+            merge_dict(sentences_dict, lang_intents)
+
     # Custom sentences
     for custom_sentences_dir in settings.custom_sentences_dirs:
         dir_for_language = custom_sentences_dir / model.language
