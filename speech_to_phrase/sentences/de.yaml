@@ -39,6 +39,7 @@ data:
       - "weather"
 
   # # lights (area)
+  - "[alle|die] lichter (an|ein|aus)(schalten|machen) "
   - "(schalte|mach[e]) [alle|die] lichter (an|ein|aus)"
   - "(schalte|mach[e]) [alle|die] lichter in [der|dem] {area} (an|ein|aus)"
 
