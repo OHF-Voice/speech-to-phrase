@@ -71,8 +71,10 @@ data:
     light_supports_color: true
 
   # doors and windows
-  - "(öffne|schließ[e]) [die] (jalousien|vorhänge|fenster|rolläden) in [der|dem] {area}"
-  - "(öffne|schließ[e]) [die] {area} (jalousien|vorhänge|fenster)"
+  - "(öffne|schließ[e]) [die] (jalousien|vorhänge|fenster|rollläden) in [der|dem] {area}"
+  - "(öffne|schließ[e]) [die] {area} (jalousien|vorhänge|fenster|rollläden)"
+  - "[die] (jalousien|vorhänge|fenster|rollläden) (in [der|dem]| im) {area} (öffnen|schließen)"
+  - "[die] {area} (jalousien|vorhänge|fenster|rollläden) (öffnen|schließen)"
   - sentences:
       - "(öffne|schließ[e]) [den|die] {name}"
       - "(öffne|schließ[e]) [den|die] {name} in [der|dem] {area}"
