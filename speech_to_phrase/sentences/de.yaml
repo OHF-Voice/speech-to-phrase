@@ -150,6 +150,7 @@ data:
    - sentences:
       - "wie[ (hoch|niedrig)] ist die {name} temperatur"
       - "wie[ (hoch|niedrig)] ist die temperatur von [der|dem] {name}"
+      - "wie warm ist [(der|die|das)] {name}"
      domains:
        - "climate"
 
