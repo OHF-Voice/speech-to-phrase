@@ -39,17 +39,15 @@ data:
       - "weather"
 
   # # lights (area)
-  - "(schalte|mach[e]) (an|ein|aus) [alle|die|alle die] lichter [hier|hier drin]"
-  - "(schalte|mach[e]) [alle|die|alle die] lichter (an|ein|aus) [hier|hier drin]"
-  - "(schalte|mach[e]) (an|ein|aus) [alle|die|alle die] lichter in [der|dem] {area}"
-  - "(schalte|mach[e]) [alle|die|alle die] lichter in [der|dem] {area} (an|ein|aus)"
+  - "(schalte|mach[e]) [alle|die] lichter (an|ein|aus)"
+  - "(schalte|mach[e]) [alle|die] lichter in [der|dem] {area} (an|ein|aus)"
 
-  - "stell[e] [die] helligkeit [hier|hier drin] auf {brightness} prozent"
+  - "stell[e] [die] helligkeit [hier] auf {brightness} prozent"
   - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
   - "stell[e] [die] {area} helligkeit auf {brightness} prozent"
 
-  - "stell[e] [die] lichter [hier|hier drin] auf {color}"
-  - "stell[e] [[die] farbe von den] lichtern [hier|hier drin] auf {color}"
+  - "stell[e] [die] lichter [hier] auf {color}"
+  - "stell[e] [[die] farbe von den] lichtern [hier] auf {color}"
   - "stell[e] [die] [farbe von [den]] {area} lichtern auf {color}"
   - "stell[e] [die] {area} lichter auf {color}"
   - "stell[e] lichter in [der|dem] {area} auf {color}"
@@ -70,11 +68,11 @@ data:
     light_supports_color: true
 
   # doors and windows
-  - "(öffne|schließ[e]) [die|den|das] (jalousien|vorhänge|fenster|rolläden) in [der|dem] {area}"
-  - "(öffne|schließ[e]) [die|den|das] {area} (jalousien|vorhänge|fenster)"
+  - "(öffne|schließ[e]) [die] (jalousien|vorhänge|fenster|rolläden) in [der|dem] {area}"
+  - "(öffne|schließ[e]) [die] {area} (jalousien|vorhänge|fenster)"
   - sentences:
-      - "(öffne|schließ[e]) [den|die|das] {name}"
-      - "(öffne|schließ[e]) [den|die|das] {name} in [der|dem] {area}"
+      - "(öffne|schließ[e]) [den|die] {name}"
+      - "(öffne|schließ[e]) [den|die] {name} in [der|dem] {area}"
       - "ist [der|die|das] {name} (offen|geschlossen)"
     domains:
       - "cover"
@@ -89,7 +87,6 @@ data:
   # generic on/off
   - sentences:
       - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus)"
-      - "(schalte|mach[e]) (an|ein|aus) [den|die|das] {name}"
       - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
       - "(schalte|mach[e]) [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
     domains:
