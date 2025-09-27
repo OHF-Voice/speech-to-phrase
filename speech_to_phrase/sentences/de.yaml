@@ -57,6 +57,7 @@ data:
   - sentences:
       - "stell[e] [die] helligkeit von [der|dem] {name} auf {brightness} prozent"
       - "stell[e] [die] {name} helligkeit auf {brightness} prozent"
+      - "{name} auf {brightness} prozent"
     domains:
       - "light"
     light_supports_brightness: true
