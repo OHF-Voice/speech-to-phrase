@@ -65,6 +65,7 @@ data:
   - sentences:
       - "stell[e] [die] [farbe von [der|dem]] {name} auf {color}"
       - "stell[e] [die] {name} [farbe] auf {color}"
+      - "{name} [farbe] auf {color}"
     domains:
       - "light"
     light_supports_color: true
