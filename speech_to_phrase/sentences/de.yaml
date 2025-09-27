@@ -90,10 +90,10 @@ data:
   #     - "lock"
 
   # generic on/off
-  - sentences:
-      - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus)"
-      - "(schalte|mach[e]) [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
-      - "(schalte|mach[e]) [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus)"
+      - "(schalt|mach)[e] (an|ein|aus) [den|die|das] {name}"
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
+      - "(schalt|mach)[e] [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
     domains:
       - "light"
       - "switch"
