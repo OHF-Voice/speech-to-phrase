@@ -45,7 +45,7 @@ data:
 
   - "stell[e] [die] helligkeit [hier] auf {brightness} prozent"
   - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
-  - "stell[e] [die] {area} helligkeit auf {brightness} prozent"
+  - "{area} helligkeit auf {brightness} prozent [stellen]"
 
   - "stell[e] [die] lichter [hier] auf {color}"
   - "stell[e] [[die] farbe von den] lichtern [hier] auf {color}"
