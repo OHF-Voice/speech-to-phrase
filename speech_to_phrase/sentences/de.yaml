@@ -156,7 +156,7 @@ data:
 
   # # sensors
   - sentences:
-      - "wie ist [der [wert von [dem|der]]] {name}"
+      - "(wie|was) ist [der [wert von [dem|der]]] {name}"
       - "wie hoch ist [der [wert von [dem|der]]] {name}"
     domains:
       - "sensor"
