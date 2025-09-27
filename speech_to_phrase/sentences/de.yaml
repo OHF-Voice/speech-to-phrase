@@ -144,6 +144,9 @@ data:
   - "wie[ (hoch|niedrig)] ist die temperatur"
   - "wie[ (hoch|niedrig)] ist die temperatur in [der|dem] {area}"
   - "wie[ (hoch|niedrig)] ist die {area} temperatur"
+  - "wie warm ist es"
+  - "wie warm ist es im {area}"
+  - "wie warm ist es in [(der|dem)] {area}"
    - sentences:
       - "wie[ (hoch|niedrig)] ist die {name} temperatur"
       - "wie[ (hoch|niedrig)] ist die temperatur von [der|dem] {name}"
