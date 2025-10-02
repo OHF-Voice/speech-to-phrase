@@ -1,19 +1,19 @@
 ---
 language: "tr"
 
-# lists:
-#   color:
-#     - "white"
-#     - "black"
-#     - "red"
-#     - "orange"
-#     - "yellow"
-#     - "green"
-#     - "blue"
-#     - "purple"
-#     - "brown"
-#     - "pink"
-#     - "turquoise"
+lists:
+ color:
+   - "beyaz"
+   - "siyah"
+   - "kırmızı"
+   - "turuncu"
+   - "sarı"
+   - "yeşil"
+   - "mavi"
+   - "mor"
+   - "kahverengi"
+   - "pembe"
+   - "turkuaz"
 
 transformations:
   # Assuming possessive
@@ -70,73 +70,64 @@ transformed_lists:
 
 data:
   # cancel
-  - "önemli değil"
+  - "(iptal|vazgeç)"
 
-  # # date and time
-  # - "(what's|what is) the [current] time"
-  # - "what time is it [[right ]now]"
-  # - "(what's|what is) the date [today]"
-  # - "(what's|what is) today's date"
+  # date and time
+  - "[şu an] saat (kaç|nedir)"
+  - "[bugünün] tarih[i] ne?"
 
-  # # weather
-  # - "(what's|what is) the weather [like]"
-  # - sentences:
-  #     - "(what's|what is) the {name} weather [like]"
-  #     - "(what's|what is) the weather [like] in {name}"
-  #   domains:
-  #     - "weather"
+  # weather
+  - "hava [durumu] nasıl [olacak]?"
+  - sentences:
+      - "{name} [için] hava [durumu] nasıl [olacak]?"
+    domains:
+      - "weather"
 
-  # # lights (area)
-  # - "turn (on|off) [the] lights [in here]"
-  # - "turn [the] lights (on|off) [in here]"
-  # - "turn (on|off) [all|the|all of the] {area} lights"
-  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
-  # - "set [the] brightness [in here] to {brightness} percent"
-  # - "set [the] brightness of [the] {area} to {brightness} percent"
-  # - "set [the] {area} brightness to {brightness} percent"
-  # - "set [the] lights [in here] to {color}"
-  # - "set [[the] color of the] lights [in here] to {color}"
-  # - "set [the] [color of [the]] {area} lights to {color}"
-  # - "set [the] {area} lights to {color}"
-  # - "set lights in [the] {area} to {color}"
+  # lights (area)
+  - "[buradaki] [bütün|tüm] (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini] (aç|kapat)"
+  - "[bütün|tüm] {area} (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini] (aç|kapat)"
+  - "{area} [bütün|tüm] (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini] (aç|kapat)"
+  - "[buradaki] [bütün|tüm] ışıkların parlaklığını yüzde {brightness} (ayarla|yap)"
+  - "{area} [bütün|tüm] (ışıkların|ışıklarının) parlaklığını yüzde {brightness} (ayarla|yap)"
+  - "[buradaki] [bütün|tüm] (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini|tamamının|hepsinin] [rengini] {color} [renk|renge] (ayarla|yap)"
+  - "[bütün|tüm] {area} (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini|tamamının|hepsinin] [rengini] {color} [renk|renge] (ayarla|yap)"
+  - "{area} [bütün|tüm] (ışıkları|ışıklarını|ışığını|ışıklarının) [tamamını|hepsini|tamamının|hepsinin] [rengini] {color} [renk|renge] (ayarla|yap)"
 
-  # # lights (name)
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
 
-  # - sentences:
-  #     - "set [the] [color of [the]] {name} to {color}"
-  #     - "set [the] {name} [color] to {color}"
-  #   domains:
-  #     - "light"
-  #   light_supports_color: true
+  # lights (name)
+  - sentences:
+      - "{name} [ledinin|ışığının|ışıklarının|ledlerinin] parlaklığını yüzde {brightness} (ayarla|yap)"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
-  # # doors and windows
-  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
-  # - "(open|close) [the] {area} (blinds|curtains|windows)"
-  # - sentences:
-  #     - "(open|close) [the] {name}"
-  #     - "(open|close) [the] {name} in [the] {area}"
-  #     - "is [the] {name} (open|closed)"
-  #   domains:
-  #     - "cover"
+  - sentences:
+      - "{name} [ledinin|ışığının|ışıklarının|ledlerinin|ledini|ışığını] [rengini] {color} [renk|renge] (ayarla|yap)"
+    domains:
+      - "light"
+    light_supports_color: true
 
-  # # locks
-  # - sentences:
-  #     - "(lock|unlock) [the] {name}"
-  #     - "is [the] {name} (locked|unlocked)"
-  #   domains:
-  #     - "lock"
+  # doors and windows
+  - "{area} (perdelerini|jaluzilerini|pencerelerini)[n] [tamamını|hepsini] (aç|kapat)"
+  - sentences:
+      - "{name} (aç|kapat)"
+      - "{area} {name} (aç|kapat)"
+      - "{name} (açık|kapalı) mı?"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "{name} kilitle"
+      - "{name} kilidini aç"
+      - "{name} kilitli mi?"
+    domains:
+      - "lock"
 
   # generic on/off
   - sentences:
       - "{h_name} (aç|yak|çalıştır|kapat|söndür)"
-      # - "turn (on|off) [the] {name} in [the] {area}"
-      # - "turn [the] {name} in [the] {area} (on|off)"
+      - "{area} {name} (aç|yak|çalıştır|kapat|söndür)"
     domains:
       - "light"
       - "switch"
@@ -144,61 +135,56 @@ data:
       - "media_player"
       - "input_boolean"
 
-  # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  # scripts and scenes
+  - sentences:
+      - "{name} [scriptini|betiğini] çalıştır"
+    domains:
+      - "script"
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  - sentences:
+      - "{name} [sahnesini] (aktifleştir|aç|aktive et)"
+    domains:
+      - "scene"
 
-  # # timers
-  # - "(set|start|create) [a] timer for {seconds} seconds"
-  # - "(set|start|create) [a] timer for 1 minute"
-  # - "(set|start|create) [a] timer for {minutes} minutes"
-  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
-  # - "(set|start|create) [a] timer for 1 hour"
-  # - "(set|start|create) [a] timer for {hours} hours"
-  # - "(set|start|create) [a] timer for {hours} and a half hours"
-  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
-  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
-  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
+  # timers
+  - "{seconds} saniye[lik] zamanlayıcı (ayarla|başlat|oluştur)"
+  - "{minutes} dakika[lık] zamanlayıcı (ayarla|başlat|oluştur)"
+  - "{minutes} dakika {seconds} saniye[lik] zamanlayıcı (ayarla|başlat|oluştur)"
+  - "{minutes} buçuk dakika[lık] zamanlayıcı (ayarla|başlat|oluştur)"
 
-  # - "(cancel|stop) [the|my] timer"
-  # - "(cancel|stop) all [[of ](the|my)] timers"
-  # - "(pause|resume) [the|my] timer"
-  # - "timer status"
-  # - "status of [the|my] timer[s]"
-  # - "[how much] time [is] left on [the|my] timer[s]"
+  - "{hours} saat[lik] zamanlayıcı (ayarla|başlat|oluştur)"
+  - "{hours} buçuk saat[lik] zamanlayıcı (ayarla|başlat|oluştur)"
+  - "{hours} saat {minutes} dakika[lık] zamanlayıcı (ayarla|başlat|oluştur)"
 
-  # # media
-  # - "(pause|resume)"
-  # - "next [(track|item)]"
-  # - "skip [[this ](track|song)]"
-  # - sentences:
-  #     - "(pause|resume) [the] {name}"
+  - "zamanlayıcı(yı|mı) (durdur|kapat|iptal et)"
+  - "[bütün] zamanlayıcıları[n|mı|mın] [hepsini|tamamını] (durdur|kapat|iptal et)"
+  - "(zamanlayıcı(yı|mı) (devam ettir|sürdür)"
+  - "zamanlayıcı[mın|larımın|ların|nın] [son] durumu [nedir]"
+  - "zamanlayıcı[mın|larımın|ların|nın] bitmesine ne kadar [süre|süresi|zaman|zamanı] (kaldı|var)"
+  - "zamanlayıcı[mın|larımın|ların|nın] ne kadar (süresi|zamanı) kaldı"
+
+  # media
+  - "(durdur|duraklat|devam et)"
+  - "(sonraki|önceki) [(şarkı|parça)]"
+  - "[bu] [(şarkıyı|parçayı)] atla"
+  - sentences:
+      - "{name} [(şarkısını|parçasını)] (çal|oynat|durdur|duraklat)"
   #     - "next [(track|item)] on [the] {name}"
   #     - "skip [[the ](track|song)] on [the] {name}"
-  #   domains:
-  #     - "media_player"
+    domains:
+      - "media_player"
 
-  # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the (temp|temperature) in [the] {area}"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  # temperature
+  - "[şu an] [sıcaklık] kaç derece"
+  - "[şu an] {area} [sıcaklığı|sıcaklık] kaç derece"
+  - sentences:
+      - "{name} için sıcaklık nedir"
+      - "{name} sıcaklığı kaç derece"
+    domains:
+      - "climate"
 
-  # # sensors
-  # - sentences:
-  #     - "what is [the [value of [the]]] {name}"
-  #   domains:
-  #     - "sensor"
+  # sensors
+  - sentences:
+      - "{name} değeri (ne|nedir|kaç)"
+    domains:
+      - "sensor"
