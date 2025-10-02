@@ -1,75 +1,77 @@
 ---
 language: "ru"
 
-# lists:
-#   color:
-#     - "white"
-#     - "black"
-#     - "red"
-#     - "orange"
-#     - "yellow"
-#     - "green"
-#     - "blue"
-#     - "purple"
-#     - "brown"
-#     - "pink"
-#     - "turquoise"
+lists:
+  color:
+    - "белый|белого|белым"
+    - "черный|черного|чёрный|чёрного|черным|чёрным"
+    - "красный|красного|красным"
+    - "оранжевый|оранжевого|оранжевым"
+    - "желтый|желтого|жёлтый|жёлтого|желтым|жёлтым"
+    - "зеленый|зелёный|зеленого|зелёного|зеленым|зелёным"
+    - "синий|синего|синим"
+    - "фиолетовый|фиолетового|фиолетовым"
+    - "коричневый|коричневого|коричневым"
+    - "розовый|розового|розовым"
+    - "бирюзовый|бирюзового|бирюзовым"
 
 data:
   # cancel
   - "Неважно"
   - "Забудь"
+  - "Отмена"
 
   # date and time
-  # - "(what's|what is) the [current] time"
-  # - "what time is it [[right ]now]"
   - "какое сегодня число"
-
+  - "какое [сейчас] время"
+  - "сколько времени [прямо сейчас]"
+  
   # weather
   - "какая сейчас погода"
+  - "какая погода"
   - sentences:
       - "Какая погода в {name}"
     domains:
       - "weather"
 
-  # # lights (area)
-  # - "turn (on|off) [the] lights [in here]"
-  # - "turn [the] lights (on|off) [in here]"
-  # - "turn (on|off) [all|the|all of the] {area} lights"
-  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
-  # - "set [the] brightness [in here] to {brightness} percent"
-  # - "set [the] brightness of [the] {area} to {brightness} percent"
-  # - "set [the] {area} brightness to {brightness} percent"
-  # - "set [the] lights [in here] to {color}"
-  # - "set [[the] color of the] lights [in here] to {color}"
-  # - "set [the] [color of [the]] {area} lights to {color}"
-  # - "set [the] {area} lights to {color}"
-  # - "set lights in [the] {area} to {color}"
+  # lights (area)
+  - "(включи|выключи) [свет] [здесь|тут]"
+  - "(включи|выключи) [весь|всё|всё освещение|освещение|свет] в {area}"
+  - "(включи|выключи) [весь|всё|всё освещение|освещение|свет] [в] {area}"
+  - "установи яркость [здесь|тут] на {brightness} процентов"
+  - "установи яркость [в] {area} на {brightness} процентов"
+  - "установи яркость {area} на {brightness} процентов"
+  - "установи [свет|освещение] [здесь|тут] на {color}"
+  - "установи [[цвет|окраску] света] [здесь|тут] на {color}"
+  - "установи [цвет|окраску] [света] в {area} на {color}"
+  - "установи [свет|освещение] в {area} на {color}"
+  - "установи [свет|освещение] в [зоне|области] {area} на {color}"
 
-  # # lights (name)
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
 
-  # - sentences:
-  #     - "set [the] [color of [the]] {name} to {color}"
-  #     - "set [the] {name} [color] to {color}"
-  #   domains:
-  #     - "light"
-  #   light_supports_color: true
+  # lights (name)
+  - sentences:
+      - "(сдела(й|ть)|установи[ть]|постав(ь|ить)|поменя(й|ть)|измени[ть]|выстав(ь|ить)|переключи[ть]|переве(сти|ди)|увелич(ь|ить)|уменьш(и|ить)|подн(ими|ять)|опусти[ть]|прибав(ь|ить)|отн(ими|ять)|повыс(ь|ить)|пониз(ь|ить)) [яркость|яркость света] {name} [на|до] {brightness}"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
-  # # doors and windows
-  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
-  # - "(open|close) [the] {area} (blinds|curtains|windows)"
-  # - sentences:
-  #     - "(open|close) [the] {name}"
-  #     - "(open|close) [the] {name} in [the] {area}"
-  #     - "is [the] {name} (open|closed)"
-  #   domains:
-  #     - "cover"
+  - sentences:
+      - "(сдела(й|ть)|установи[ть]|постав(ь|ить)|поменя(й|ть)|измени[ть]|выстав(ь|ить)|переключи[ть]|переве(сти|ди)|увелич(ь|ить)|уменьш(и|ить)|подн(ими|ять)|опусти[ть]|прибав(ь|ить)|отн(ими|ять)|повыс(ь|ить)|пониз(ь|ить)) {name} [на] {color} [цвет]"
+      - "(сдела(й|ть)|установи[ть]|постав(ь|ить)|поменя(й|ть)|измени[ть]|выстав(ь|ить)|переключи[ть]|переве(сти|ди)|увелич(ь|ить)|уменьш(и|ить)|подн(ими|ять)|опусти[ть]|прибав(ь|ить)|отн(ими|ять)|повыс(ь|ить)|пониз(ь|ить)) {color} [цвет] [у|для] {name}"
+      
+    domains:
+      - "light"
+    light_supports_color: true
+
+  #  windows
+  - "(открой|закрой) [шторы|жалюзи|окна] в [комнате|зоне|области] {area}"
+  - "(открой|закрой) [в] {area} [шторы|жалюзи|окна]"
+  - sentences:
+      - "(открой|закрой) {name}"
+      - "(открой|закрой) {name} в [комнате|зоне|области] {area}"
+      - "{name} (открыта|закрыта|открыт|закрыт|открыто|закрыто)"
+    domains:
+      - "cover"
 
   # # locks
   # - sentences:
@@ -87,62 +89,68 @@ data:
       - "fan"
       - "media_player"
       - "input_boolean"
+      - "scene"
 
-  # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  # scripts and scenes
+  - sentences:
+      - "[активируй|включи|запусти] [скрипт ]{name}"
+    domains:
+      - "script"
+      
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  # timers
+  # таймеры
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {seconds} секунд"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на 1 минуту"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {minutes} минут"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на 1 минуту и {seconds} секунд"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {minutes} минут и {seconds} секунд"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {minutes} с половиной минут"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на 1 час"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {hours} часов"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {hours} с половиной часов"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на 1 час и 1 минуту"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на 1 час и {minutes} минут"
+  - "[установи[ть]|постав(ь|ить)|включи[ть]|запусти[ть]|зада(й|ть)] таймер на {hours} часов и {minutes} минут"
+  
+  - "что с таймером на {minutes} минут"
+  - "[какое ]состояние [у] (таймера|таймеров)"
+  - "(останови[ть]|отключи[ть]|выключи[ть]) таймер"
+  - "(останови[ть]|отключи[ть]|выключи[ть]) таймер {area}"
+  - "(останови[ть]|отключи[ть]|выключи[ть]) все таймеры"
 
-  # # timers
-  # - "(set|start|create) [a] timer for {seconds} seconds"
-  # - "(set|start|create) [a] timer for 1 minute"
-  # - "(set|start|create) [a] timer for {minutes} minutes"
-  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
-  # - "(set|start|create) [a] timer for 1 hour"
-  # - "(set|start|create) [a] timer for {hours} hours"
-  # - "(set|start|create) [a] timer for {hours} and a half hours"
-  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
-  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
-  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
 
-  # - "(cancel|stop) [the|my] timer"
-  # - "(cancel|stop) all [[of ](the|my)] timers"
-  # - "(pause|resume) [the|my] timer"
-  # - "timer status"
-  # - "status of [the|my] timer[s]"
-  # - "[how much] time [is] left on [the|my] timer[s]"
+  # media
+  - "включи следующ(ий|ую) [трек|песню]"
+  - "переключи на следующ(ий|ую) [трек|песню]"
+  - "следующ(ий|ая) (трек|песня)"
+  - "переключи [на ]следующ(ий|ую) [трек|песню]"
+  - sentences:
+      - "(постав(ить|ь) на паузу|[при]останов(ить|и)) {name}"
+      - "{name} на паузу"
+      - "(возобнови|продолж(и|ай))[ воспроизведение] [на ]{name}"
+      - "(сними|снять) с паузы {name}"
+      - "включи следующ(ий|ую) [трек|песню] [на ]{name}"
+      - "(включи|верни) (прошл(ый|ую)|предыдущ(ий|ую)) [трек|песню] [на ]{name}"
+      - "[поставь|установи] громкость [на ]{name} [на ]{volume}"
+    domains:
+      - "media_player"
 
-  # # media
-  # - "(pause|resume)"
-  # - "next [(track|item)]"
-  # - "skip [[this ](track|song)]"
-  # - sentences:
-  #     - "(pause|resume) [the] {name}"
-  #     - "next [(track|item)] on [the] {name}"
-  #     - "skip [[the ](track|song)] on [the] {name}"
-  #   domains:
-  #     - "media_player"
+  # temperature
 
-  # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the (temp|temperature) in [the] {area}"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  - sentences:
+      - "какая[ сейчас] температура[ установлена| задана]( на| y) {name}"
+      - "сколько[ сейчас] градусов[ установлено| задано]( на| y) {name}"
+    domains:
+      - "climate"
 
-  # # sensors
-  # - sentences:
-  #     - "what is [the [value of [the]]] {name}"
-  #   domains:
-  #     - "sensor"
+  # sensors
+  - sentences:
+      - "(какая|како(е|й)|как(ую|ие)|каков[о|a|ы]) [влажность|значение|температура] [у|на] {name}"
+    domains:
+      - "sensor"
+
+  - sentences:
+      - "добавь {todo_item} в {name}"
+    domains:
+      - "todo"
