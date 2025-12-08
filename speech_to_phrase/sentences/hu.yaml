@@ -1,0 +1,160 @@
+---
+language: "hu"
+
+lists:
+  color:
+    - "fehér"
+    - "fekete"
+    - "piros"
+    - "narancssárga"
+    - "citromsárga"
+    - "zöld"
+    - "kék"
+    - "lila"
+    - "barna"
+    - "rózsaszín"
+    - "türkiz"
+
+wildcards:
+  - "todo_item"
+
+data:
+  # cancel
+  - "megszakítás"
+
+  # date and time
+  - "mennyi az idő"
+  - "mennyi a pontos idő"
+  - "hány óra van"
+  - "hányadika van [ma]"
+  - "mi a pontos dátum [ma]"
+
+  # weather
+  - "(milyen|hogy néz ki) az időjárás"
+  - "(milyen|hogy alakul) az időjárás"
+  - sentences:
+      - "(milyen|hogy alakul) {name} időjárása"
+    domains:
+      - "weather"
+
+  # generic on/off
+  - sentences:
+      - "kapcsold (be|ki) [a(z)] {name}-t"
+      - "kapcsold (be|ki) [a(z)] {name}-t a(z) {area}-ban"
+      - "kapcsold (be|ki) [a(z)] {area} {name}-t"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+
+  # lights (name)
+  # - sentences:
+  #     - "set [the] brightness of [the] {name} to {brightness} percent"
+  #     - "set [the] {name} brightness to {brightness} percent"
+  #   domains:
+  #     - "light"
+  #   light_supports_brightness: true
+
+  # - sentences:
+  #     - "set [the] [color of [the]] {name} to {color}"
+  #     - "set [the] {name} [color] to {color}"
+  #   domains:
+  #     - "light"
+  #   light_supports_color: true
+
+  # doors and windows
+  - "((nyisd ki|csukd be)) [a(z)] (redőnyt|függönyt|ablakot) [a(z)] {area}-ban"
+  - "((nyisd ki|csukd be)) [a(z)] {area} (redőnyt|függönyt|ablakot)"
+
+  - sentences:
+      - "((nyisd ki|csukd be)) [a(z)] {name}-t"
+      - "((nyisd ki|csukd be)) [a(z)] {name}-t [a(z)] {area}-ban"
+      - "(nyitva van-e|csukva van-e) [a(z)] {name}"
+    domains:
+      - "cover"
+
+
+  # locks
+  - sentences:
+      - "(zárd be|nyisd ki) [a(z)] {name}-t"
+      - "(be van-e zárva|ki van-e nyitva) [a(z)] {name}"
+    domains:
+      - "lock"
+
+  # scripts and scenes
+  - sentences:
+      - "futtasd [a(z)] {name} [szkriptet]"
+    domains:
+      - "script"
+
+  - sentences:
+      - "aktiváld [a(z)] {name} [jelenetet]"
+    domains:
+      - "scene"
+
+  # timers
+  - "(állíts|indíts|hozz létre) egy időzítőt {seconds} másodpercre"
+  - "(állíts|indíts|hozz létre) egy időzítőt 1 percre"
+  - "(állíts|indíts|hozz létre) egy időzítőt {minutes} percre"
+  - "(állíts|indíts|hozz létre) egy időzítőt 1 percre és {seconds} másodpercre"
+  - "(állíts|indíts|hozz létre) egy időzítőt {minutes} percre és {seconds} másodpercre"
+  - "(állíts|indíts|hozz létre) egy időzítőt {minutes} és fél percre"
+  - "(állíts|indíts|hozz létre) egy időzítőt 1 órára"
+  - "(állíts|indíts|hozz létre) egy időzítőt {hours} órára"
+  - "(állíts|indíts|hozz létre) egy időzítőt {hours} és fél órára"
+  - "(állíts|indíts|hozz létre) egy időzítőt 1 órára és 1 percre"
+  - "(állíts|indíts|hozz létre) egy időzítőt 1 órára és {minutes} percre"
+  - "(állíts|indíts|hozz létre) egy időzítőt {hours} órára és {minutes} percre"
+
+  - "(állítsd le|állítsd meg|töröld) [az|a] időzítőt"
+  - "(állítsd le|állítsd meg|töröld) az összes időzítőt"
+  - "(szüneteltesd|folytasd) [az|a] időzítőt"
+
+  - "időzítő állapota"
+  - "mi az időzítő állapota"
+  - "mennyit mutat az időzítő"
+  - "mennyi idő van még hátra [az|a] időzítőn"
+  - "mennyi idő van még hátra az időzítőkből"
+
+
+  # media
+  - "(szünet|folytatás)"
+  - "következő [szám|track]"
+  - "ugorj [[erre a ](számra|dalra)]"
+
+  - sentences:
+      - "(szüneteltesd|folytasd) [a(z)] {name}-t"
+      - "következő [szám|track] a(z) {name}-en"
+      - "ugord át [a(z)] (számot|dalt) a(z) {name}-en"
+    domains:
+      - "media_player"
+
+
+  # temperature
+  - "mennyi a hőmérséklet"
+  - "mennyi a hőmérséklet [a(z)] {area}-ban"
+  - "mennyi [a(z)] {area} hőmérséklete"
+
+  - sentences:
+      - "mennyi [a(z)] {name} hőmérséklete"
+      - "mennyi a hőmérséklet [a(z)] {name}-nél"
+    domains:
+      - "climate"
+
+
+  # sensors
+  - sentences:
+      - "mennyi [a(z) [értéke [a(z)]]] {name}-nek"
+    domains:
+      - "sensor"
+
+
+  # todo
+  - sentences:
+      - "add hozzá {todo_item}-t [a(z)|a] {name}-hez"
+    domains:
+      - "todo"
+
