@@ -1,19 +1,19 @@
 ---
 language: "sl"
 
-# lists:
-#   color:
-#     - "bela"
-#     - "black"
-#     - "red"
-#     - "orange"
-#     - "yellow"
-#     - "green"
-#     - "blue"
-#     - "purple"
-#     - "brown"
-#     - "pink"
-#     - "turquoise"
+lists:
+  color:
+    - "bela|belo"
+    - "črna|črno"
+    - "rdeča|rdečo"
+    - "oranžna|oranžno"
+    - "rumena|rumeno"
+    - "zelena|zeleno"
+    - "modra|modro"
+    - "vijolična|vijolično"
+    - "rjava|rjavo"
+    - "pink"
+    - "turkizna|turkizno"
 
 data:
   # cancel
@@ -24,42 +24,42 @@ data:
   - "koliko je ura"
   - "kateri dan je danes"
 
-  # # weather
-  # - "(what's|what is) the weather [like]"
-  # - sentences:
-  #     - "(what's|what is) the {name} weather [like]"
-  #     - "(what's|what is) the weather [like] in {name}"
-  #   domains:
-  #     - "weather"
+  # weather
+  - "[kakšno je] vreme"
+  - sentences:
+      - "[kakšno je] vreme v mestu {name} "
+      - "(kakšno je) vreme v {name}"
+    domains:
+      - "weather"
 
-  # # lights (area)
-  # - "turn (on|off) [the] lights [in here]"
-  # - "turn [the] lights (on|off) [in here]"
-  # - "turn (on|off) [all|the|all of the] {area} lights"
-  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
-  # - "set [the] brightness [in here] to {brightness} percent"
-  # - "set [the] brightness of [the] {area} to {brightness} percent"
-  # - "set [the] {area} brightness to {brightness} percent"
-  # - "set [the] lights [in here] to {color}"
-  # - "set [[the] color of the] lights [in here] to {color}"
-  # - "set [the] [color of [the]] {area} lights to {color}"
-  # - "set [the] {area} lights to {color}"
-  # - "set lights in [the] {area} to {color}"
+  # lights (area)
+  - "(prižgi|ugasni) luč [tu|tukaj]"
+  - "(prižgi|ugasni) [tu|tukaj]"
+  - "prižgi|ugasni [vse| {area} luči"
+  - "prižgi|ugasni [vse| luči [v] {area}"
+  - "nastavi (svetlost|jakost svetlobe] [tu|tukaj] na {brightness} odstotkov"
+  - "nastavi svetlost {area} na {brightness} odstotkov"
+  - "nastavi {area} na {brightness} odstotkov [svetlobe]"
+  - "nastavi luč [in here] na {color}"
+  - "nastavi [barvo] (luč|luči) [tu|tukaj|v tem prostoru] na {color}"
+  - "nastavi [barvo] (luč|luči) v {area} na {color} [barvo]"
+  - "nastavi {area} (luč|luči) na {color}"
+  - "nastavi luči v {area} na {color} [barvo]"
 
-  # # lights (name)
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
+  # lights (name)
+  - sentences:
+      - "nastavi (svetlost|jakost svetlobe] {name} na {brightness} odstotkov"
+      - "nastavi {name} na  (svetlost|jakost svetlobe] {brightness} odstotkov"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
-  # - sentences:
-  #     - "set [the] [color of [the]] {name} to {color}"
-  #     - "set [the] {name} [color] to {color}"
-  #   domains:
-  #     - "light"
-  #   light_supports_color: true
+  - sentences:
+      - "nastavi [barvo] {name} na {color}"
+      - "nastavi {name} na {color} [barvo]"
+    domains:
+      - "light"
+    light_supports_color: true
 
   # # doors and windows
   # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
