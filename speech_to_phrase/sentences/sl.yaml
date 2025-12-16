@@ -102,19 +102,19 @@ data:
     domains:
       - "scene"
 
-  # # timers
-  # - "(set|start|create) [a] timer for {seconds} seconds"
-  # - "(set|start|create) [a] timer for 1 minute"
-  # - "(set|start|create) [a] timer for {minutes} minutes"
-  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
-  # - "(set|start|create) [a] timer for 1 hour"
-  # - "(set|start|create) [a] timer for {hours} hours"
-  # - "(set|start|create) [a] timer for {hours} and a half hours"
-  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
-  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
-  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
+  # timers
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 minuto in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} (minut|minuto) in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} in pol minute"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} ur"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} in pol ure"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro in 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro in {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} (ur|uro) in {minutes} minut"
 
   # - "(cancel|stop) [the|my] timer"
   # - "(cancel|stop) all [[of ](the|my)] timers"
