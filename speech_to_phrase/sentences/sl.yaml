@@ -72,12 +72,12 @@ data:
     domains:
       - "cover"
 
-  # locks
-  # - sentences:
-  #     - "(lock|unlock) [the] {name}"
-  #     - "is [the] {name} (locked|unlocked)"
-  #   domains:
-  #     - "lock"
+  locks
+  - sentences:
+      - "(zakleni|odkleni)  {name}"
+      - "je  {name} ((zaklenjen|zaklenjena)|(odklenjen|odklenjena))"
+    domains:
+      - "lock"
 
   # generic on/off
   - sentences:
@@ -116,36 +116,35 @@ data:
   - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro in {minutes} minut"
   - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} (ur|uro) in {minutes} minut"
 
-  # - "(cancel|stop) [the|my] timer"
-  # - "(cancel|stop) all [[of ](the|my)] timers"
-  # - "(pause|resume) [the|my] timer"
-  # - "timer status"
-  # - "status of [the|my] timer[s]"
-  # - "[how much] time [is] left on [the|my] timer[s]"
+  - "(prekini|ustavi) [časovnik|štoperico|timer]"
+  - "(prekini|ustavi) vse časovnike"
+  - "(pavziraj|nadaljuj) [časovnik|štoperico|timer]"
+  - "status časovnika"
+  - "status [vseh] časovnikov"
+  - "[koliko] časa [je] ostalo na časovniku"
 
-  # # media
-  # - "(pause|resume)"
-  # - "next [(track|item)]"
-  # - "skip [[this ](track|song)]"
-  # - sentences:
-  #     - "(pause|resume) [the] {name}"
-  #     - "next [(track|item)] on [the] {name}"
-  #     - "skip [[the ](track|song)] on [the] {name}"
-  #   domains:
-  #     - "media_player"
+  # media
+  - "((pavziraj|pavza)|nadaljuj)"
+  - "naslednja [pesem]"
+  - "preskoči [[to] pesem]"
+  - sentences:
+      - "((pavziraj|pavza)|nadaljuj) {name}"
+      - "naslednja [pesem] na {name}"
+      - "preskoči [pesem] na {name}"
+    domains:
+      - "media_player"
 
-  # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the (temp|temperature) in [the] {area}"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  # temperature
+  - "(kakšna je|koliko je) (temp|temperatura)"
+  - "(kakšna je|koliko je) (temp|temperatura) v {area}"
+  - "(temp|temperatura) |v| {area} "
+  - sentences:
+      - "(kakšna je|koliko je) (temp|temperatura) [v] {name}"
+    domains:
+      - "climate"
 
-  # # sensors
-  # - sentences:
-  #     - "what is [the [value of [the]]] {name}"
-  #   domains:
-  #     - "sensor"
+  # sensors
+  - sentences:
+      - "koliko je [vrednost] {name}"
+    domains:
+      - "sensor"
