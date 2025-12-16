@@ -19,6 +19,7 @@ data:
   # cancel
   - "prekini"
   - "prekliči"
+  - "pozabi"
 
   # date and time
   - "koliko je ura"
@@ -61,17 +62,17 @@ data:
       - "light"
     light_supports_color: true
 
-  # # doors and windows
-  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
-  # - "(open|close) [the] {area} (blinds|curtains|windows)"
-  # - sentences:
-  #     - "(open|close) [the] {name}"
-  #     - "(open|close) [the] {name} in [the] {area}"
-  #     - "is [the] {name} (open|closed)"
-  #   domains:
-  #     - "cover"
+  # doors and windows
+  - "(odpri|zapri) (rolete|zavese|okna) [v] {area}"
+  - "(odpri|zapri) {area} (rolete|zavese|okna)"
+  - sentences:
+      - "(open|close) [the] {name}"
+      - "(open|close) [the] {name} in [the] {area}"
+      - "is [the] {name} (open|closed)"
+    domains:
+      - "cover"
 
-  # # locks
+  # locks
   # - sentences:
   #     - "(lock|unlock) [the] {name}"
   #     - "is [the] {name} (locked|unlocked)"
@@ -81,7 +82,7 @@ data:
   # generic on/off
   - sentences:
       - "(vklopi|izklopi) {name}"
-      # - "turn (on|off) [the] {name} in [the] {area}"
+      - "(vklopi|izklopi) {name} [v] {area}"
       # - "turn [the] {name} in [the] {area} (on|off)"
     domains:
       - "light"
@@ -90,16 +91,16 @@ data:
       - "media_player"
       - "input_boolean"
 
-  # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  # scripts and scenes
+  - sentences:
+      - "zaženi [skripto|skript] {name} "
+    domains:
+      - "script"
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  - sentences:
+      - "activate [the] {name} [scene]"
+    domains:
+      - "scene"
 
   # # timers
   # - "(set|start|create) [a] timer for {seconds} seconds"
