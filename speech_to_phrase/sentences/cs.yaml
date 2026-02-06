@@ -15,6 +15,17 @@ language: "cs"
 #     - "pink"
 #     - "turquoise"
 
+expansion_rules:
+  zapnout: "zapn(i|out)"
+  vypnout: "vypn(i|out)"
+  rozsvitit: "(rozsviť|rozsvítit)"
+  zhasnout: "zhasn(i|out)"
+  nastavit: "nastav[it]"
+  zmenit: "změ(ň|nit)"
+  ztlumit: "(ztlu(m|it)|snížit|sniž)"
+  zvysit: "zv(yš|ýšit)"
+  brightness: "[na] {brightness}[%| procent]"
+
 data:
   # cancel
   - "[to] nevadí"
@@ -48,15 +59,20 @@ data:
 
   # lights (name)
   - sentences:
-      - "(zapn|vypn)(i|out) světlo {name}"
+      - "<zapnout> světlo {name}"
+      - "<rozsvitit> [světlo] {name}"
+      - "<vypnout> světlo {name}"
+      - "<zhasnout> [světlo] {name}"
     domains:
       - "light"
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
+
+  # lights (name) with brightness
+  - sentences:
+      - "(<nastavit>|<zmenit>) jas {name} <brightness>"
+      - "(<ztlumit>|<zvysit>) [jas] {name} <brightness>"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
   # - sentences:
   #     - "set [the] [color of [the]] {name} to {color}"
