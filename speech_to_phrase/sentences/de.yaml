@@ -1,454 +1,175 @@
 ---
-language: de
+language: "de"
 
 lists:
   color:
-    values:
-      - "wei(ß|ss)"
-      - "schwarz"
-      - "rot"
-      - "orange"
-      - "gelb"
-      - "grün"
-      - "blau"
-      - "violett"
-      - "braun"
-  brightness:
-    range:
-      from: 10
-      to: 100
-      step: 10
-  seconds:
-    range:
-      from: 10
-      to: 100
-      step: 10
-  minutes_small:
-    range:
-      from: 2
-      to: 9
-  minutes_large:
-    range:
-      from: 10
-      to: 100
-      step: 10
-  minutes_extra:
-    values:
-      - in: "fünfzehn"
-        out: 15
-      - in: "fünfundvierzig"
-        out: 45
-  minutes_half:
-    values:
-      - in: "einhalb"
-        out: 30
-  hours_half:
-    values:
-      - in: "einhalb"
-        out: 30
-  hours_special:
-    values:
-      - in: "viertel"
-        out: 15
-      - in: "halbe"
-        out: 30
-      - in: "dreiviertel"
-        out: 45
-  hours:
-    range:
-      from: 1
-      to: 24
-  cover_classes:
-    values:
-      - "Markise[n]"
-      - "(Jalousie[n]|Rollo[s]|Beschattung[en])"
-      - "(Gardine[n]|Vorhang|Vorhänge)"
-      - "Tür[e|en]"
-      - "(Garagentür[e|en]|Garagentor[e])"
-      - "Tor[e]"
-      - "Schirm[e]"
-      - "(Roll[l](a|ä)den|Rollo[s]|Beschattung[en])"
-      - "Fenster"
+    - "weiss"
+    - "schwarz"
+    - "rot"
+    - "orange"
+    - "gelb"
+    - "grün"
+    - "blau"
+    - "violett"
+    - "braun"
 
 expansion_rules:
-  name: "[der|die|das|dem|den|des] {name}"
-  area: "[im|in der|in de[n|m]] {area}"
-  floor: "[im|in de[n|m]] {floor}"
-  area_floor: "<area>|<floor>"
-  alle: "die|alle|sämtliche"
-  alle_lichter: "das Licht|<alle> Lichter"
-  schalte: "(mach|schalt)[e]"
-  brightness: "{brightness} Prozent"
-  # Timers
   timer_set: "starte|setze|stelle|erstelle"
   timer_cancel: "beende|stoppe"
-  # Media Players
-  naechster: "nächste[r|s|n]"
-  starte: "(starte|spiele)"
-  song: "(Titel|Lied|Song|Track|Stück)"
 
-intents:
-  # nevermind
-  HassNevermind:
-    data:
-      - sentences:
-          - "vergiss es"
-          - "egal"
-          - "abbrechen"
-          - "Abbruch"
-          - "[doch ](nicht[s]|nix)"
-        metadata:
-          slot_combination: "default"
+wildcards:
+  - "todo_item"
 
-  # date, time, weather
-  HassGetCurrentTime:
-    data:
-      - sentences:
-          - "wie spät ist es"
-          - "(wie viel|wieviel) uhr (ist es|haben wir[ es])[ jetzt]"
-        metadata:
-          slot_combination: "default"
+data:
+  # cancel
+  - "vergiss es"
 
-  HassGetCurrentDate:
-    data:
-      - sentences:
-          - "(welchen tag|welches datum) haben wir heute"
-          - "(welcher tag|welches datum) ist heute"
-        metadata:
-          slot_combination: "default"
+  # date and time
+  - "wie spät ist es"
+  - "wie viel uhr (ist es|haben wir)[ jetzt]"
+  - "(welchen tag|welches datum) haben wir heute"
+  - "(welcher tag|welches datum) ist heute"
 
-  HassGetWeather:
-    data:
-      - sentences:
-          - "wie ist das Wetter"
-        metadata:
-          slot_combination: "default"
+  # weather
+  - "wie ist das Wetter"
+  - sentences:
+      - "wie ist das Wetter (für|in) {name}"
+      - "was für[ ein] Wetter (ist|hat es) in {name}"
+    domains:
+      - "weather"
 
-      - sentences:
-          - "wie ist das Wetter (für|in) <name>"
-          - "wie ist das <name>[er|s] Wetter"
-          - "was für[ ein] Wetter (ist|hat es) in <name>"
-        requires_context:
-          domain: "weather"
-        slots:
-          domain: "weater"
-        metadata:
-          slot_combination: "name_only"
+  # # lights (area)
+  - "[alle|die] lichter (an|ein|aus)(schalten|machen) "
+  - "(schalt|mach)[e] [alle|die] lichter (an|ein|aus)"
+  - "(schalt|mach)[e] [alle|die] lichter in [der|dem] {area} (an|ein|aus)"
+  - "schalt[e] {name} (an|ein|aus)"
+  - "licht[er] [(an|ein|aus|einschalten|schalten|machen|ausschalten)]"
 
-  # turn on/off
-  # open/close
-  # lock/unlock
-  HassTurnOn:
-    data:
-      # turn on all lights
-      - sentences:
-          - "<schalte> <alle_lichter> (an|ein)"
-        slots:
-          domain: "light"
-        metadata:
-          slot_combination: "default"
+  - "stell[e] [die] helligkeit [hier] auf {brightness} prozent"
+  - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
+  - "{area} helligkeit auf {brightness} prozent [stellen]"
 
-      # turn on named light or switch
-      # named light or switch in area and
-      # named light or switch on floor
-      - sentences:
-          - "<schalte> <name> (an|ein)"
-          - "<schalte> <name> <area_floor> (an|ein)"
-          - "<schalte> <area_floor> <name> (an|ein)"
-        requires_context:
-          domain:
-            - "light"
-            - "switch"
-            - "fan"
-            - "media_player"
-            - "input_boolean"
+  - "stell[e] [die] lichter [hier] auf {color}"
+  - "stell[e] [[die] farbe von den] lichtern [hier] auf {color}"
+  - "stell[e] [die] [farbe von [den]] {area} lichtern auf {color}"
+  - "stell[e] [die] {area} lichter auf {color}"
+  - "stell[e] lichter in [der|dem] {area} auf {color}"
 
-      # turn on all lights in area or on floor
-      - sentences:
-          - "<schalte> <alle_lichter> <area_floor> (an|ein)"
-          - "<schalte> <area_floor> <alle_lichter> (an|ein)"
+  # # lights (name)
+  - sentences:
+      - "stell[e] [die] helligkeit von [der|dem] {name} auf {brightness} prozent"
+      - "stell[e] [die] {name} helligkeit auf {brightness} prozent"
+      - "{name} auf {brightness} prozent"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
-      # open named cover or valve
-      # named cover or valve in area and
-      # named cover or valve on floor
-      - sentences:
-          - "öffne <name>"
-          - "mach[e] <name> auf"
-          - "öffne <name> <area_floor>"
-          - "öffne <area_floor> <name>"
-          - "mach[e] <name> <area_floor> auf"
-          - "mach[e] <area_floor> <name> auf"
-        requires_context:
-          domain:
-            - cover
-            - valve
+  - sentences:
+      - "stell[e] [die] [farbe von [der|dem]] {name} auf {color}"
+      - "stell[e] [die] {name} [farbe] auf {color}"
+      - "{name} [farbe] auf {color}"
+    domains:
+      - "light"
+    light_supports_color: true
 
-      # open all covers in area or on floor
-      - sentences:
-          - "öffne <alle> {cover_classes:device_class} <area_floor>"
-          - "öffne <area_floor> <alle> {cover_classes:device_class}"
-          - "mach[e] <alle> {cover_classes:device_class} <area_floor> auf"
-          - "mach[e] <area_floor> <alle> {cover_classes:device_class} auf"
+  # doors and windows
+  - "(öffne|schließ[e]) [die] (jalousien|vorhänge|fenster|rollläden) in [der|dem] {area}"
+  - "(öffne|schließ[e]) [die] {area} (jalousien|vorhänge|fenster|rollläden)"
+  - "[die] (jalousien|vorhänge|fenster|rollläden) (in [der|dem]| im) {area} (öffnen|schließen)"
+  - "[die] {area} (jalousien|vorhänge|fenster|rollläden) (öffnen|schließen)"
+  - sentences:
+      - "(öffne|schließ[e]) [den|die] {name}"
+      - "(öffne|schließ[e]) [den|die] {name} in [der|dem] {area}"
+      - "ist [der|die|das] {name} (offen|geschlossen)"
+    domains:
+      - "cover"
 
-      # lock
-      - sentences:
-          - "(schließ|sperr)[e] <name> ab"
-        requires_context:
-          domain: lock
+  # # locks
+  # - sentences:
+  #     - "(lock|unlock) [the] {name}"
+  #     - "is [the] {name} (locked|unlocked)"
+  #   domains:
+  #     - "lock"
 
-      # script
-      - sentences:
-          - "führe <name> aus"
-          - "starte <name>"
-        requires_context:
-          domain: script
+  # generic on/off
+  - sentences:
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus)"
+      - "(schalt|mach)[e] (an|ein|aus) [den|die|das] {name}"
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
+      - "(schalt|mach)[e] [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
 
-      # scene
-      - sentences:
-          - "aktiviere <name>"
-        requires_context:
-          domain: scene
+  # scripts and scenes
+  - sentences:
+      - "aktiviere {name} Skript"
+    domains:
+      - "script"
 
-  HassTurnOff:
-    data:
-      # turn off all lights
-      - sentences:
-          - "<schalte> <alle_lichter> aus"
-
-      # turn off named light or switch
-      # named light or switch in area and
-      # named light or switch on floor
-      - sentences:
-          - "<schalte> <name> aus"
-          - "<schalte> <name> <area_floor> aus"
-          - "<schalte> <area_floor> <name> aus"
-        requires_context:
-          domain:
-            - light
-            - switch
-            - fan
-            - media_player
-            - input_boolean
-
-      # turn off all lights in area or on floor
-      - sentences:
-          - "<schalte> <alle_lichter> <area_floor> aus"
-          - "<schalte> <area_floor> <alle_lichter> aus"
-
-      # close named cover or valve
-      # named cover or valve in area and
-      # named cover or valve on floor
-      - sentences:
-          - "schließ[e] <name>"
-          - "mach[e] <name> zu"
-          - "schließ[e] <name> <area_floor>"
-          - "schließ[e] <area_floor> <name>"
-          - "mach[e] <name> <area_floor> zu"
-          - "mach[e] <area_floor> <name> zu"
-        requires_context:
-          domain:
-            - cover
-            - valve
-
-      # close all covers in area or on floor
-      - sentences:
-          - "schließ[e] <alle> {cover_classes:device_class} <area_floor>"
-          - "schließ[e] <area_floor> <alle> {cover_classes:device_class}"
-          - "mach[e] <alle> {cover_classes:device_class} <area_floor> zu"
-          - "mach[e] <area_floor> <alle> {cover_classes:device_class} zu"
-
-      # unlock
-      - sentences:
-          - "entsperr[e] <name>"
-          - "schließ[e] <name> auf"
-        requires_context:
-          domain: lock
-
-  # light brightness/color
-  HassLightSet:
-    data:
-      # brightness
-      - sentences:
-          - "setze [die ]Helligkeit[ von] <name> auf <brightness>"
-          - "stelle [die ]Helligkeit[ von] <name> auf <brightness>[ ein]"
-          - "setze[ von] <name> [die ]Helligkeit auf <brightness>"
-          - "stelle[ von] <name> [die ]Helligkeit auf <brightness>[ ein]"
-        requires_context:
-          domain: light
-
-      - sentences:
-          - "setze [die ]Helligkeit <area_floor> auf <brightness>"
-          - "stelle [die ]Helligkeit <area_floor> auf <brightness>[ ein]"
-          - "setze <area_floor> [die ]Helligkeit auf <brightness>"
-          - "stelle <area_floor> [die ]Helligkeit auf <brightness>[ ein]"
-
-      # color
-      - sentences:
-          - "setze [die ]Farbe[ von] <name> auf {color}"
-          - "setze[ von] <name> [die ]Farbe auf {color}"
-          - "stelle [die ]Farbe[ von] <name> auf {color}[ ein]"
-          - "stelle[ von] <name> [die ]Farbe auf {color}[ ein]"
-        requires_context:
-          domain: light
-
-      - sentences:
-          - "setze [die ]Farbe (der|aller) Lichter <area_floor> auf {color}"
-          - "stelle [die ]Farbe (der|aller) Lichter <area_floor> auf {color}[ ein]"
+  - sentences:
+      - "aktiviere {name} Szene"
+    domains:
+      - "scene"
 
   # timers
-  HassStartTimer:
-    data:
-      # seconds
-      - sentences:
-          - "<timer_set> [einen] Timer (auf|für) {seconds} Sekunden"
+  - "<timer_set> [einen|ein] {seconds} Sekunden Timer"
+  - "<timer_set> [einen|ein] {minutes} Minuten Timer"
+  - "<timer_set> [einen|ein] {hours} Stunden Timer"
+  - "<timer_set> [einen|ein] Timer (auf|für) {seconds} Sekunden"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Minute"
+  - "<timer_set> [einen|ein] Timer (auf|für) {minutes} Minuten"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde"
+  - "<timer_set> [einen|ein] Timer (auf|für) {hours} Stunden"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde und 1 Minute"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde und {minutes} Minuten"
+  - "<timer_set> [einen|ein] Timer (auf|für) {hours} Stunden und {minutes} Minuten"
 
-      # minutes
-      - sentences:
-          - "<timer_set> [einen] Timer (auf|für) eine Minute"
-          - "<timer_set> [einen] Timer (auf|für) {minutes_small} Minuten"
-          - "<timer_set> [einen] Timer (auf|für) {minutes_large} Minuten"
-          - "<timer_set> [einen] Timer (auf|für) {minutes_extra} Minuten"
+  - "<timer_cancel>[ (den|meinen)] Timer"
+  - "<timer_cancel> (alle[ meine]|sämtliche) Timer"
+  - "pausiere[ (den|meinen)] Timer"
+  - "setze[ (den|meinen)] Timer fort"
+  - "Timer Status"
+  - "Status (des|meines) Timers"
+  - "wie lange läuft (der|mein) Timer noch"
 
-      # # minutes half
-      # - sentences:
-      #     - "<timer_set> [einen] Timer (auf|für) ein{minutes_half:seconds} Minuten"
-      #     - "<timer_set> [einen] Timer (auf|für) {minutes_small}{minutes_half:seconds} Minuten"
-      #     - "<timer_set> [einen] Timer (auf|für) {minutes_large}{minutes_half:seconds} Minuten"
-      #     - "<timer_set> [einen] Timer (auf|für) {minutes_extra}{minutes_half:seconds} Minuten"
-
-      # hours
-      - sentences:
-          - "<timer_set> [einen] Timer (auf|für) eine Stunde"
-          - "<timer_set> [einen] Timer (auf|für) {hours} Stunden"
-          - "<timer_set> [einen] Timer (auf|für) eine {hours_special:minutes} Stunde"
-
-      # # hours half
-      # - sentences:
-      #     - "<timer_set> [einen] Timer (auf|für) einein{hours_half:minutes} Stunden"
-      #     - "<timer_set> [einen] Timer (auf|für) {hours}{hours_half:minutes} Stunden"
-
-      # hours + minutes
-      - sentences:
-          - "<timer_set> [einen] Timer (auf|für) eine Stunde und eine Minute"
-          - "<timer_set> [einen] Timer (auf|für) {hours} Stunden und {minutes_small} Minuten"
-          - "<timer_set> [einen] Timer (auf|für) {hours} Stunden und {minutes_large} Minuten"
-          - "<timer_set> [einen] Timer (auf|für) {hours} Stunden und {minutes_extra} Minuten"
-
-  HassCancelTimer:
-    data:
-      - sentences:
-          - "<timer_cancel>[ (den|meinen)] Timer"
-
-  HassCancelAllTimers:
-    data:
-      - sentences:
-          - "<timer_cancel> (alle[ meine]|sämtliche) Timer"
-
-  HassPauseTimer:
-    data:
-      - sentences:
-          - "pausiere[ (den|meinen)] Timer"
-          - "halte[ (den|meinen)] Timer an"
-
-  HassUnpauseTimer:
-    data:
-      - sentences:
-          - "setze[ (den|meinen)] Timer fort"
-
-  HassTimerStatus:
-    data:
-      - sentences:
-          - "Timer Status"
-          - "Status (des|meines) Timers"
-          - "wie lange läuft (der|mein) Timer noch"
-
-  # media players
-  HassMediaPause:
-    data:
-      - sentences:
-          - "[[die ]Musik ](pausieren|pause|anhalten|stopp[en]|halt)"
-          - "(pausiere|stoppe)[ die] Musik"
-          - "halt[e][ die] Musik an"
-
-      - sentences:
-          - "(pausiere|pause|stopp[e]) <name>"
-          - "halte <name> an"
-          - "<name> (pausieren|pause|anhalten|stopp|halt)"
-        requires_context:
-          domain: media_player
-
-  HassMediaUnpause:
-    data:
-      - sentences:
-          - "fortsetzen|weiter[ (machen|laufen lassen)]"
-
-      - sentences:
-          - "<name> fortsetzen|weiter[ (machen|laufen lassen)]"
-        requires_context:
-          domain: media_player
-
-  HassMediaNext:
-    data:
-      - sentences:
-          - "[<starte> ]nächsten (Titel|Song|Track)"
-          - "[<starte> ]nächstes (Lied|Stück)"
-          - "nächster (Titel|Song|Track)"
-
-      - sentences:
-          - "[<starte> ]nächsten (Titel|Song|Track)[ (an|am|auf)] <name>"
-          - "[<starte> ]nächstes (Lied|Stück)[ (an|am|auf)] <name>"
-          - "nächster (Titel|Song|Track)[ (an|am|auf)] <name>"
-        requires_context:
-          domain: media_player
+  # Medien
+  - "(pause|fortsetzen)"
+  - "nächster [(Titel|Eintrag)]"
+  - "überspringe [[diesen ](Titel|Song)]"
+  - sentences:
+      - "(pause|fortsetzen) [den] {name}"
+      - "nächster [(Titel|Eintrag)] auf [dem] {name}"
+      - "überspringe [[den ](Titel|Song)] auf [dem] {name}"
+    domains:
+      - "media_player"
 
   # temperature
-  HassGetTemperature:
-    data:
-      - sentences:
-          - "wie[ (hoch|niedrig)] ist die Temperatur[ <area_floor>]"
-          - "wie[ (hoch|niedrig)] ist <area_floor> die Temperatur"
-          - "wie[ (hoch|niedrig)] ist die Temperatur (von dem|vom) Thermostat <area_floor>"
-          - "wie[ (hoch|niedrig)] ist die Temperatur des Thermostat[s] <area_floor>"
-          - "wie (warm|kalt) ist es <area_floor>"
-          - "(wieviel|wie viel) Grad[ (hat|sind)] es <area_floor>"
+  - "wie[ (hoch|niedrig)] ist die temperatur"
+  - "wie[ (hoch|niedrig)] ist die temperatur (in|im) [der|dem] {area}"
+  - "wie[ (hoch|niedrig)] ist die {area} temperatur"
+  - sentences:
+      - "wie (warm|kalt) ist es"
+      - "wie warm ist [(der|die|das)] {name}"  
+    domains:
+      - "climate"
 
-      - sentences:
-          - "Wie[ (hoch|niedrig)] ist die Temperatur[ (von dem|vom)] <name>"
-          - "Wie[ (hoch|niedrig)] ist die Temperatur des <name>[s]"
-        requires_context:
-          domain: climate
+  # sensors
+  - sentences:
+      - "wie[ (hoch|niedrig)] ist die {name} temperatur"
+      - "wie[ (hoch|niedrig)] ist die temperatur von [der|dem] {name}"
+    domains:
+      - "sensor"
 
-  # questions
-  HassGetState:
-    data:
-      # doors, etc.
-      - sentences:
-          - "ist <name> {cover_states:state}"
-        requires_context:
-          domain:
-            - cover
-            - valve
-        lists:
-          cover_states:
-            values:
-              - in: "(offen|auf|oben|geöffnet)"
-              - in: "(geschlossen|zu|unten)"
-
-      # locks
-      - sentences:
-          - "ist <name> {lock_states:state}"
-        requires_context:
-          domain: lock
-        lists:
-          lock_states:
-            values:
-              - in: "(([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)"
-              - in: "(nicht (([ab|zu]ge|ver)(schlossen|sperrt)|verriegelt)|ent(riegelt|sperrt)|aufge(sperrt|schlossen))"
-
-      # sensors, etc.
-      - sentences:
-          - "(wie|was) ist [der (Zustand|Wert) von] <name>"
-        requires_context:
-          domain:
-            - sensor
-            - binary_sensor
+  # todo
+  - sentences:
+      - "füge {todo_item} der {name} [Liste] hinzu"
+      - "füge {todo_item} auf [die] {name} [Liste] hinzu"
+      - "füge {todo_item} auf [die] [Liste] {name} hinzu"
+      - "setze {todo_item} auf [die] {name} [Liste]"
+      - "setze {todo_item} auf [die] [Liste] {name}"
+    domains:
+      - "todo"
