@@ -10,6 +10,7 @@ fixtures:
   areas:
     - name: "Küchen"
     - name: "Büro"
+    - name: "Garage"
 
   entities:
     - name: "New York"
@@ -40,3 +41,6 @@ fixtures:
 
     - name: "Haushalt"
       domain: "todo"
+
+    - name: "Lautsprecher"
+      domain: "media_player"

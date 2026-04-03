@@ -43,8 +43,11 @@ data:
   - "[alle|die] (lichter|lampen) (an|ein|aus)(schalten|machen)"
   - "(schalt|mach)[e] [alle|die] (lichter|lampen) (an|ein|aus)"
   - "(schalt|mach)[e] [alle|die] (lichter|lampen) in [der|dem] {area} (an|ein|aus)"
-  - "schalt[e] {name} (an|ein|aus)"
   - "[schalte ][ das]licht[er] [(an|ein|aus|einschalten|schalten|machen|ausschalten)]"
+  - sentences:
+      - "schalt[e] {name} (an|ein|aus)"
+    domains:
+      - "light"
 
   - "stell[e] [die] helligkeit [hier] auf {brightness} prozent"
   - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
@@ -156,9 +159,9 @@ data:
   - "wie[ (hoch|niedrig)] ist die temperatur"
   - "wie[ (hoch|niedrig)] ist die temperatur (in|im) [der|dem] {area}"
   - "wie[ (hoch|niedrig)] ist die {area} temperatur"
+  - "wie (warm|kalt) ist es[ hier]"
   - sentences:
-      - "wie (warm|kalt) ist es[ hier]"
-      - "wie warm ist [(der|die|das)] {name}"  
+      - "wie warm ist [(der|die|das)] {name}"
     domains:
       - "climate"
 

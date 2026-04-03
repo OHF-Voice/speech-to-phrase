@@ -10,19 +10,21 @@ sentences:
   - "wie viel uhr ist es"
   - "welchen tag haben wir heute"
   - "welches datum ist heute"
+  - "Was ist heute für ein Tag"
 
   # weather
   - "wie ist das Wetter"
   - "wie ist das Wetter in New York"
-  - "was für Wetter hat es in New York"
 
   # doors and windows
-  - "öffne das Garagentor"
-  - "schließ das Garagentor"
+  - "öffne die Garagentor"
+  - "schließ die Garagentor"
+  - "öffne Garagentor in Garage"
 
   # generic on/off
   - "schalte die Lampe an"
   - "mach die Lampe aus"
+  - "schalte licht aus"
 
   # scripts and scenes
   - "aktiviere Batteriewarnung Skript"
@@ -30,6 +32,7 @@ sentences:
 
   # timers
   - "starte Timer auf 30 Sekunden"
+  - "starte 30 Sekunden Timer"
   - "setze einen Timer für 1 Minute"
   - "stelle Timer auf 5 Minuten"
   - "erstelle einen Timer auf 1 Stunde"
@@ -51,9 +54,10 @@ sentences:
 
   # media
   - "pause"
-  - "Weiter"
+  - "pause Lautsprecher"
+  # - "Weiter"
   - "nächster Titel"
-  - "nächster Song"
+  # - "nächster Song"
 
   # todo
   - "füge Putzen der Haushalt Liste hinzu"
