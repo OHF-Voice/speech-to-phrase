@@ -1,0 +1,165 @@
+---
+language: "sv"
+
+lists:
+  color:
+    - "vit"
+    - "svart"
+    - "röd"
+    - "orange"
+    - "gul"
+    - "grön"
+    - "blå"
+    - "lila"
+    - "brun"
+    - "rosa"
+    - "turkos"
+
+wildcards:
+  - "todo_item"
+
+data:
+  # cancel
+  - "stopp|stoppa|sluta|avsluta"
+  - "glöm det"
+  - "strunt|strunta i det"
+  - "skit i det"
+
+  # date and time
+  - "(vad är|hur mycket är) klockan [nu]"
+  - "(vad är|hur mycket) klockan precis [nu]"
+  - "(vad är|vilket är) datumet|datum [idag]"
+  - "(vad är|vilket är) dagens datum"
+
+  # weather
+  - "(vad är det för|hur är) vädret|väder [nu]"
+  - sentences:
+      - "(vad är det för|hur är) {name} väder [som]"
+      - "(vad är det för|hur är) vädret i {name}"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(tänd|släck) [lampan|larmorna|ljuset] [här]"
+  - "(tänd|släck) {area} [lampan|larmorna|ljuset]"
+  - "(tänd|släck) [lampan|larmorna|ljuset] i {area}"
+  - "(tänd|släck) alla [lampan|larmorna|ljuset] i {area}"
+  - "(ändra|sätt|ställ|ställ in) [ljusstyrkan|ljuset] [här] till {brightness} procent"
+  - "(ändra|sätt|ställ|ställ in) [ljusstyrkan|ljuset] i {area} till {brightness} procent"
+  - "(ändra|sätt|ställ|ställ in) {area} [ljusstyrkan|ljuset] till {brightness} procent"
+  - "(ändra|sätt|ställ|ställ in) ljuset/lamporna/lampan [här inne] till {color}"
+  - "(ändra|sätt|ställ|ställ in) färgen på ljuset/lamporna/lampan [här inne] till {color}"
+  - "(ändra|sätt|ställ|ställ in) {area} lights to {color}"
+  - "(ändra|sätt|ställ|ställ in) färgen (i|på) {area} ljus/lamporna/lampa till {color}"
+  - "(ändra|sätt|ställ|ställ in) färgen (i|på) {area} till {color}"
+
+  # lights (name)
+  - sentences:
+      - "(ändra|sätt|ställ|ställ in) [ljusstyrkan|ljuset] på {name} till {brightness} percent"
+      - "(ändra|sätt|ställ|ställ in) {name} [ljusstyrkan|ljuset] till {brightness} percent"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "(ändra|sätt|ställ|ställ in) färgen på {name} till {color}"
+      - "(ändra|sätt|ställ|ställ in) {name} [färg] till {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(öppna|stäng) (rullgardin|rullgardinen|persienn|draperi|jalusi|fönster) i {area}"
+  - "(öppna|stäng) {area} (rullgardin|rullgardinen|persienn|draperi|jalusi|fönster)"
+  - sentences:
+      - "(öppna|stäng) {name}"
+      - "(öppna|stäng) {name} [i] {area}"
+      - "är {name} (öppen|stängd)"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "(lås|lås upp) {name}"
+      - "är {name} (låst|upplåst)"
+    domains:
+      - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(stäng av|slå på) {name}"
+      - "ändra {name} till (avslagen|påslagen)"
+      - "(stäng av|slå på) {name} i {area}"
+      - "ändra {name} i {area} till (avslagen|påslagen)"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts and scenes
+  - sentences:
+      - "(kör|trigga) {name} [skriptet]"
+    domains:
+      - "script"
+
+  - sentences:
+      - "(aktivera) {name} [scenen]"
+    domains:
+      - "scene"
+
+  # timers
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {seconds} sekunder"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på 1 minut"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {minutes} minut|minuter"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på 1 minute och {seconds} sekund|sekunder"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {minutes} minut|minuter{seconds} sekund|sekunder"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {minutes} och en halv minut|minuter"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på 1 hour"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {hours} timmar"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {hours} och en halv timme"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på 1 timme och 1 minut"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på 1 timme och {minutes} minut|minuter"
+  - "(starta|börja|påbörja|sätta igång) [en] timer för|på {hours} timme och {minutes} minut|minuter"
+
+  - "(stopp|stoppa|sluta|avsluta) [min|vår] timer"
+  - "(stopp|stoppa|sluta|avsluta) alla [mina|våra] timers"
+  - "(pausa|fortsätt) [min|vår] timer"
+  - "timer status"
+  - "[vad är] status på [min|vår] timer[s]"
+  - "[hur mycket] tid [är] kvar på [min|vår] timer[s]"
+
+  # media
+  - "(pausa|fortsätt)"
+  - "nästa [(spår|låt|sång)]"
+  - "(skippa|hoppa över) [[detta|denna] (spår|låt|sång)]"
+  - sentences:
+      - "(pausa|fortsätt) {name}"
+      - "nästa [(spår|låt|sång)] på|i|för {name}"
+      - "(skippa|hoppa över) [[detta|denna] (spår|låt|sång)] på|i|för {name}"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "(vad är|hur mycket är) (tempratur|tempraturen)"
+  - "(vad är|hur mycket är) (tempratur|tempraturen) {area}"
+  - "(vad är|hur mycket är) {area} (tempratur|tempraturen)"
+  - sentences:
+      - "(vad är|hur mycket är) {name} (tempratur|tempraturen)"
+      - "(vad är|hur mycket är) (tempratur|tempraturen) på|i {name}"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "(vad är|hur mycket är) värdet på|i {name}"
+      - "(vad står|hur mycket står) {name} [som|i|på]"
+    domains:
+      - "sensor"
+
+  # todo
+  - sentences:
+      - "Lägg till|med {todo_item} [till|i] [min|vår] {name}"
+    domains:
+      - "todo"
