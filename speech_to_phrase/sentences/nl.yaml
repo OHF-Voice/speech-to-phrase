@@ -167,6 +167,6 @@ data:
 
   # sensors
   - sentences:
-      - "wat is de status van [de|het] {name}"
+      - "wat is de [huidige] (status|waarde) van [de|het] {name}"
     domains:
       - "sensor"
