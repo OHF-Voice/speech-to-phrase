@@ -1,0 +1,124 @@
+---
+language: "ur"
+
+lists:
+  color:
+    - "سفید"
+    - "سیاہ"
+    - "سرخ"
+    - "سنہری"
+    - "پیلا"
+    - "سبز"
+    - "نیلا"
+    - "جامنی"
+    - "بھورا"
+    - "گلابی"
+    - "فیروزی"
+
+wildcards:
+  - "todo_item"
+
+data:
+  # cancel
+  - "کچھ نہیں"
+
+  # date and time
+  - "(اب|ابھی) کیا وقت ہے"
+  - "آج کا وقت کیا ہے"
+  - "آج کی تاریخ کیا ہے"
+
+  # weather
+  - "(موسم|آب و ہوا) کیسا ہے"
+  - sentences:
+      - "{name} میں موسم کیسا ہے"
+      - "{name} کا موسم کیسا ہے"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "یہاں لائٹس (آن|بند) کرو"
+  - "تمام {area} کی لائٹس (آن|بند) کرو"
+  - "اس {area} کی لائٹس {color} پر سیٹ کرو"
+  - "اس {area} کی چمک {brightness} فیصد پر سیٹ کرو"
+
+  # doors and windows
+  - "(کھولو|بند کرو) {area} کے پردے"
+  - "(کھولو|بند کرو) {area} کی کھڑکیاں"
+  - sentences:
+      - "(کھولو|بند کرو) {name}"
+      - "(کھولو|بند کرو) {name} {area} میں"
+      - "{name} (کھلا|بند) ہے"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "(لاک|انلاک) {name}"
+      - "{name} (لاک|انلاک) ہے"
+    domains:
+      - "lock"
+
+  # generic on/off
+  - sentences:
+      - "{name} (آن|بند) کرو"
+      - "{name} {area} میں (آن|بند) کرو"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts and scenes
+  - sentences:
+      - "{name} اسکرپٹ چلاؤ"
+    domains:
+      - "script"
+
+  - sentences:
+      - "{name} منظر فعال کرو"
+    domains:
+      - "scene"
+
+  # timers
+  - "(سیٹ|شروع|بنا) کرو ٹائمر {seconds} سیکنڈز کے لیے"
+  - "(سیٹ|شروع|بنا) کرو ٹائمر 1 منٹ کے لیے"
+  - "(سیٹ|شروع|بنا) کرو ٹائمر {minutes} منٹ کے لیے"
+  - "(سیٹ|شروع|بنا) کرو ٹائمر {minutes} منٹ اور {seconds} سیکنڈز کے لیے"
+  - "(منسوخ|بند) کرو ٹائمر"
+  - "(منسوخ|بند) کرو تمام ٹائمرز"
+  - "(مؤقف|دوبارہ شروع) کرو ٹائمر"
+  - "ٹائمر کی حیثیت"
+  - "میرے ٹائمرز پر کتنا وقت باقی ہے"
+
+  # media
+  - "(مؤقف|دوبارہ شروع)"
+  - "اگلا ٹریک"
+  - "اس گانے کو چھوڑ دو"
+  - sentences:
+      - "(مؤقف|دوبارہ شروع) {name}"
+      - "اگلا ٹریک {name} پر"
+      - "اس گانے کو چھوڑ دو {name} پر"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "(درجہ حرارت|ٹمپ) کیا ہے"
+  - "(درجہ حرارت|ٹمپ) {area} میں کیا ہے"
+  - sentences:
+      - "(درجہ حرارت|ٹمپ) {name} کیا ہے"
+      - "(درجہ حرارت|ٹمپ) {name} کا کیا ہے"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "{name} کی قیمت کیا ہے"
+    domains:
+      - "sensor"
+
+  # todo
+  - sentences:
+      - "{todo_item} کو {name} میں شامل کرو"
+    domains:
+      - "todo"
