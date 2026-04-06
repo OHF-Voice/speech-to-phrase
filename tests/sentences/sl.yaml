@@ -5,11 +5,107 @@ sentences:
   # cancel
   - "prekini"
   - "prekliči"
+  - "pozabi"
 
   # date and time
   - "koliko je ura"
   - "kateri dan je danes"
 
+  # weather
+  - "vreme"
+  - "kakšno je vreme"
+  - "kakšno je vreme v mestu New York"
+  - "kakšno je vreme v New York"
+
+  # lights (area)
+  - "prižgi luč tu"
+  - "ugasni luč tukaj"
+  - "prižgi tukaj"
+  - "prižgi vse Kuhinja luči"
+  - "ugasni luči v Kuhinja"
+  - "nastavi svetlost tukaj na 50 odstotkov"
+  - "nastavi svetlost Kuhinja na 25 odstotkov"
+  - "nastavi Kuhinja na 100 odstotkov svetlobe"
+  - "nastavi luč tukaj na rdečo"
+  - "nastavi barvo luči v tem prostoru na zeleno"
+  - "nastavi barvo luči v Kuhinja na modro barvo"
+  - "nastavi Kuhinja luči na belo"
+  - "nastavi luči v Kuhinja na rumeno barvo"
+
+  # lights (name)
+  - "nastavi svetlost luč v spalnici na 75 odstotkov"
+  - "nastavi lučko v spalnici na svetlost 10 odstotkov"
+  - "nastavi barvo luč v spalnici na vijolično"
+  - "nastavi lučko v spalnici na oranžno barvo"
+
+  # doors and windows
+  - "odpri rolete v Kuhinja"
+  - "zapri Kuhinja zavese"
+  - "odpri Garažna vrata"
+  - "zapri Garažna vrata"
+  - "odpri Garažna vrata v Kuhinja"
+  - "je Garažna vrata odprta"
+  - "je Garažna vrata zaprta"
+
+  # locks
+  - "zakleni Vhodna vrata"
+  - "odkleni Vhodna vrata"
+  - "je Vhodna vrata zaklenjena"
+  - "je Vhodna vrata odklenjena"
+
   # generic on/off
   - "vklopi luč v spalnici"
   - "izklopi luč v spalnici"
+  - "vklopi TV"
+  - "izklopi TV v Kuhinja"
+
+  # scripts and scenes
+  - "zaženi skripto Zabava"
+  - "zaženi skript Zabava"
+  - "aktiviraj Romantično sceno"
+
+  # timers
+  - "nastavi timer na 30 sekund"
+  - "nastavi timer na 1 minuto"
+  - "zaženi timer na 5 minut"
+  - "ustvari timer na 1 minuto in 30 sekund"
+  - "nastavi timer na 10 minut in 20 sekund"
+  - "nastavi timer na 5 in pol minute"
+  - "nastavi timer na 1 uro"
+  - "zaženi timer na 3 ur"
+  - "nastavi timer na 2 in pol ure"
+  - "nastavi timer na 1 uro in 1 minuto"
+  - "nastavi timer na 1 uro in 5 minut"
+  - "nastavi timer na 3 ur in 20 minut"
+
+  - "prekini timer"
+  - "ustavi vse časovnike"
+  - "pavziraj timer"
+  - "nadaljuj časovnik"
+  - "status časovnika"
+  - "status vseh časovnikov"
+  - "koliko časa je ostalo na časovniku"
+
+  # media
+  - "pavziraj"
+  - "nadaljuj"
+  - "naslednja pesem"
+  - "preskoči pesem"
+  - "pavziraj TV"
+  - "nadaljuj TV"
+  - "naslednja pesem na TV"
+  - "preskoči pesem na TV"
+
+  # temperature
+  - "kakšna je temperatura"
+  - "koliko je temp"
+  - "kakšna je temperatura v Kuhinja"
+  - "koliko je temp v Kuhinja"
+  - "kakšna je temperatura EcoBee"
+
+  # sensors
+  - "koliko je vrednost Zunanja vlažnost"
+  - "koliko je Zunanja vlažnost"
+
+  # todo
+  - "dodaj mleko na Nakupovalni seznam"
