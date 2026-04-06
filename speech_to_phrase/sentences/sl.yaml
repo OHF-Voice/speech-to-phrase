@@ -1,6 +1,9 @@
 ---
 language: "sl"
 
+wildcards:
+  - "todo_item"
+
 lists:
   color:
     - "bela|belo"
@@ -36,12 +39,12 @@ data:
   # lights (area)
   - "(prižgi|ugasni) luč [tu|tukaj]"
   - "(prižgi|ugasni) [tu|tukaj]"
-  - "prižgi|ugasni [vse| {area} luči"
-  - "prižgi|ugasni [vse| luči [v] {area}"
-  - "nastavi (svetlost|jakost svetlobe] [tu|tukaj] na {brightness} odstotkov"
+  - "(prižgi|ugasni) [vse] {area} luči"
+  - "(prižgi|ugasni) [vse] luči [v] {area}"
+  - "nastavi (svetlost|jakost svetlobe) [tu|tukaj] na {brightness} odstotkov"
   - "nastavi svetlost {area} na {brightness} odstotkov"
   - "nastavi {area} na {brightness} odstotkov [svetlobe]"
-  - "nastavi luč [in here] na {color}"
+  - "nastavi luč [tu|tukaj] na {color}"
   - "nastavi [barvo] (luč|luči) [tu|tukaj|v tem prostoru] na {color}"
   - "nastavi [barvo] (luč|luči) v {area} na {color} [barvo]"
   - "nastavi {area} (luč|luči) na {color}"
@@ -49,8 +52,8 @@ data:
 
   # lights (name)
   - sentences:
-      - "nastavi (svetlost|jakost svetlobe] {name} na {brightness} odstotkov"
-      - "nastavi {name} na  (svetlost|jakost svetlobe] {brightness} odstotkov"
+      - "nastavi (svetlost|jakost svetlobe) {name} na {brightness} odstotkov"
+      - "nastavi {name} na (svetlost|jakost svetlobe) {brightness} odstotkov"
     domains:
       - "light"
     light_supports_brightness: true
@@ -66,13 +69,13 @@ data:
   - "(odpri|zapri) (rolete|zavese|okna) [v] {area}"
   - "(odpri|zapri) {area} (rolete|zavese|okna)"
   - sentences:
-      - "(open|close) [the] {name}"
-      - "(open|close) [the] {name} in [the] {area}"
-      - "is [the] {name} (open|closed)"
+      - "(odpri|zapri) {name}"
+      - "(odpri|zapri) {name} [v] {area}"
+      - "je {name} (odprt|odprta|zaprt|zaprta)"
     domains:
       - "cover"
 
-  locks
+  # locks
   - sentences:
       - "(zakleni|odkleni)  {name}"
       - "je  {name} ((zaklenjen|zaklenjena)|(odklenjen|odklenjena))"
@@ -98,7 +101,7 @@ data:
       - "script"
 
   - sentences:
-      - "activate [the] {name} [scene]"
+      - "aktiviraj {name} [sceno]"
     domains:
       - "scene"
 
@@ -148,3 +151,9 @@ data:
       - "koliko je [vrednost] {name}"
     domains:
       - "sensor"
+
+  # todo
+  - sentences:
+      - "dodaj {todo_item} [na] {name} [seznam]"
+    domains:
+      - "todo"
