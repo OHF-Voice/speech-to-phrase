@@ -217,7 +217,7 @@ async def test_areas_and_floors() -> None:
                         {
                             "floor_id": "floor_1",
                             "name": "Floor 1",
-                            "aliases": ["Floor One"],
+                            "aliases": ["Floor One", None],
                         }
                     ]
                 },
@@ -226,7 +226,11 @@ async def test_areas_and_floors() -> None:
                 "config/area_registry/list",
                 {
                     "result": [
-                        {"area_id": "area_1", "name": "Area 1", "aliases": ["Area One"]}
+                        {
+                            "area_id": "area_1",
+                            "name": "Area 1",
+                            "aliases": ["Area One", None],
+                        }
                     ]
                 },
             ),
@@ -269,6 +273,7 @@ async def test_entity_names() -> None:
                             "light.friendly_name": {"conversation": True},
                             "light.registry_name": {"conversation": True},
                             "light.original_name": {"conversation": True},
+                            "light.aliases": {"conversation": True},
                         }
                     }
                 },
@@ -293,6 +298,10 @@ async def test_entity_names() -> None:
                         "light.friendly_name": {},
                         "light.registry_name": {"name": "Registry Name"},
                         "light.original_name": {"original_name": "Original Name"},
+                        "light.aliases": {
+                            "name": "Aliases Name",
+                            "aliases": ["Alias 1", None],
+                        },
                     }
                 },
             ),
@@ -305,15 +314,25 @@ async def test_entity_names() -> None:
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
         ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 3
+        assert len(ha_info.things.entities) == 4
 
         names: Set[str] = set()
         for entity in ha_info.things.entities:
             assert entity.domain == "light"
-            assert len(entity.names) == 1
-            names.add(entity.names[0])
+            if entity.entity_id == "light.aliases":
+                assert len(entity.names) == 2
+            else:
+                assert len(entity.names) == 1
 
-        assert names == {"Friendly Name", "Registry Name", "Original Name"}
+            names.update(entity.names)
+
+        assert names == {
+            "Friendly Name",
+            "Registry Name",
+            "Original Name",
+            "Aliases Name",
+            "Alias 1",
+        }
 
 
 @pytest.mark.asyncio

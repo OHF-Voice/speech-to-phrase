@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.3
+
+- Fix for null names
+
+## 1.4.2
+
+- More German and Spanish sentences
+
 ## 1.4.1
 
 - More robust parsing of `ask_question` answers from Home Assistant

@@ -1,3 +1,6 @@
+[MASTER]
+ignored-modules=torch,transformers
+
 [MESSAGES CONTROL]
 disable=
   format,

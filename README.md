@@ -66,7 +66,8 @@ A Docker container is available that can be connected to Home Assistant via the 
 ``` sh
 docker run -it -p 10300:10300 \
   -v /path/to/download/models:/models \
-  -v /path/to/train:/train rhasspy/wyoming-speech-to-phrase \
+  -v /path/to/train:/train \
+  rhasspy/wyoming-speech-to-phrase \
   --hass-websocket-uri 'ws://homeassistant.local:8123/api/websocket' \
   --hass-token '<LONG_LIVED_ACCESS_TOKEN>' \
   --retrain-on-start

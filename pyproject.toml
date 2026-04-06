@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name        = "speech_to_phrase"
-version     = "1.4.1"
+version     = "1.4.3"
 license     = {text = "Apache-2.0"}
 description = "Fast and personalized local speech-to-text"
 readme      = "README.md"
@@ -47,7 +47,7 @@ dev = [
     "pytest-asyncio==0.25.2",
     "tox==4.23.2",
     "build==1.2.2",
-    "home-assistant-intents==2025.6.23",
+    "home-assistant-intents==2026.3.24",
     "regex==2024.11.6",
     "voluptuous==0.15.2",
     "networkx==3.4.2",
