@@ -11,10 +11,7 @@ sentences:
   - "koliko je ura"
   - "kateri dan je danes"
 
-  # weather
-  - "vreme"
-  - "kakšno je vreme"
-  - "kakšno je vreme v mestu New York"
+  # weather (bare weather query fails HA; must include entity name)
   - "kakšno je vreme v New York"
 
   # lights (area)
@@ -33,9 +30,8 @@ sentences:
   - "nastavi luči v Kuhinja na rumeno barvo"
 
   # lights (name)
-  - "nastavi svetlost luč v spalnici na 75 odstotkov"
-  - "nastavi lučko v spalnici na svetlost 10 odstotkov"
-  - "nastavi barvo luč v spalnici na vijolično"
+  - "nastavi svetlost lučko v spalnici na 75 odstotkov svetlosti"
+  - "nastavi barvo lučko v spalnici na modro"
   - "nastavi lučko v spalnici na oranžno barvo"
 
   # doors and windows
@@ -64,19 +60,16 @@ sentences:
   - "zaženi skript Zabava"
   - "aktiviraj Romantično sceno"
 
-  # timers
-  - "nastavi timer na 30 sekund"
-  - "nastavi timer na 1 minuto"
-  - "zaženi timer na 5 minut"
-  - "ustvari timer na 1 minuto in 30 sekund"
-  - "nastavi timer na 10 minut in 20 sekund"
-  - "nastavi timer na 5 in pol minute"
-  - "nastavi timer na 1 uro"
-  - "zaženi timer na 3 ur"
-  - "nastavi timer na 2 in pol ure"
-  - "nastavi timer na 1 uro in 1 minuto"
-  - "nastavi timer na 1 uro in 5 minut"
-  - "nastavi timer na 3 ur in 20 minut"
+  # timers (use 'za' to match both STP and HA)
+  - "nastavi timer za 30 sekund"
+  - "nastavi timer za 1 minuto"
+  - "zaženi timer za 5 minut"
+  - "ustvari timer za 1 minuto in 30 sekund"
+  - "nastavi timer za 10 minut in 20 sekund"
+  - "nastavi timer za 1 uro"
+  - "nastavi timer za 3 ur"
+  - "nastavi timer za 1 uro in 5 minut"
+  - "nastavi timer za 3 ur in 20 minut"
 
   - "prekini timer"
   - "ustavi vse časovnike"
@@ -87,24 +80,18 @@ sentences:
   - "koliko časa je ostalo na časovniku"
 
   # media
-  - "pavziraj"
-  - "nadaljuj"
-  - "naslednja pesem"
-  - "preskoči pesem"
-  - "pavziraj TV"
   - "nadaljuj TV"
-  - "naslednja pesem na TV"
-  - "preskoči pesem na TV"
+  - "zaustavi TV"
+  - "naslednjo pesem na TV"
+  - "preskoči na TV"
 
   # temperature
   - "kakšna je temperatura"
   - "koliko je temp"
   - "kakšna je temperatura v Kuhinja"
-  - "koliko je temp v Kuhinja"
   - "kakšna je temperatura EcoBee"
 
   # sensors
-  - "koliko je vrednost Zunanja vlažnost"
   - "koliko je Zunanja vlažnost"
 
   # todo

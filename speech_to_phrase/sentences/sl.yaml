@@ -106,18 +106,18 @@ data:
       - "scene"
 
   # timers
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 minuto"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} minut"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 minuto in {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} (minut|minuto) in {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {minutes} in pol minute"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} ur"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} in pol ure"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro in 1 minuto"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na 1 uro in {minutes} minut"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] na {hours} (ur|uro) in {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 minuto in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {minutes} (minut|minuto) in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {minutes} in pol minute"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} ur"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} in pol ure"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro in 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro in {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} (ur|uro) in {minutes} minut"
 
   - "(prekini|ustavi) [časovnik|štoperico|timer]"
   - "(prekini|ustavi) vse časovnike"
@@ -140,7 +140,7 @@ data:
   # temperature
   - "(kakšna je|koliko je) (temp|temperatura)"
   - "(kakšna je|koliko je) (temp|temperatura) v {area}"
-  - "(temp|temperatura) |v| {area} "
+  - "(temp|temperatura) [v] {area}"
   - sentences:
       - "(kakšna je|koliko je) (temp|temperatura) [v] {name}"
     domains:
