@@ -2,10 +2,58 @@
 language: "sl"
 
 fixtures:
+  areas:
+    - name:
+        - "spalnica"
+        - "spalnici"
+        - "spalnico"
+        - "spalnice"
+
   entities:
+    - name: "Maribor"
+      domain: "weather"
+
     - name:
         - "luč v spalnici"
         - "lučko v spalnici"
         - "luči v spalnici"
         - "lučka v spalnici"
       domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "garažna vrata"
+      domain: "cover"
+
+    - name:
+        - "vhodna vrata"
+        - "vhodnih vrat"
+      domain: "lock"
+
+    - name:
+        - "televizor"
+        - "televizorja"
+        - "televizorju"
+      domain: "media_player"
+      media_player_supports_pause: true
+      media_player_supports_next_track: true
+
+    - name: "domača zabava"
+      domain: "script"
+
+    - name: "nočna razsvetljava"
+      domain: "scene"
+
+    - name:
+        - "termostat"
+        - "termostata"
+        - "termostatu"
+      domain: "climate"
+
+    - name:
+        - "vlažnost zraka"
+        - "vlažnosti zraka"
+      domain: "sensor"
+
+    - name: "nakupovalni seznam"
+      domain: "todo"
