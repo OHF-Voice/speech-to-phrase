@@ -5,11 +5,86 @@ sentences:
   # cancel
   - "prekini"
   - "prekliči"
+  - "pozabi"
 
   # date and time
   - "koliko je ura"
   - "kateri dan je danes"
 
+  # weather
+  - "kakšno je vreme v Maribor"
+
+  # lights (area)
+  - "ugasni luč"
+  - "prižgi spalnica luči"
+  - "prižgi luči v spalnici"
+  - "nastavi svetlost tukaj na 50 odstotkov"
+  - "nastavi svetlost spalnice na 50 odstotkov"
+  - "nastavi spalnico na 50 odstotkov"
+  - "nastavi barvo luči v spalnici na rdečo barvo"
+
+  # lights (name)
+  - "nastavi lučko v spalnici na 50 odstotkov svetlosti"
+  - "nastavi barvo lučka v spalnici na rdečo"
+  - "nastavi lučka v spalnici na zeleno barvo"
+
+  # doors and windows
+  - "odpri rolete v spalnici"
+  - "odpri spalnici rolete"
+  - "odpri garažna vrata"
+  - "zapri garažna vrata"
+  - "odpri garažna vrata v spalnici"
+  - "je garažna vrata odprta"
+
+  # locks
+  - "zakleni vhodna vrata"
+  - "je vhodna vrata zaklenjena"
+
   # generic on/off
   - "vklopi luč v spalnici"
   - "izklopi luč v spalnici"
+  - "vklopi televizor v spalnici"
+
+  # scripts and scenes
+  - "zaženi skripto domača zabava"
+  - "aktiviraj sceno nočna razsvetljava"
+
+  # timers
+  - "nastavi časovnik za 10 sekund"
+  - "nastavi časovnik za 1 minuto"
+  - "nastavi časovnik za 5 minut"
+  - "nastavi časovnik za 1 minuto in 10 sekund"
+  - "nastavi časovnik za 5 minut in 10 sekund"
+  - "nastavi časovnik za 5 minut in pol"
+  - "nastavi časovnik za 1 uro"
+  - "nastavi časovnik za 2 uri"
+  - "nastavi časovnik za 2 in pol ure"
+  - "nastavi časovnik za 1 uro in 1 minuto"
+  - "nastavi časovnik za 1 uro in 5 minut"
+  - "nastavi časovnik za 2 uri in 5 minut"
+
+  - "ustavi časovnik"
+  - "ustavi vse časovnike"
+  - "pavziraj časovnik"
+  - "nadaljuj časovnik"
+  - "status časovnika"
+  - "status časovnikov"
+  - "koliko časa je ostalo na časovniku"
+
+  # media
+  - "zaustavi televizor"
+  - "nadaljuj televizor"
+  - "naslednje na televizor"
+  - "preskoči pesem na televizorju"
+
+  # temperature
+  - "kakšna je temperatura"
+  - "kakšna je temperatura v spalnici"
+  - "temperatura spalnici"
+  - "temperatura termostata"
+
+  # sensors
+  - "koliko je vlažnosti zraka"
+
+  # todo
+  - "dodaj jabolka na moj nakupovalni seznam"
