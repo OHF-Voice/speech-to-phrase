@@ -3,11 +3,7 @@ language: "sl"
 
 fixtures:
   areas:
-    - name:
-        - "spalnica"
-        - "spalnici"
-        - "spalnico"
-        - "spalnice"
+    - name: "Kuhinja"
 
   entities:
     - name: "Maribor"
@@ -22,38 +18,29 @@ fixtures:
       light_supports_brightness: true
       light_supports_color: true
 
-    - name: "garažna vrata"
-      domain: "cover"
+    - name: "New York"
+      domain: "weather"
 
-    - name:
-        - "vhodna vrata"
-        - "vhodnih vrat"
-      domain: "lock"
-
-    - name:
-        - "televizor"
-        - "televizorja"
-        - "televizorju"
-      domain: "media_player"
-      media_player_supports_pause: true
-      media_player_supports_next_track: true
-
-    - name: "domača zabava"
-      domain: "script"
-
-    - name: "nočna razsvetljava"
-      domain: "scene"
-
-    - name:
-        - "termostat"
-        - "termostata"
-        - "termostatu"
+    - name: "EcoBee"
       domain: "climate"
 
-    - name:
-        - "vlažnost zraka"
-        - "vlažnosti zraka"
+    - name: "Garažna vrata"
+      domain: "cover"
+
+    - name: "Vhodna vrata"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Zabava"
+      domain: "script"
+
+    - name: "Romantično"
+      domain: "scene"
+
+    - name: "Zunanja vlažnost"
       domain: "sensor"
 
-    - name: "nakupovalni seznam"
+    - name: "Nakupovalni seznam"
       domain: "todo"

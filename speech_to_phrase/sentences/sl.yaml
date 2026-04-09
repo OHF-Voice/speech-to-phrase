@@ -1,6 +1,9 @@
 ---
 language: "sl"
 
+wildcards:
+  - "todo_item"
+
 lists:
   color:
     - "bela|belo"
@@ -35,7 +38,7 @@ data:
       - "weather"
 
   # lights (area)
-  - "(prižgi|ugasni) luč [tu|tukaj]"
+  - "(prižgi|ugasni) (luč|luči) [tu|tukaj]"
   - "(prižgi|ugasni) [vse] {area} luči"
   - "(prižgi|ugasni) [vse] luči [v] {area}"
   - "nastavi (svetlost|jakost svetlobe) [tu|tukaj] na {brightness} odstotkov"
@@ -44,12 +47,6 @@ data:
   - "nastavi [barvo] (luč|luči) v {area} na {color} [barvo]"
 
   # lights (name)
-  - sentences:
-      - "nastavi {name} na {brightness} odstotkov [svetlosti]"
-    domains:
-      - "light"
-    light_supports_brightness: true
-
   - sentences:
       - "nastavi [barvo] {name} na {color}"
       - "nastavi {name} na {color} [barvo]"
@@ -62,7 +59,7 @@ data:
   - "(odpri|zapri) {area} (rolete|zavese|okna)"
   - sentences:
       - "(odpri|zapri) {name}"
-      - "(odpri|zapri) {name} v {area}"
+      - "(odpri|zapri) {name} [v] {area}"
       - "je {name} (odprt|odprta|zaprt|zaprta)"
     domains:
       - "cover"
@@ -78,7 +75,6 @@ data:
   - sentences:
       - "(vklopi|izklopi) {name}"
       - "(vklopi|izklopi) {name} [v] {area}"
-      # - "turn [the] {name} in [the] {area} (on|off)"
     domains:
       - "light"
       - "switch"
@@ -93,23 +89,22 @@ data:
       - "script"
 
   - sentences:
-      - "aktiviraj [sceno] {name}"
+      - "aktiviraj {name} [sceno]"
     domains:
       - "scene"
 
   # timers
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za 1 minuto"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {minutes} minut"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za 1 minuto in {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {minutes} (minut|minuto) in {seconds} sekund"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {minutes} minut in pol"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za 1 uro"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {hours} (ur|uri|uro)"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {hours} in pol ure"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za 1 uro in 1 minuto"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za 1 uro in {minutes} minut"
-  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] za {hours} (ur|uri|uro) in {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 minuto in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {minutes} (minut|minuto) in {seconds} sekund"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} ur"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} in pol ure"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro in 1 minuto"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) 1 uro in {minutes} minut"
+  - "(nastavi|zaženi|ustvari) [časovnik|štoperico|timer] (na|za) {hours} (ur|uro) in {minutes} minut"
 
   - "(prekini|ustavi) [časovnik|štoperico|timer]"
   - "(prekini|ustavi) vse časovnike"
@@ -120,8 +115,8 @@ data:
 
   # media
   - sentences:
-      - "(zaustavi|nadaljuj) {name}"
-      - "naslednje [pesem] na {name}"
+      - "((pavziraj|pavza|zaustavi)|nadaljuj) {name}"
+      - "naslednj(o|i|e) [pesem] na {name}"
       - "preskoči [pesem] na {name}"
     domains:
       - "media_player"
@@ -129,7 +124,7 @@ data:
   # temperature
   - "(kakšna je|koliko je) (temp|temperatura)"
   - "(kakšna je|koliko je) (temp|temperatura) v {area}"
-  - "(temp|temperatura) {area}"
+  - "(temp|temperatura) [v] {area}"
   - sentences:
       - "(temp|temperatura) {name}"
     domains:
@@ -143,6 +138,6 @@ data:
 
   # todo
   - sentences:
-      - "dodaj {todo_item} na [moj] {name}"
+      - "dodaj {todo_item} [na] {name} [seznam]"
     domains:
       - "todo"
