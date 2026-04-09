@@ -2,6 +2,9 @@
 language: "sl"
 
 fixtures:
+  areas:
+    - name: "Kuhinja"
+
   entities:
     - name:
         - "luč v spalnici"
@@ -9,3 +12,32 @@ fixtures:
         - "luči v spalnici"
         - "lučka v spalnici"
       domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Garažna vrata"
+      domain: "cover"
+
+    - name: "Vhodna vrata"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Zabava"
+      domain: "script"
+
+    - name: "Romantično"
+      domain: "scene"
+
+    - name: "Zunanja vlažnost"
+      domain: "sensor"
+
+    - name: "Nakupovalni seznam"
+      domain: "todo"
