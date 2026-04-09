@@ -18,6 +18,9 @@ lists:
     - "pink"
     - "turkizna|turkizno"
 
+wildcards:
+  - "todo_item"
+
 data:
   # cancel
   - "prekini"

@@ -6,6 +6,9 @@ fixtures:
     - name: "Kuhinja"
 
   entities:
+    - name: "Maribor"
+      domain: "weather"
+
     - name:
         - "luč v spalnici"
         - "lučko v spalnici"
