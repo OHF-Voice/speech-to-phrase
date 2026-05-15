@@ -72,6 +72,7 @@ docker run -it -p 10300:10300 \
   --hass-token '<LONG_LIVED_ACCESS_TOKEN>' \
   --retrain-on-start
 ```
+Note: If your Home Assistant instance uses TLS/SSL, use "wss://" for the protocol (e.g. wss://homeassistant.local:8123/api/websocket).
 
 ## Models and tools
 
