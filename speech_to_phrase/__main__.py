@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import logging
+import signal
 from functools import partial
 from pathlib import Path
 from typing import Optional
@@ -103,6 +104,15 @@ async def main() -> None:
     # Run server
     wyoming_server = AsyncServer.from_uri(args.uri)
 
+    loop = asyncio.get_running_loop()
+
+    def _request_shutdown(sig: signal.Signals) -> None:
+        _LOGGER.info("Received %s, shutting down", sig.name)
+        asyncio.create_task(wyoming_server.stop())
+
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        loop.add_signal_handler(sig, partial(_request_shutdown, sig))
+
     _LOGGER.info("Ready")
 
     try:
@@ -112,7 +122,10 @@ async def main() -> None:
     finally:
         if retrain_task is not None:
             retrain_task.cancel()
-            await retrain_task
+            try:
+                await retrain_task
+            except asyncio.CancelledError:
+                pass
 
 
 async def _retrain_loop(state: State, wait_seconds: float) -> None:
