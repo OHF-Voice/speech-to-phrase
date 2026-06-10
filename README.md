@@ -23,7 +23,7 @@ This is accomplished by combining [pre-defined sentence templates](speech_to_phr
 - Català (Catalan)
 - Greek (Ελληνικά)
 - Română (Romanian)
-- Português (Portuguese, Portugal)
+- Português (Portuguese, Brazil and Portugal)
 - Polski (Polish)
 - हिन्दी (Hindi)
 - Euskara (Basque)

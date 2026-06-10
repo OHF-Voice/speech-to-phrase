@@ -1,0 +1,25 @@
+---
+language: "pt_BR"
+
+sentences:
+  # cancel
+  - "esquece"
+
+  # date and time
+  - "que horas são"
+  - "que dia é hoje"
+
+  # generic on/off
+  - "ativar a Luz do Quarto"
+  - "ligar a Luz do Quarto"
+  - "desligar a Luz do Quarto"
+  - "ligue a Luz do Quarto"
+  - "desligue a Luz do Quarto"
+  - "acender a Luz do Quarto"
+  - "apagar a Luz do Quarto"
+  - "acenda a Luz do Quarto"
+  - "apague a Luz do Quarto"
+  - "ative a Luz do Quarto"
+  # Those sentence don't work
+  # - "desativar a Luz do Quarto"
+  # - "desative a Luz do Quarto"
