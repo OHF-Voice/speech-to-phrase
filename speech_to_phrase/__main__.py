@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import logging
+import os
 from functools import partial
 from pathlib import Path
 from typing import Optional
@@ -17,6 +18,24 @@ from .models import DEFAULT_MODEL, Model, get_models_for_languages
 from .train import train
 
 _LOGGER = logging.getLogger()
+
+DEFAULT_HASS_WEBSOCKET_URI = "ws://homeassistant.local:8123/api/websocket"
+
+
+def env_default(name: str) -> Optional[str]:
+    """Get an argument default from the environment.
+
+    Prefers "<NAME>_FILE", whose value is a path to read the setting from. This
+    is the convention used by Docker/Kubernetes secrets, which are exposed as
+    files rather than environment variables.
+    """
+    file_path = os.environ.get(f"{name}_FILE")
+    if file_path:
+        value = Path(file_path).read_text(encoding="utf-8").strip()
+    else:
+        value = os.environ.get(name, "").strip()
+
+    return value or None
 
 
 async def main() -> None:
@@ -38,13 +57,19 @@ async def main() -> None:
         help="Directory with custom sentence directories for each language",
     )
     # Home Assistant
+    hass_token = env_default("HASS_TOKEN")
     parser.add_argument(
-        "--hass-token", required=True, help="Long-lived access token for Home Assistant"
+        "--hass-token",
+        default=hass_token,
+        required=hass_token is None,
+        help="Long-lived access token for Home Assistant "
+        "(env: HASS_TOKEN or HASS_TOKEN_FILE)",
     )
     parser.add_argument(
         "--hass-websocket-uri",
-        default="ws://homeassistant.local:8123/api/websocket",
-        help="URI of Home Assistant websocket API",
+        default=env_default("HASS_WEBSOCKET_URI") or DEFAULT_HASS_WEBSOCKET_URI,
+        help="URI of Home Assistant websocket API "
+        "(env: HASS_WEBSOCKET_URI or HASS_WEBSOCKET_URI_FILE)",
     )
     # Training
     parser.add_argument(
@@ -77,7 +102,7 @@ async def main() -> None:
     logging.basicConfig(
         level=logging.DEBUG if args.debug else logging.INFO, format=args.log_format
     )
-    _LOGGER.debug(args)
+    _LOGGER.debug({**vars(args), "hass_token": "<redacted>"})
 
     state = State(
         settings=Settings(
