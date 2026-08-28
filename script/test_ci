@@ -17,6 +17,7 @@ _CI_TESTS = [
         "validate_yaml",
         "g2p",
         "recognize",
+        "env_default",
     )
 ]
 

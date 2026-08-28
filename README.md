@@ -73,6 +73,42 @@ docker run -it -p 10300:10300 \
   --retrain-on-start
 ```
 
+### Environment variables and secrets
+
+`--hass-token` and `--hass-websocket-uri` can also be set from the environment, which keeps your long-lived access token out of the command line and out of `docker inspect`:
+
+| Argument | Environment variable | Secret file variable |
+| -------- | -------------------- | -------------------- |
+| `--hass-token` | `HASS_TOKEN` | `HASS_TOKEN_FILE` |
+| `--hass-websocket-uri` | `HASS_WEBSOCKET_URI` | `HASS_WEBSOCKET_URI_FILE` |
+
+The `*_FILE` variables hold a *path* to read the value from, following the convention used by [Docker secrets][docker_secrets] and Kubernetes secret volumes. Leading and trailing whitespace is stripped, so a trailing newline in the file is fine.
+
+Precedence is: command-line argument, then `*_FILE`, then the plain environment variable, then the built-in default. A `*_FILE` path that does not exist is an error rather than a silent fallback.
+
+With Docker Compose:
+
+``` yaml
+services:
+  speech-to-phrase:
+    image: rhasspy/wyoming-speech-to-phrase
+    command: ["--retrain-on-start"]
+    ports:
+      - "10300:10300"
+    volumes:
+      - ./models:/models
+      - ./train:/train
+    environment:
+      HASS_WEBSOCKET_URI: "ws://homeassistant.local:8123/api/websocket"
+      HASS_TOKEN_FILE: /run/secrets/hass_token
+    secrets:
+      - hass_token
+
+secrets:
+  hass_token:
+    file: ./hass_token.txt
+```
+
 ## Models and tools
 
 Speech models and tools are downloaded automatically from [HuggingFace](https://huggingface.co/datasets/rhasspy/rhasspy-speech/tree/main)
@@ -100,3 +136,4 @@ To make phrase recognition more robust, a "fuzzy" layer is added on top of Kaldi
 [todo]: https://www.home-assistant.io/integrations/todo
 [sentence_wildcards]: https://www.home-assistant.io/docs/automation/trigger/#sentence-wildcards
 [wyoming]: https://www.home-assistant.io/integrations/wyoming
+[docker_secrets]: https://docs.docker.com/compose/how-tos/use-secrets/
