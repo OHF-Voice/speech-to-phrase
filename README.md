@@ -33,6 +33,7 @@ This is accomplished by combining [pre-defined sentence templates](speech_to_phr
 - Kiswahili (Swahili)
 - ภาษาไทย (Thai)
 - Türkçe (Turkish)
+- Dansk (Danish)
 
 [Supported voice commands](SENTENCES.md) vary by language.
 

@@ -1,0 +1,155 @@
+---
+language: "da"
+
+lists:
+  color:
+    - "hvid"
+    - "sort"
+    - "rød"
+    - "orange"
+    - "gul"
+    - "grøn"
+    - "blå"
+    - "lilla"
+    - "brun"
+    - "lyserød"
+    - "turkis"
+
+wildcards:
+  - "todo_item"
+
+data:
+  # cancel
+  - "glem det"
+
+  # date and time
+  - "hvad er klokken [lige] [nu]"
+  - "hvad (dato|dag) er det [i dag]"
+
+  # weather
+  - "(hvordan|hvad) er vejret [ude]"
+  - sentences:
+      - "(hvordan|hvad) er {name} vejr[et]"
+      - "(hvordan|hvad) er vejret i {name}"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(sluk|tænd) [for] (lysene|lamperne) [herinde]"
+  - "(sluk|tænd) [alle] lysene i {area}"
+  - "(sluk|tænd) [alle|lysene|[alle ]] i [området] {area}"
+  - "(indstil|sæt) lysstyrken [herinde] til {brightness} procent"
+  - "(indstil|sæt) lysstyrken (i|på) {area} til {brightness} procent"
+  - "(indstil|sæt) {area} lysstyrke til {brightness} procent"
+  - "skift farven på (lysene|lamperne) [herinde] til {color}"
+  - "ændre farve på (lysene|lamperne) [herinde] til {color}"
+  - "(indstil|sæt) {area} (lys|farve) til {color}"
+  - "(ændre|skift) (farven|lyset) (i|på) {area} til {color}"
+  - "(ændre|skift) (lysene|lamperne) i {area} til {color}"
+
+  # lights (name)
+  - sentences:
+      - "indstil [lysstyrken på] {name} til {brightness} procent"
+      - "sæt {name} lysstyrke til {brightness} procent"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "skift [farven på] {name} til {color}"
+      - "sæt {name} [farve] til {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(åbn|luk) (gardinerne|vinduerne) i {area}"
+  - "(åbn|luk) {area} (gardiner|vinduer)"
+  - sentences:
+      - "(åbn|luk) {name}"
+      - "(åbn|luk) {name} i {area}"
+      - "er {name} (åben|åbne|lukket|lukkede)"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "(lås op|lås) {name}"
+      - "(er|er de) {name} (låst|ulåst|låst op)"
+    domains:
+      - "lock"
+
+  # generic on/off
+  - sentences:
+      - "tænd/sluk [for] {name}"
+      - "tænd/sluk [for] {name} i {area}"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts and scenes
+  - sentences:
+      - "kør [scriptet] {name}"
+    domains:
+      - "script"
+
+  - sentences:
+      - "aktiver [scenen] {name}"
+    domains:
+      - "scene"
+
+  # timers
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {seconds} sekunder"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til 1 minut"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {minutes} minutter"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til 1 minut og {seconds} sekunder"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {minutes} minutter og {seconds} sekunder"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {minutes} og et halvt minut"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til 1 time"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {hours} timer"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {hours} og en halv time"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til 1 time og 1 minut"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til 1 time og {minutes} minutter"
+  - "(start|opret|sæt) ([et] ur|uret|nedtælling|[en] timer) til {hours} timer og {minutes} minutter"
+
+  - "(afbryd|stop) ([min] (timer|nedtælling)|[mit] ur)"
+  - "(afbryd|stop) alle [mine] (timere|nedtællinger|ure)"
+  - "(pause|paus|fortsæt) ([min] (timer|nedtælling)|[mit] ur)"
+  - "(timer|nedtælling|ur) status"
+  - "status på ([min] (timer|nedtælling)|[mit] ur)"
+  - "[hvor meget] tid er der tilbage på [[min] (timer|nedtælling)|[mit] ur]"
+
+  # media
+  - "(pause|afspil)"
+  - "næste [(nummer|sang)]"
+  - "spring over [[denne ](sang|nummer)]"
+  - sentences:
+      - "(pause|afspil) [på] {name}"
+      - "næste nummer på {name}"
+      - "spring over sangen på {name}"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "(hvad er temperaturen|hvad temperatur er det)"
+  - "(hvad er temperaturen|hvad temperatur er det) i {area}"
+  - sentences:
+      - "hvad er {name} temperaturen"
+      - "hvad temperatur (har|er) {name}"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "hvad er [værdien af] {name} [sensor]"
+    domains:
+      - "sensor"
+
+  # todo
+  - sentences:
+      - "tilføj {todo_item} til [min|min liste] {name}"
+    domains:
+      - "todo"
