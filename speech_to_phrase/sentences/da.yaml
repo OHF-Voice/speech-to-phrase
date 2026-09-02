@@ -23,14 +23,14 @@ data:
   - "glem det"
 
   # date and time
-  - "hvad er klokken [[lige ]nu]"
+  - "hvad er klokken [lige] [nu]"
   - "hvad (dato|dag) er det [i dag]"
 
   # weather
-  - "(hvordan er|hvad er) vejret [ude]"
+  - "(hvordan|hvad) er vejret [ude]"
   - sentences:
-      - "(hvordan er|hvad er) {name} vejr[et]"
-      - "(hvordan er|hvad er) vejret i {name}"
+      - "(hvordan|hvad) er {name} vejr[et]"
+      - "(hvordan|hvad) er vejret i {name}"
     domains:
       - "weather"
 
