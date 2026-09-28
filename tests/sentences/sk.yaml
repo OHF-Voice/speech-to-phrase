@@ -20,14 +20,18 @@ sentences:
 
   # lights (area)
   - "zapni svetlá v kuchyni"
-  - "vypni svetlá v kuchyni"
-  - "zasvieť svetlá v kuchyni"
+  - "vypni svetlo v kuchyni"
+  - "rozsvieť svetlo v kuchyni"
   - "zhasni svetlá v kuchyni"
+  - "rozsvieť v kuchyni"
+  - "zhasni v obývačke"
   - "zapni všetky svetlá"
+  - "zapni svetlo"
   - "zhasni všetky svetlá"
+  - "rozsvieť svetlo"
   - "nastav jas v kuchyni na 50 percent"
   - "nastav jas na 50 percent"
-  - "nastav svetlá v kuchyni na modrú"
+  - "nastav svetlo v kuchyni na modrú"
   - "nastav farbu svetiel v kuchyni na modrú"
   - "nastav farbu na modrú"
 
@@ -39,26 +43,35 @@ sentences:
 
   # doors and windows
   - "otvor žalúzie v kuchyni"
-  - "zatvor rolety v obývačke"
+  - "stiahni rolety v obývačke"
+  - "zatiahni závesy v obývačke"
+  - "zatvor roletu"
+  - "vytiahni roletu v obývačke"
 
   # generic on/off
   - "zapni televízor"
   - "vypni televízor"
   - "zapni ventilátor v kuchyni"
-  - "zasvieť lampu"
-  - "zhasni lampu"
+  - "rozsvieť lampu"
+  - "zhasni lampu v obývačke"
 
   # scripts and scenes
   - "aktivuj nočný režim"
-  - "aktivuj scénu večerná scéna"
+  - "aktivuj scénu večer"
+  - "zapni večer"
 
   # timers
   - "nastav časovač na 30 sekúnd"
   - "nastav časovač na 1 minútu"
+  - "nastav časovač na 1 minútu a 30 sekúnd"
+  - "nastav časovač na 2 minúty"
   - "nastav časovač na 5 minút"
+  - "nastav časovač na 5 minút a 30 sekúnd"
   - "nastav časovač na 1 hodinu"
-  - "nastav časovač na 3 hodín"
-  - "nastav časovač na 3 hodín a 5 minút"
+  - "nastav časovač na 1 hodinu a 1 minútu"
+  - "nastav časovač na 1 hodinu a 15 minút"
+  - "nastav časovač na 3 hodiny"
+  - "nastav časovač na 3 hodiny a 5 minút"
   - "zruš časovač"
   - "zruš všetky časovače"
   - "zastav časovač"
@@ -75,7 +88,8 @@ sentences:
   # temperature
   - "aká je teplota v kuchyni"
   - "aká je teplota"
-  - "aká je teplota v termostate"
+  - "aká je teplota na termostate"
 
   # sensors
   - "aká je vonkajšia vlhkosť"
+  - "aký je tlak"

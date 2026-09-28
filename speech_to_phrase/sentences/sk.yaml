@@ -52,13 +52,14 @@ data:
       - "weather"
 
   # lights (area)
-  - "(zapni|vypni) [všetky] svetlá (v|na) {area}"
-  - "(zasvieť|zhasni) [všetky] svetlá (v|na) {area}"
-  - "(zapni|vypni) [všetky] svetlá"
-  - "(zasvieť|zhasni) [všetky] svetlá"
+  - "(zapni|vypni) (svetlo|[všetky] svetlá) (v|na) {area}"
+  - "(rozsvieť|zasvieť|zhasni) (svetlo|[všetky] svetlá) (v|na) {area}"
+  - "(rozsvieť|zasvieť|zhasni) (v|na) {area}"
+  - "(zapni|vypni) (svetlo|[všetky] svetlá)"
+  - "(rozsvieť|zasvieť|zhasni) (svetlo|[všetky] svetlá)"
   - "nastav jas (v|na) {area} na {brightness} percent"
   - "nastav jas na {brightness} percent"
-  - "nastav svetlá (v|na) {area} na {color}"
+  - "nastav (svetlo|svetlá) (v|na) {area} na {color}"
   - "nastav farbu svetiel (v|na) {area} na {color}"
   - "nastav farbu na {color}"
 
@@ -78,7 +79,13 @@ data:
     light_supports_color: true
 
   # doors and windows
-  - "(otvor|zatvor) (žalúzie|rolety|závesy) (v|na) {area}"
+  - "(otvor|zatvor|stiahni|vytiahni) (žalúzie|rolety) (v|na) {area}"
+  - "(otvor|zatvor|zatiahni) závesy (v|na) {area}"
+  - sentences:
+      - "(otvor|zatvor|stiahni|vytiahni) {name}"
+      - "(otvor|zatvor|stiahni|vytiahni) {name} (v|na) {area}"
+    domains:
+      - "cover"
 
   # generic on/off
   - sentences:
@@ -92,7 +99,8 @@ data:
       - "input_boolean"
 
   - sentences:
-      - "(zasvieť|zhasni) {name}"
+      - "(rozsvieť|zasvieť|zhasni) {name}"
+      - "(rozsvieť|zasvieť|zhasni) {name} (v|na) {area}"
     domains:
       - "light"
 
@@ -104,16 +112,21 @@ data:
 
   - sentences:
       - "(zapni|aktivuj) scénu {name}"
+      - "(zapni|aktivuj) {name}"
     domains:
       - "scene"
 
   # timers
   - "<timer_set> (časovač|stopky) na {seconds} sekúnd"
   - "<timer_set> (časovač|stopky) na 1 minútu"
-  - "<timer_set> (časovač|stopky) na {minutes} minút"
+  - "<timer_set> (časovač|stopky) na 1 minútu a {seconds} sekúnd"
+  - "<timer_set> (časovač|stopky) na {minutes} (minúty|minút)"
+  - "<timer_set> (časovač|stopky) na {minutes} (minúty|minút) a {seconds} sekúnd"
   - "<timer_set> (časovač|stopky) na 1 hodinu"
-  - "<timer_set> (časovač|stopky) na {hours} hodín"
-  - "<timer_set> (časovač|stopky) na {hours} hodín a {minutes} minút"
+  - "<timer_set> (časovač|stopky) na 1 hodinu a 1 minútu"
+  - "<timer_set> (časovač|stopky) na 1 hodinu a {minutes} (minúty|minút)"
+  - "<timer_set> (časovač|stopky) na {hours} (hodiny|hodín)"
+  - "<timer_set> (časovač|stopky) na {hours} (hodiny|hodín) a {minutes} (minúty|minút)"
   - "<timer_cancel> (časovač|stopky)"
   - "<timer_cancel> všetky (časovače|stopky)"
   - "(zastav|pozastav) časovač"
@@ -139,6 +152,6 @@ data:
 
   # sensors
   - sentences:
-      - "aká je {name}"
+      - "(aká|aký|aké) je {name}"
     domains:
       - "sensor"

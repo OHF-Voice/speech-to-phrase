@@ -35,6 +35,10 @@ fixtures:
       domain: "sensor"
 
     - name:
+        - "tlak"
+      domain: "sensor"
+
+    - name:
         - "televízor"
         - "televízore"
         - "televízora"
@@ -45,8 +49,13 @@ fixtures:
       domain: "script"
 
     - name:
-        - "večerná scéna"
+        - "večer"
       domain: "scene"
+
+    - name:
+        - "roleta"
+        - "roletu"
+      domain: "cover"
 
     - name:
         - "ventilátor"
