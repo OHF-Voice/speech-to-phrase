@@ -10,12 +10,12 @@
 > version being developed now lives alongside the other voice apps in
 > `OHF-Voice/apps`, and is a rewrite rather than a continuation: a constrained
 > CTC decoder instead of Kaldi, sentences from the
-> [home-assistant-intents](https://github.com/home-assistant/intents) package
+> [home-assistant-intents](https://github.com/OHF-Voice/intents) package
 > instead of the per-language files in this repo, and a web UI for choosing
 > which commands to recognize.
 >
 > **New sentences and new languages should go to
-> [home-assistant/intents](https://github.com/home-assistant/intents), not
+> [OHF-Voice/intents](https://github.com/OHF-Voice/intents), not
 > here** — see [#149](https://github.com/OHF-Voice/speech-to-phrase/issues/149)
 > for what each language needs and what happens to the pull requests open
 > against this repo.
