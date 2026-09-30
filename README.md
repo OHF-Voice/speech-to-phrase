@@ -3,6 +3,24 @@
   Speech-to-Phrase
 </h1>
 
+> [!IMPORTANT]
+> **Development has moved to [OHF-Voice/apps](https://github.com/OHF-Voice/apps/tree/main/speech-to-phrase).**
+>
+> This repository holds Speech-to-Phrase up to **v1.4.3** (Kaldi-based). The
+> version being developed now lives alongside the other voice apps in
+> `OHF-Voice/apps`, and is a rewrite rather than a continuation: a constrained
+> CTC decoder instead of Kaldi, sentences from the
+> [home-assistant-intents](https://github.com/home-assistant/intents) package
+> instead of the per-language files in this repo, and a web UI for choosing
+> which commands to recognize.
+>
+> **New sentences and new languages should go to
+> [home-assistant/intents](https://github.com/home-assistant/intents), not
+> here** — see [#149](https://github.com/OHF-Voice/speech-to-phrase/issues/149)
+> for what each language needs and what happens to the pull requests open
+> against this repo.
+
+
 A fast and local speech-to-text system that is personalized with your [Home Assistant](https://www.home-assistant.io/) device and area names.
 
 Speech-to-phrase is not a general purpose speech recognition system. Instead of answering the question "what did the user say?", it answers "which of the phrases I know did the user say?".
@@ -11,6 +29,12 @@ This is accomplished by combining [pre-defined sentence templates](speech_to_phr
 [![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_speech-to-phrase)
 
 ## Supported languages
+
+The languages below are the ones **this** (v1.4.3, Kaldi) version supports.
+The rewrite in [OHF-Voice/apps][apps] currently serves `ca` `cs` `de` `en`
+`es` `fr` `it` `nl`; `ru`, `hi` and `sl` have an acoustic model there but
+still need sentences, and the rest need both. See [#149][moved] for what each
+one is missing.
 
 - English
 - Français (French)
@@ -100,3 +124,5 @@ To make phrase recognition more robust, a "fuzzy" layer is added on top of Kaldi
 [todo]: https://www.home-assistant.io/integrations/todo
 [sentence_wildcards]: https://www.home-assistant.io/docs/automation/trigger/#sentence-wildcards
 [wyoming]: https://www.home-assistant.io/integrations/wyoming
+[apps]: https://github.com/OHF-Voice/apps/tree/main/speech-to-phrase
+[moved]: https://github.com/OHF-Voice/speech-to-phrase/issues/149
