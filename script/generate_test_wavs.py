@@ -34,6 +34,7 @@ TTS_LANG = {
     "hi": "hi-IN",
     "eu": "eu-ES",
     "fa": "fa-IR",
+    "sk": "sk-SK",
     "sl": "sl-SI",
     "sw": "sw-KE",
 }

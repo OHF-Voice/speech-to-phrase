@@ -1,0 +1,95 @@
+---
+language: "sk"
+
+sentences:
+  # cancel
+  - "to nevadí"
+  - "zabudni na to"
+  - "to je jedno"
+  - "kašli na to"
+
+  # date and time
+  - "koľko je hodín"
+  - "aký je čas"
+  - "aký je dnešný dátum"
+  - "koľkého je dnes"
+
+  # weather
+  - "aké je počasie"
+  - "aké je počasie v Bratislave"
+
+  # lights (area)
+  - "zapni svetlá v kuchyni"
+  - "vypni svetlo v kuchyni"
+  - "rozsvieť svetlo v kuchyni"
+  - "zhasni svetlá v kuchyni"
+  - "rozsvieť v kuchyni"
+  - "zhasni v obývačke"
+  - "zapni všetky svetlá"
+  - "zapni svetlo"
+  - "zhasni všetky svetlá"
+  - "rozsvieť svetlo"
+  - "nastav jas v kuchyni na 50 percent"
+  - "nastav jas na 50 percent"
+  - "nastav svetlo v kuchyni na modrú"
+  - "nastav farbu svetiel v kuchyni na modrú"
+  - "nastav farbu na modrú"
+
+  # lights (name)
+  - "nastav lampu na 50 percent"
+  - "nastav jas lampy na 50 percent"
+  - "nastav lampu na modrú farbu"
+  - "nastav farbu lampy na modrú"
+
+  # doors and windows
+  - "otvor žalúzie v kuchyni"
+  - "stiahni rolety v obývačke"
+  - "zatiahni závesy v obývačke"
+  - "zatvor roletu"
+  - "vytiahni roletu v obývačke"
+
+  # generic on/off
+  - "zapni televízor"
+  - "vypni televízor"
+  - "zapni ventilátor v kuchyni"
+  - "rozsvieť lampu"
+  - "zhasni lampu v obývačke"
+
+  # scripts and scenes
+  - "aktivuj nočný režim"
+  - "aktivuj scénu večer"
+  - "zapni večer"
+
+  # timers
+  - "nastav časovač na 30 sekúnd"
+  - "nastav časovač na 1 minútu"
+  - "nastav časovač na 1 minútu a 30 sekúnd"
+  - "nastav časovač na 2 minúty"
+  - "nastav časovač na 5 minút"
+  - "nastav časovač na 5 minút a 30 sekúnd"
+  - "nastav časovač na 1 hodinu"
+  - "nastav časovač na 1 hodinu a 1 minútu"
+  - "nastav časovač na 1 hodinu a 15 minút"
+  - "nastav časovač na 3 hodiny"
+  - "nastav časovač na 3 hodiny a 5 minút"
+  - "zruš časovač"
+  - "zruš všetky časovače"
+  - "zastav časovač"
+  - "obnov časovač"
+  - "aký je stav časovača"
+  - "koľko času zostáva na časovači"
+
+  # media
+  - "pozastav televízor"
+  - "preskoč skladbu na televízore"
+  - "ďalšiu skladbu na televízore"
+  - "nastav hlasitosť televízora na 50 percent"
+
+  # temperature
+  - "aká je teplota v kuchyni"
+  - "aká je teplota"
+  - "aká je teplota na termostate"
+
+  # sensors
+  - "aká je vonkajšia vlhkosť"
+  - "aký je tlak"
