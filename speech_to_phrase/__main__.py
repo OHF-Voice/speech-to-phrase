@@ -37,6 +37,11 @@ async def main() -> None:
         action="append",
         help="Directory with custom sentence directories for each language",
     )
+    parser.add_argument(
+        "--skip-pre-defined-templates",
+        action="store_true",
+        help="Do not use the pre-defined templates and use custom sentences only",
+    )
     # Home Assistant
     parser.add_argument(
         "--hass-token", required=True, help="Long-lived access token for Home Assistant"
@@ -85,6 +90,7 @@ async def main() -> None:
             train_dir=Path(args.train_dir),
             tools_dir=Path(args.tools_dir),
             custom_sentences_dirs=args.custom_sentences_dir or [],
+            skip_pre_defined_templates=args.skip_pre_defined_templates,
             hass_token=args.hass_token,
             hass_websocket_uri=args.hass_websocket_uri,
             retrain_on_connect=args.retrain_on_connect,
