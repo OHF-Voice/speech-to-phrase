@@ -13,6 +13,8 @@ htmlcov
 .mypy_cache/
 __pycache__/
 
+/.vscode/
+
 /local/
 /tests/train/
 /dist/
