@@ -1,0 +1,110 @@
+---
+language: "sv"
+
+sentences:
+  # cancel
+  - "glöm det"
+  - "struntar i det"
+
+  # date and time
+  - "vad är klockan"
+  - "vilken tid är det"
+  - "vad är det för datum"
+  - "vilket datum är det idag"
+
+  # weather
+  - "hur är vädret"
+  - "vad är det för väder i Stockholm"
+  - "hur är vädret i Stockholm"
+
+  # lights (area)
+  - "tänd lamporna"
+  - "släck lamporna här"
+  - "sätt på lamporna"
+  - "stäng av lamporna här"
+  - "tänd köklamporna"
+  - "släck alla köklampor"
+  - "tänd lamporna i köket"
+  - "släck alla lampor i köket"
+  - "sätt ljusstyrkan till 50 procent"
+  - "sätt ljusstyrkan i köket till 25 procent"
+  - "sätt kök ljusstyrkan till 100 procent"
+  - "sätt lamporna till röd"
+  - "sätt färgen på lamporna till grön"
+  - "sätt färgen på köklamporna till blå"
+  - "sätt köklamporna till vit"
+  - "sätt lamporna i köket till gul"
+
+  # lights (name)
+  - "sätt ljusstyrkan på sänglampan till 10 procent"
+  - "sätt sänglampa ljusstyrka till 75 procent"
+  - "sätt färgen på sänglampan till gul"
+  - "sätt sänglampa färg till orange"
+
+  # doors and windows
+  - "öppna persiennerna i kontoret"
+  - "stäng fönstren i kontoret"
+  - "öppna kontorsgardinerna"
+  - "stäng köksfönstren"
+  - "öppna skjutdörren"
+  - "stäng skjutdörren"
+  - "öppna skjutdörren i kontoret"
+
+  # locks
+  - "lås ytterdörren"
+  - "lås upp ytterdörren"
+  - "är ytterdörren låst"
+
+  # generic on/off
+  - "tänd sänglampan"
+  - "släck sänglampan"
+  - "sätt på sänglampan"
+  - "stäng av sänglampan"
+  - "tänd golvlampan i kontoret"
+  - "stäng av tv:n i kontoret"
+
+  # scripts and scenes
+  - "kör festläge"
+  - "starta scriptet festläge"
+  - "aktivera stämningsbelysning"
+
+  # timers
+  - "sätt en timer på 30 sekunder"
+  - "starta en timer på 1 minut"
+  - "skapa en timer på 5 minuter"
+  - "sätt en timer på 1 minut och 30 sekunder"
+  - "starta en timer på 2 minuter och 15 sekunder"
+  - "sätt en timer på 2 och en halv minut"
+  - "skapa en timer på 1 timme"
+  - "sätt en timer på 3 timmar"
+  - "starta en timer på 1 timme och 1 minut"
+  - "sätt en timer på 2 timmar och 30 minuter"
+  - "avbryt min timer"
+  - "stoppa alla timers"
+  - "pausa min timer"
+  - "återuppta min timer"
+  - "timer status"
+  - "hur mycket tid är kvar på min timer"
+
+  # media
+  - "pausa"
+  - "återuppta"
+  - "nästa låt"
+  - "hoppa över den här låten"
+  - "pausa tv:n"
+  - "nästa spår på tv:n"
+
+  # temperature
+  - "vad är temperaturen"
+  - "vad är temperaturen i köket"
+  - "vad är köktemperaturen"
+  - "vad är termostat temperaturen"
+  - "vad är temperaturen på termostaten"
+
+  # sensors
+  - "vad är luftfuktighet ute"
+  - "vad är värdet på luftfuktighet ute"
+
+  # todo
+  - "lägg till mjölk till inköpslistan"
+  - "lägg till bröd på min inköpslista"
