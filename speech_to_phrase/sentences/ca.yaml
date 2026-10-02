@@ -66,13 +66,12 @@ data:
   # - "set [the] {area} lights to {color}"
   # - "set lights in [the] {area} to {color}"
 
-  # # lights (name)
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
+  # lights (name)
+  - sentences:
+      - "(ajusta|posa|configura) [el|la|es|sa] llum {name} al {brightness} [per cent]"
+    domains:
+      - "light"
+    light_supports_brightness: true
 
   # - sentences:
   #     - "set [the] [color of [the]] {name} to {color}"
@@ -106,41 +105,42 @@ data:
     domains:
       - "light"
       - "switch"
+      - "climate"
       - "fan"
       - "media_player"
       - "input_boolean"
 
   # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  - sentences:
+      - "executa [script] {el_name}"
+    domains:
+      - "script"
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  - sentences:
+      - "(encén|engega|activa) (la |l')escena {el_name}"
+    domains:
+      - "scene"
 
-  # # timers
-  # - "(set|start|create) [a] timer for {seconds} seconds"
-  # - "(set|start|create) [a] timer for 1 minute"
-  # - "(set|start|create) [a] timer for {minutes} minutes"
-  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
-  # - "(set|start|create) [a] timer for 1 hour"
-  # - "(set|start|create) [a] timer for {hours} hours"
-  # - "(set|start|create) [a] timer for {hours} and a half hours"
-  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
-  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
-  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
+  # timers
+  - "(posa|comença|crea) [un] temporitzador de {seconds} segons"
+  - "(posa|comença|crea) [un] temporitzador de 1 minut"
+  - "(posa|comença|crea) [un] temporitzador de {minutes} minuts"
+  - "(posa|comença|crea) [un] temporitzador de 1 minut and {seconds} segons"
+  - "(posa|comença|crea) [un] temporitzador de {minutes} minuts and {seconds} segons"
+  - "(posa|comença|crea) [un] temporitzador de {minutes} minuts i mig"
+  - "(posa|comença|crea) [un] temporitzador de 1 hour"
+  - "(posa|comença|crea) [un] temporitzador de {hours} hores"
+  - "(posa|comença|crea) [un] temporitzador de {hours} hores i mitja"
+  - "(posa|comença|crea) [un] temporitzador de 1 hora i 1 minut"
+  - "(posa|comença|crea) [un] temporitzador de 1 hora i {minutes} minuts"
+  - "(posa|comença|crea) [un] temporitzador de {hours} hores i {minutes} minuts"
 
-  # - "(cancel|stop) [the|my] timer"
-  # - "(cancel|stop) all [[of ](the|my)] timers"
-  # - "(pause|resume) [the|my] timer"
-  # - "timer status"
-  # - "status of [the|my] timer[s]"
-  # - "[how much] time [is] left on [the|my] timer[s]"
+  - "(cancela|atura|para) [el] temporitzador"
+  - "(cancela|atura|para) tots [els] temporitzadors"
+  - "(pausa|continua) [el] temporitzador"
+  - "estat de temporitzador"
+  - "estat [de[l|ls]] [meu[s]] temporitzador[s]"
+  - "quan falta (el|al|de|del|pel) [meu[s]] temporitzador[s]"
 
   # # media
   # - "(pause|resume)"
