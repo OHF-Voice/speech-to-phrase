@@ -21,6 +21,7 @@ Available voice commands by category and language code.
 * `ro` - Romanian
 * `ru` - Russian
 * `sl` - Slovenian
+* `sv` - Swedish
 * `sw` - Swahili
 * `tr` - Turkish
 
@@ -53,6 +54,7 @@ Cancels the current command and does nothing:
 | `ro`     | lasă         |
 | `ru`     | Неважно      |
 | `sl`     | prekini      |
+| `sv`     | stopp        |
 | `sw`     | usijali      |
 | `tr`     | önemli değil |
 
@@ -89,6 +91,7 @@ Works with these [entity domains][entities]:
 | `ro`     | pornește/oprește/activează/dezactivează `{name}` |
 | `ru`     | включи/выключи/отключи `{name}`                  |
 | `sl`     | vklopi/izklopi `{name}`                          |
+| `sv`     | slå på / stäng av `{name}`                       |
 | `sw`     | washa/zima `{name}`                              |
 | `tr`     | `{name}` aç/yak/çalıştır/kapat/söndür            |
 
@@ -111,6 +114,7 @@ Works with these [entity domains][entities]:
 | `ro`     | - cat este ora? <br> - ce dată este astăzi?            |
 | `ru`     | какое сегодня число                                    |
 | `sl`     | - koliko je ura? <br> - kateri dan je danes?           |
+| `sv`     | - Vad är klockan? <br> - Vilket datum är det?          |
 
 <!----------------------------------------------------------------------------->
 
@@ -125,6 +129,7 @@ Requires at least one [light][] entity in the same [area][] as the voice satelli
 | `fr`     | allume/éteins/éteindre les lumières |
 | `it`     | accendi/spegni le luci              |
 | `nl`     | zet/doe lamp aan/uit                |
+| `sv`     | slå av/på lamporna                  |
 
 Requires at least one [light][] entity in an [area][] with the specific name or [alias][aliases]:
 
@@ -135,6 +140,7 @@ Requires at least one [light][] entity in an [area][] with the specific name or 
 | `fr`     | allume/éteins/éteindre les lumières dans `{area}` |
 | `it`     | accendi/spegni le luci in `{area}`                |
 | `nl`     | zet/doe lampen in `{area}` aan/uit                |
+| `sv`     | slå av/på lamprona i `{area}`                     |
 
 ### Brightness
 
@@ -144,6 +150,7 @@ Requires at least one [light][] entity that supports setting brightness in the s
 |----------|------------------------------------------|
 | `en`     | set the brightness to 50 percent         |
 | `fr`     | règle/régler la luminosité à 50 pourcent |
+| `sv`     | sätt/ändra ljusstyrkan till 50 percent   |
 
 Requires at least one [light][] entity that supports setting brightness in an [area][] with the specific name or [alias][aliases]:
 
@@ -154,6 +161,7 @@ Requires at least one [light][] entity that supports setting brightness in an [a
 | `fr`     | règle/régler la luminosité dans `{area}` à 50 pourcent |
 | `it`     | imposta la luminosità in `{area}` al 50 percento       |
 | `nl`     | maak helderheid van `{area}` naar 50 procent           |
+| `sv`     | sätt/ändra `{area}` ljusstyrka till 50 percent         |
 
 Requires a [light][] entity that supports setting brightness with the specific name or [alias][aliases]:
 
@@ -164,6 +172,7 @@ Requires a [light][] entity that supports setting brightness with the specific n
 | `fr`     | règle/régler la luminosité `{name}` à 50 pourcent |
 | `it`     | imposta la luminosità `{name}` al 50 percento     |
 | `nl`     | maak helderheid van {name} naar 50 procent        |
+| `sv`     | sätt/ändra `{name}` ljusstyrka till 50 percent    |
 
 ### Color
 
@@ -173,6 +182,7 @@ Requires at least one [light][] entity that supports setting color in the same [
 |----------|-------------------------------------------|
 | `en`     | set lights to red                         |
 | `fr`     | allume/règle/régler les lumières en rouge |
+| `sv`     | sätt/ändra lamporna till röd              |
 
 Requires at least one [light][] entity that supports setting color in an [area][] with the specific name or [alias][aliases]:
 
@@ -183,6 +193,7 @@ Requires at least one [light][] entity that supports setting color in an [area][
 | `fr`     | allume/règle/régler les lumières `{area}` en rouge |
 | `it`     | imposta le luci in `{area}` su rosso               |
 | `nl`     | maak `{area}` naar rood                            |
+| `sv`     | sätt/ändra `{area}` lampor till röd                |
 
 Requires a [light][] entity that supports setting color with the specific name or [alias][aliases]:
 
@@ -193,6 +204,7 @@ Requires a [light][] entity that supports setting color with the specific name o
 | `fr`     | allume/règle/régler `{name}` en rouge |
 | `it`     | imposta `{name}` su rosso             |
 | `nl`     | maak `{name}` naar rood               |
+| `sv`     | sätt/ändra `{name}` till röd          |
 
 <!----------------------------------------------------------------------------->
 
@@ -210,6 +222,7 @@ Requires a [weather][] entity to be configured:
 | `it`     | che tempo fa?         |
 | `nl`     | wat voor weer is het? |
 | `ru`     | какая сейчас погода?  |
+| `sv`     | hur/vad är vädret?        |
 
 Requires a [weather][] entity with the specific name or [alias][aliases]:
 
@@ -223,6 +236,7 @@ Requires a [weather][] entity with the specific name or [alias][aliases]:
 | `it`     | che tempo fa a `{name}`?               |
 | `nl`     | wat voor weer is het voor in `{name}`? |
 | `ru`     | Какая погода в `{name}`?               |
+| `sv`     | Vad är vädret i `{name}`?              |
 
 <!----------------------------------------------------------------------------->
 
@@ -237,6 +251,7 @@ Requires a [climate][] entity to be configured:
 | `fr`     | quelle est la température? |
 | `it`     | qual è la temperatura?     |
 | `nl`     | wat is de temperatuur?     |
+| `sv`     | Vad är temperaturen?       |
 
 
 Requires a [climate][] entity with the specific name or [alias][aliases]:
@@ -246,6 +261,7 @@ Requires a [climate][] entity with the specific name or [alias][aliases]:
 | `en`     | what's the temperature of the `{name}`? |
 | `es`     | cuál es la temperatura de `{name}`?     |
 | `nl`     | wat is de `{name}` temperatuur?         |
+| `sv`     | Vad är temperaturen på `{name}`?        |
 
 
 <!----------------------------------------------------------------------------->
@@ -262,6 +278,7 @@ Requires a [cover][] entity with the specific name or [alias][aliases]:
 | `fr`     | - ouvre/ouvrir/ferme `{name}`                                      |
 | `it`     | - apri/chiudi `{name}`                                             |
 | `nl`     | - open/sluit  `{name}` <br> - is/staat `{name}` gesloten/dicht     |
+| `sv`     | - öppna/ stäng `{name}` <br> - är `{name}` öppen/stängd?           |
 
 <!----------------------------------------------------------------------------->
 
@@ -275,6 +292,7 @@ Requires a [lock][] entity with the specific name or [alias][aliases]:
 | `es`     | - cierra/cerrá con llave `{name}` <br> - abre `{name}` <br> - está cerrada con llave `{name}`? <br> - está abierta `{name}`? |
 | `fr`     | - verrouille/déverrouille `{name}`                                                                                           |
 | `nl`     | - vergrendel/ontgrendel   `{name}` <br> - is/staat `{name}` op slot/vergrendeld/open/ontgrendeld                             |
+| `sv`     | - lås/lås upp `{name}` <br> - är `{name}` låst/upplåst?                                                                      |
 
 <!----------------------------------------------------------------------------->
 
@@ -288,6 +306,7 @@ Requires a [sensor][] entity with the specific name or [alias][aliases]:
 | `es`     | cuál es `{name}`?                  |
 | `fr`     | quel est `{name}`?                 |
 | `nl`     | wat is de status van `{name}`?     |
+| `sv`     | vad är värdet på `{name}`?         |
 
 <!----------------------------------------------------------------------------->
 
@@ -303,6 +322,7 @@ Requires a [media player][media_player] entity in the same [area][] as the voice
 | `fr`     | pause/reprends/lecture/suivant            |
 | `it`     | pausa/riprendi/vai avanti                 |
 | `nl`     | pauzeer/stop/hervat/volgende/sla dit over |
+| `sv`     | pausa/försätt/nästa                       |
 
 The media player must be in the appropriate state and support the command.
 
@@ -314,6 +334,7 @@ Requires a [media player][media_player] entity with the specific name or [alias]
 | `es`     | - pausa/continúa `{name}` <br> - siguiente canción en `{name}`                                          |
 | `fr`     | - mets/mettre `{name}` en pause <br> - reprends/reprendre la lecture sur `{name}`                       |
 | `nl`     | - pauzeer/stop/hervat `{name}` <br> - volgende nummer/track op `{name}` <br> - sla dit op `{name}` over |
+| `sv`     | - pausa/försätt `{name}` <br> - nästa på `{name}`                                                       |
 
 The media player must be in the appropriate state and support the command.
 
@@ -335,6 +356,7 @@ Supported durations:
 | `fr`     | - minuteur 30 secondes <br> - minuteur 5 minutes <br> - minuteur 1 heure                                          |
 | `it`     | - imposta timer di 30 secondi <br> - imposta timer 10 minuti <br> - imposta un timer 1 ora                        |
 | `nl`     | - zet/maak timer voor 30 seconden <br> - zet/maak timer voor 5 minuten <br> - zet/maak timer voor 1 uur           |
+| `sv`     | - sätt en timer på¨30 sekunder <br> - sätt en timer på 5 minuter <br> - sätt en timer på 1 timme                  |
 
 Minutes and seconds may be combined as well as hours and minutes:
 
@@ -345,6 +367,7 @@ Minutes and seconds may be combined as well as hours and minutes:
 | `fr`     | - minuteur 10 minutes et 30 secondes <br> - minuteur 1 heure et 20 minutes                       |
 | `it`     | imposta un timer 1 ora e 1 minuto                                                                |
 | `nl`     | zet/maak timer voor 1 uur en 5 minuten minuto                                                    |
+| `sv`     | - sätt en timer på 5 minuter och 30 sekunder <br> - sätt en timer på 1 timme och 5 minuter       |
 
 Requires a timer to be set:
 
@@ -355,6 +378,7 @@ Requires a timer to be set:
 | `fr`     | - mets/mettre le minuteur en pause <br> - supprime/reprends le minuteur <br> - supprimer tous les minuteurs <br> - combien de temps reste-t-il |
 | `it`     | - annulla/cancella/metti in pausa/riprendi/continua timer <br> - annulla/cancella tutti timer <br> - stato timer                               |
 | `nl`     | - annuleer/stop/pauzeer/hervat timer <br> - annuleer/stop/pauzeer/hervat alle de timer <br> - timer status                                     |
+| `sv`     | - pausa/forsätt/avsluta timer <br> -stoppa alla timers <br> - timer status                                                                       |
 
 <!----------------------------------------------------------------------------->
 
@@ -369,6 +393,7 @@ Requires a [scene][] with the specific name or [alias][aliases]:
 | `es`     | activa `{name}`           |
 | `fr`     | active/lancer `{name}`    |
 | `nl`     | activeer `{name}`         |
+| `sv`     | aktivera `{name}` scen    |
 
 Requires a [script][] with the specific name or [alias][aliases]:
 
@@ -379,6 +404,7 @@ Requires a [script][] with the specific name or [alias][aliases]:
 | `es`     | ejecuta `{name}`         |
 | `fr`     | active/lancer `{name}`   |
 | `nl`     | start `{name}`           |
+| `sv`     | kör/trigga `{name}`             |
 
 <!----------------------------------------------------------------------------->
 
