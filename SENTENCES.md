@@ -287,6 +287,7 @@ Requires a [sensor][] entity with the specific name or [alias][aliases]:
 | `en`     | what is the value of the `{name}`? |
 | `es`     | cuál es `{name}`?                  |
 | `fr`     | quel est `{name}`?                 |
+| `it`     | qual è `{name}`?                   |
 | `nl`     | wat is de status van `{name}`?     |
 
 <!----------------------------------------------------------------------------->
@@ -313,6 +314,7 @@ Requires a [media player][media_player] entity with the specific name or [alias]
 | `en`     | - pause/resume the `{name}` <br> - next on the `{name}`                                                 |
 | `es`     | - pausa/continúa `{name}` <br> - siguiente canción en `{name}`                                          |
 | `fr`     | - mets/mettre `{name}` en pause <br> - reprends/reprendre la lecture sur `{name}`                       |
+| `it`     | - pausa/riprendi `{name}` <br> - vai avanti `{name}`                                                    |
 | `nl`     | - pauzeer/stop/hervat `{name}` <br> - volgende nummer/track op `{name}` <br> - sla dit op `{name}` over |
 
 The media player must be in the appropriate state and support the command.

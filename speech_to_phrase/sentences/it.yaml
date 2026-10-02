@@ -163,23 +163,18 @@ data:
   # media
   - "(pausa|riprendi)"
   - "vai avanti"
-  # - sentences:
-  #     - "(pause|resume) [the] {name}"
-  #     - "next [(track|item)] on [the] {name}"
-  #   domains:
-  #     - "media_player"
+  - sentences:
+      - "(pausa|riprendi) {name}"
+      - "vai avanti {name}"
+    domains:
+      - "media_player"
 
   # temperature
   - "qual è la temperatura"
   - "qual è la temperatura in {area}"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
 
-  # # sensors
-  # - sentences:
-  #     - "what is [the [value of [the]]] {name}"
-  #   domains:
-  #     - "sensor"
+  # sensors
+  - sentences:
+      - "qual è {name}"
+    domains:
+      - "sensor"
