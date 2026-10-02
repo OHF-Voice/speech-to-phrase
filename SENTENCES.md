@@ -17,6 +17,7 @@ Available voice commands by category and language code.
 * `mn` - Mongolian
 * `nl` - Dutch
 * `pl` - Polish
+* `pt_BR` - Brazilian Portuguese
 * `pt_PT` - Portuguese
 * `ro` - Romanian
 * `ru` - Russian
@@ -49,6 +50,7 @@ Cancels the current command and does nothing:
 | `mn`     | зүгээр       |
 | `nl`     | laat maar    |
 | `pl`     | nieważne     |
+| `pt_BR`  | esquece      |
 | `pt_PT`  | esquece      |
 | `ro`     | lasă         |
 | `ru`     | Неважно      |
@@ -85,6 +87,7 @@ Works with these [entity domains][entities]:
 | `mn`     | `{name}` асаа/унтраа                             |
 | `nl`     | zet/doe `{name}` aan/uit                         |
 | `pl`     | włącz/uruchom/wyłącz/zatrzymaj `{name}`          |
+| `pt_BR  | liga/desliga/ativa/apaga `{name}`                |
 | `pt_PT`  | liga/desliga/ativa/apaga `{name}`                |
 | `ro`     | pornește/oprește/activează/dezactivează `{name}` |
 | `ru`     | включи/выключи/отключи `{name}`                  |
@@ -107,6 +110,7 @@ Works with these [entity domains][entities]:
 | `fr`     | - quel jour sommes-nous? <br> - quelle heure est-il?   |
 | `nl`     | - hoe laat is het? <br> - wat is de tijd?              |
 | `pl`     | - jaką mamy godzinę? <br> - jaka jest dzisiejsza data? |
+| `pt_BR`  | - que horas são? <br> - que dia é hoje?                |
 | `pt_PT`  | - que horas são? <br> - que dia é hoje?                |
 | `ro`     | - cat este ora? <br> - ce dată este astăzi?            |
 | `ru`     | какое сегодня число                                    |
