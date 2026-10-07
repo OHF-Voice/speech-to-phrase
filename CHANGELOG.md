@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.4
+
+- Update German sentence patterns to support more variations for switching lights on/off, including support for singular "licht" and "im" (in dem) contractions. Also update test fixtures and sentences to include new test cases for the living room area.
+
 ## 1.4.3
 
 - Fix for null names

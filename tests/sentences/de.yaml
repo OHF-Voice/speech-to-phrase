@@ -23,6 +23,7 @@ sentences:
   # generic on/off
   - "schalte die Lampe an"
   - "mach die Lampe aus"
+  - "schalte das licht im wohnzimmer ein"
 
   # scripts and scenes
   - "aktiviere Batteriewarnung Skript"
