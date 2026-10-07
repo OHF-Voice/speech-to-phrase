@@ -1,6 +1,7 @@
 """Wyoming server."""
 
 import argparse
+import os
 import asyncio
 import logging
 from functools import partial
@@ -39,12 +40,16 @@ async def main() -> None:
     )
     # Home Assistant
     parser.add_argument(
-        "--hass-token", required=True, help="Long-lived access token for Home Assistant"
+        "--hass-token",
+        help="Long-lived access token for Home Assistant (or set env HASS_TOKEN)",
+        **environ_or_required('HASS_TOKEN'),
     )
     parser.add_argument(
         "--hass-websocket-uri",
-        default="ws://homeassistant.local:8123/api/websocket",
-        help="URI of Home Assistant websocket API",
+        default=os.environ.get(
+            "HASS_WEBSOCKET_URI", "ws://homeassistant.local:8123/api/websocket"
+        ),
+        help="URI of Home Assistant websocket API (or set env HASS_WEBSOCKET_URI)",
     )
     # Training
     parser.add_argument(
@@ -114,6 +119,11 @@ async def main() -> None:
             retrain_task.cancel()
             await retrain_task
 
+def environ_or_required(key):
+    return (
+        {'default': os.environ.get(key)} if os.environ.get(key)
+        else {'required': True}
+    )
 
 async def _retrain_loop(state: State, wait_seconds: float) -> None:
     """Wait and retrain on a loop."""
