@@ -57,6 +57,7 @@ one is missing.
 - Kiswahili (Swahili)
 - ภาษาไทย (Thai)
 - Türkçe (Turkish)
+- Dansk (Danish)
 
 [Supported voice commands](SENTENCES.md) vary by language.
 
