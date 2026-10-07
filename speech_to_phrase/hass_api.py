@@ -321,12 +321,12 @@ async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
             states = {s["entity_id"]: s for s in msg["result"]}
 
             # Get device info
-            # await websocket.send_json(
-            #     {"id": next_id(), "type": "config/device_registry/list"}
-            # )
-            # msg = await websocket.receive_json()
-            # assert msg["success"], msg
-            # devices = {device_info["id"]: device_info for device_info in msg["result"]}
+            await websocket.send_json(
+                {"id": next_id(), "type": "config/device_registry/list"}
+            )
+            msg = await websocket.receive_json()
+            assert msg["success"], msg
+            devices = {device_info["id"]: device_info for device_info in msg["result"]}
 
             # Floors
             await websocket.send_json(
@@ -399,11 +399,43 @@ async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
                         # Skip disabled entities
                         continue
 
-                    name = (
-                        entity_info.get("name")
-                        or entity_info.get("original_name")
-                        or entity_id
-                    )
+                    # An explicit entity name always wins.
+                    name = entity_info.get("name")
+
+                    if not name:
+                        original_name = entity_info.get("original_name")
+
+                        # Home Assistant prefixes the device's name onto the
+                        # entity's original_name when the entity uses the
+                        # device's name (has_entity_name) and doesn't fully
+                        # replace it (use_device_name), e.g. "Living Room
+                        # AC" + "Temperature" -> "Living Room AC Temperature".
+                        # Without this, entities without an explicit name
+                        # override are only known by their bare
+                        # original_name (e.g. "Temperature"), which Home
+                        # Assistant itself will not recognize on its own.
+                        device_info = None
+                        if entity_info.get("has_entity_name"):
+                            device_info = devices.get(entity_info.get("device_id"))
+
+                        device_name = (
+                            (device_info.get("name_by_user") or device_info.get("name"))
+                            if device_info
+                            else None
+                        )
+
+                        if device_name and not entity_info.get("use_device_name"):
+                            name = (
+                                f"{device_name} {original_name}"
+                                if original_name
+                                else device_name
+                            )
+                        elif device_name:
+                            name = device_name
+                        else:
+                            name = original_name
+
+                    name = name or entity_id
                     names.extend(entity_info.get("aliases", []))
 
                 attributes = states.get(entity_id, {}).get("attributes", {})
