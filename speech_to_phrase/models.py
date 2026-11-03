@@ -342,6 +342,19 @@ MODELS: Dict[str, Model] = {
         sentences_language="tr",
         number_language="tr",
     ),
+    Language.HUNGARIAN.value: Model(
+        id="hu_HU-coqui",
+        type=ModelType.COQUI_STT,
+        language="hu_HU",
+        language_family="hu",
+        description="Hungarian Coqui STT model",
+        version="0.1.1",
+        author="Francis Tyers",
+        url="https://github.com/coqui-ai/STT-models",
+        casing=WordCasing.LOWER,
+        sentences_language="hu",
+        number_language="hu",
+    ),
 }
 
 DEFAULT_MODEL = MODELS[Language.ENGLISH]
