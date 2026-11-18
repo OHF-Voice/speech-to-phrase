@@ -128,7 +128,7 @@ class LanguageData:
         sentence_blocks: list[SentenceBlock] = []
         transformed_lists: dict[str, TransformedList] = {}
 
-        for sentence_info in data_dict["data"]:
+        for sentence_info in data_dict.get("data", {}):
             if isinstance(sentence_info, str):
                 sentence_blocks.append(SentenceBlock(sentences=[sentence_info]))
             else:

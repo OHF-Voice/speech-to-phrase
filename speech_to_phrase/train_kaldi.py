@@ -398,10 +398,11 @@ def _get_sentences_hash(
     hasher = hashlib.sha256()
 
     # Builtin sentences
-    sentences_path = settings.sentences / f"{model.sentences_language}.yaml"
-    with open(sentences_path, "rb") as sentences_file:
-        chunk = sentences_file.read(chunk_size)
-        hasher.update(chunk)
+    if not settings.skip_pre_defined_templates:
+        sentences_path = settings.sentences / f"{model.sentences_language}.yaml"
+        with open(sentences_path, "rb") as sentences_file:
+            chunk = sentences_file.read(chunk_size)
+            hasher.update(chunk)
 
     # Custom sentences
     for custom_sentences_dir in settings.custom_sentences_dirs:

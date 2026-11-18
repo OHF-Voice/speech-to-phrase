@@ -83,6 +83,8 @@ This would allow you to say "add apples to my shopping list" if you have a [todo
 
 You can also create lists with the same names as your [sentence trigger wildcards][sentence_wildcards] to make them usable in speech-to-phrase.
 
+If you only want to use your custom sentences (and not the predefined ones) add the --skip-pre-defined-templates flag.
+
 ## Docker container
 
 A Docker container is available that can be connected to Home Assistant via the [wyoming integration][wyoming]:
