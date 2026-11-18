@@ -1,0 +1,157 @@
+---
+language: "sk"
+
+lists:
+  color:
+    - "bielu"
+    - "čiernu"
+    - "červenú"
+    - "oranžovú"
+    - "žltú"
+    - "zelenú"
+    - "modrú"
+    - "fialovú"
+    - "hnedú"
+    - "ružovú"
+    - "tyrkysovú"
+
+  volume:
+    - "10"
+    - "20"
+    - "30"
+    - "40"
+    - "50"
+    - "60"
+    - "70"
+    - "80"
+    - "90"
+    - "100"
+
+expansion_rules:
+  timer_set: "nastav|nastaviť"
+  timer_cancel: "zruš|zrušiť"
+
+data:
+  # cancel
+  - "[to] nevadí"
+  - "zabudni na to"
+  - "to je jedno"
+  - "kašli na to"
+
+  # date and time
+  - "koľko je hodín"
+  - "aký je čas"
+  - "aký je [dnešný] dátum"
+  - "koľkého je dnes"
+
+  # weather
+  - "aké je [dnes] počasie"
+  - sentences:
+      - "aké je počasie (v|na) {name}"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(zapni|vypni) (svetlo|[všetky] svetlá) (v|na) {area}"
+  - "(rozsvieť|zasvieť|zhasni) (svetlo|[všetky] svetlá) (v|na) {area}"
+  - "(rozsvieť|zasvieť|zhasni) (v|na) {area}"
+  - "(zapni|vypni) (svetlo|[všetky] svetlá)"
+  - "(rozsvieť|zasvieť|zhasni) (svetlo|[všetky] svetlá)"
+  - "nastav jas (v|na) {area} na {brightness} percent"
+  - "nastav jas na {brightness} percent"
+  - "nastav (svetlo|svetlá) (v|na) {area} na {color}"
+  - "nastav farbu svetiel (v|na) {area} na {color}"
+  - "nastav farbu na {color}"
+
+  # lights (name)
+  - sentences:
+      - "nastav {name} na {brightness} percent"
+      - "nastav jas {name} na {brightness} percent"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "nastav {name} na {color} farbu"
+      - "nastav farbu {name} na {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(otvor|zatvor|stiahni|vytiahni) (žalúzie|rolety) (v|na) {area}"
+  - "(otvor|zatvor|zatiahni) závesy (v|na) {area}"
+  - sentences:
+      - "(otvor|zatvor|stiahni|vytiahni) {name}"
+      - "(otvor|zatvor|stiahni|vytiahni) {name} (v|na) {area}"
+    domains:
+      - "cover"
+
+  # generic on/off
+  - sentences:
+      - "(zapni|vypni) {name}"
+      - "(zapni|vypni) {name} (v|na) {area}"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  - sentences:
+      - "(rozsvieť|zasvieť|zhasni) {name}"
+      - "(rozsvieť|zasvieť|zhasni) {name} (v|na) {area}"
+    domains:
+      - "light"
+
+  # scripts and scenes
+  - sentences:
+      - "(zapni|aktivuj) {name}"
+    domains:
+      - "script"
+
+  - sentences:
+      - "(zapni|aktivuj) scénu {name}"
+      - "(zapni|aktivuj) {name}"
+    domains:
+      - "scene"
+
+  # timers
+  - "<timer_set> (časovač|stopky) na {seconds} sekúnd"
+  - "<timer_set> (časovač|stopky) na 1 minútu"
+  - "<timer_set> (časovač|stopky) na 1 minútu a {seconds} sekúnd"
+  - "<timer_set> (časovač|stopky) na {minutes} (minúty|minút)"
+  - "<timer_set> (časovač|stopky) na {minutes} (minúty|minút) a {seconds} sekúnd"
+  - "<timer_set> (časovač|stopky) na 1 hodinu"
+  - "<timer_set> (časovač|stopky) na 1 hodinu a 1 minútu"
+  - "<timer_set> (časovač|stopky) na 1 hodinu a {minutes} (minúty|minút)"
+  - "<timer_set> (časovač|stopky) na {hours} (hodiny|hodín)"
+  - "<timer_set> (časovač|stopky) na {hours} (hodiny|hodín) a {minutes} (minúty|minút)"
+  - "<timer_cancel> (časovač|stopky)"
+  - "<timer_cancel> všetky (časovače|stopky)"
+  - "(zastav|pozastav) časovač"
+  - "obnov časovač"
+  - "aký je stav časovača"
+  - "koľko času zostáva na časovači"
+
+  # media
+  - sentences:
+      - "pozastav {name}"
+      - "(preskoč|ďalšiu) skladbu na {name}"
+      - "nastav hlasitosť {name} na {volume} percent"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "aká je teplota (v|na) {area}"
+  - "aká je teplota"
+  - sentences:
+      - "aká je teplota (v|na) {name}"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "(aká|aký|aké) je {name}"
+    domains:
+      - "sensor"
