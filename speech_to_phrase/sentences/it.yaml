@@ -133,15 +133,15 @@ data:
       - "input_boolean"
 
   # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  - sentences:
+      - "esegui [lo] [script] {name}"
+    domains:
+      - "script"
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  - sentences:
+      - "attiva ([la] scena|il|lo) {name}"
+    domains:
+      - "scene"
 
   # timers
   - "imposta [un] timer [di] {seconds} secondi"
