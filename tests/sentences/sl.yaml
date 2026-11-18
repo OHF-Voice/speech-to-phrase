@@ -5,11 +5,123 @@ sentences:
   # cancel
   - "prekini"
   - "prekliči"
+  - "pozabi"
 
   # date and time
   - "koliko je ura"
   - "kateri dan je danes"
 
-  # generic on/off
+  # weather
+  - "kakšno je vreme v New York"
+
+  # lights (area) - (prižgi|ugasni) (luč|luči) [tu|tukaj]
+  - "prižgi luči"
+  - "ugasni luči"
+  # lights (area) - (prižgi|ugasni) [vse] {area} luči
+  - "prižgi vse Kuhinja luči"
+  # lights (area) - (prižgi|ugasni) [vse] luči [v] {area}
+  - "ugasni luči v Kuhinja"
+  # lights (area) - nastavi (svetlost|...) [tu|tukaj] na {brightness} odstotkov
+  - "nastavi svetlost tukaj na 50 odstotkov"
+  # lights (area) - nastavi svetlost {area} na {brightness} odstotkov
+  - "nastavi svetlost Kuhinja na 25 odstotkov"
+  # lights (area) - nastavi {area} na {brightness} odstotkov [svetlobe]
+  - "nastavi Kuhinja na 75 odstotkov"
+  # lights (area) - nastavi [barvo] (luč|luči) v {area} na {color} [barvo]
+  - "nastavi barvo luči v Kuhinja na rdečo"
+  - "nastavi barvo luči v Kuhinja na modro barvo"
+  # lights (area) - nastavi luči v {area} na {color} [barvo]
+  - "nastavi luči v Kuhinja na belo"
+  - "nastavi luči v Kuhinja na rumeno barvo"
+
+  # lights (name) - nastavi [barvo] {name} na {color}
+  - "nastavi barvo lučko v spalnici na modro"
+  # lights (name) - nastavi {name} na {color} [barvo]
+  - "nastavi lučko v spalnici na oranžno barvo"
+
+  # doors and windows - (odpri|zapri) (rolete|zavese|okna) [v] {area}
+  - "odpri rolete v Kuhinja"
+  # doors and windows - (odpri|zapri) {area} (rolete|zavese|okna)
+  - "zapri Kuhinja zavese"
+  # doors and windows - (odpri|zapri) {name}
+  - "odpri Garažna vrata"
+  - "zapri Garažna vrata"
+  # doors and windows - (odpri|zapri) {name} [v] {area}
+  - "odpri Garažna vrata v Kuhinja"
+  # doors and windows - je {name} (odprt|...)
+  - "je Garažna vrata odprta"
+  - "je Garažna vrata zaprta"
+
+  # locks - (zakleni|odkleni) {name}
+  - "zakleni Vhodna vrata"
+  - "odkleni Vhodna vrata"
+  # locks - je {name} (zaklenjen|...)
+  - "je Vhodna vrata zaklenjena"
+  - "je Vhodna vrata odklenjena"
+
+  # generic on/off - (vklopi|izklopi) {name}
   - "vklopi luč v spalnici"
   - "izklopi luč v spalnici"
+  - "vklopi TV"
+  # generic on/off - (vklopi|izklopi) {name} [v] {area}
+  - "izklopi TV v Kuhinja"
+
+  # scripts - zaženi [skripto|skript] {name}
+  - "zaženi skripto Zabava"
+  # scenes - aktiviraj {name} [sceno]
+  - "aktiviraj Romantično sceno"
+
+  # timers - {seconds}
+  - "nastavi timer za 30 sekund"
+  # timers - 1 minuto
+  - "nastavi timer za 1 minuto"
+  # timers - {minutes} minut
+  - "zaženi timer za 5 minut"
+  # timers - 1 minuto in {seconds} sekund
+  - "ustvari timer za 1 minuto in 30 sekund"
+  # timers - {minutes} (minut|minuto) in {seconds} sekund
+  - "nastavi timer za 10 minut in 20 sekund"
+  # timers - 1 uro
+  - "nastavi timer za 1 uro"
+  # timers - {hours} ur
+  - "nastavi timer za 3 ur"
+  # timers - {hours} in pol ure
+  - "nastavi timer za 2 in pol ure"
+  # timers - 1 uro in 1 minuto
+  - "nastavi timer za 1 uro in 1 minuto"
+  # timers - 1 uro in {minutes} minut
+  - "nastavi timer za 1 uro in 5 minut"
+  # timers - {hours} (ur|uro) in {minutes} minut
+  - "nastavi timer za 3 ur in 20 minut"
+
+  # timer controls
+  - "ustavi timer"
+  - "ustavi vse časovnike"
+  - "pavziraj timer"
+  - "nadaljuj časovnik"
+  - "status časovnika"
+  - "status časovnikov"
+  - "koliko časa je ostalo na časovniku"
+
+  # media - (pause|resume) {name}
+  - "nadaljuj TV"
+  - "zaustavi TV"
+  # media - nasednj(o|i|e) [pesem] na {name}
+  - "naslednje pesem na TV"
+  # media - preskoči [pesem] na {name}
+  - "preskoči pesem na TV"
+
+  # temperature - bare
+  - "kakšna je temperatura"
+  # temperature - v {area}
+  - "kakšna je temperatura v Kuhinja"
+  # temperature - (temp|temperatura) [v] {area}
+  - "temperatura v Kuhinja"
+  # temperature - (temp|temperatura) {name}
+  - "temperatura EcoBee"
+
+  # sensors
+  - "koliko je Zunanja vlažnost"
+
+  # todo
+  - "dodaj mleko na Nakupovalni seznam"
