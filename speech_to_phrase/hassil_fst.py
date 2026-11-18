@@ -593,7 +593,7 @@ def expression_to_fst(
                 if isinstance(value.text_in, TextChunk):
                     value_chunk: TextChunk = value.text_in
                     value_output_text = value_chunk.text
-                elif value.value_out is not None:
+                if value.value_out is not None:
                     value_output_text = str(value.value_out)
 
                 if value_output_text:
