@@ -1,19 +1,22 @@
 ---
 language: "cs"
 
-# lists:
-#   color:
-#     - "white"
-#     - "black"
-#     - "red"
-#     - "orange"
-#     - "yellow"
-#     - "green"
-#     - "blue"
-#     - "purple"
-#     - "brown"
-#     - "pink"
-#     - "turquoise"
+lists:
+  color:
+    - "bílou"
+    - "černou"
+    - "červenou"
+    - "oranžovou"
+    - "žlutou"
+    - "zelenou"
+    - "modrou"
+    - "fialovou"
+    - "hnědou"
+    - "růžovou"
+    - "tyrkysovou"
+
+wildcards:
+  - "todo_item"
 
 data:
   # cancel
@@ -21,133 +24,124 @@ data:
   - "zapomeň na to"
 
   # date and time
-  - "kolik je hodin"
-  - "jaké je datum"
+  - "kolik je [teď] hodin"
+  - "jaké je [dne(s|šní)] datum"
+  - "co je dnes za den"
 
-  # # weather
-  # - "(what's|what is) the weather [like]"
-  # - sentences:
-  #     - "(what's|what is) the {name} weather [like]"
-  #     - "(what's|what is) the weather [like] in {name}"
-  #   domains:
-  #     - "weather"
+  # weather
+  - "jaké (je|bude) počasí"
+  - sentences:
+      - "jaké (je|bude) počasí [v|ve|na] {name}"
+    domains:
+      - "weather"
 
-  # # lights (area)
-  # - "turn (on|off) [the] lights [in here]"
-  # - "turn [the] lights (on|off) [in here]"
-  # - "turn (on|off) [all|the|all of the] {area} lights"
-  # - "turn (on|off) [all|the|all of the] lights in [the] {area}"
-  # - "set [the] brightness [in here] to {brightness} percent"
-  # - "set [the] brightness of [the] {area} to {brightness} percent"
-  # - "set [the] {area} brightness to {brightness} percent"
-  # - "set [the] lights [in here] to {color}"
-  # - "set [[the] color of the] lights [in here] to {color}"
-  # - "set [the] [color of [the]] {area} lights to {color}"
-  # - "set [the] {area} lights to {color}"
-  # - "set lights in [the] {area} to {color}"
+  # lights (area)
+  - "(zapn|vypn)(i|out) [všechna] světla [tady]"
+  - "(zapn|vypn)(i|out) [všechna] světla [v|ve|na] {area}"
+  - "nastav[it] jas (světla|světel) na {brightness} [procent]"
+  - "nastav[it] jas [v|ve|na] {area} na {brightness} [procent]"
+  - "nastav[it] světla na {color}"
+  - "nastav[it] barvu světla na {color}"
+  - "nastav[it] světla [v|ve|na] {area} na {color}"
+  - "nastav[it] barvu světla [v|ve|na] {area} na {color}"
 
   # lights (name)
   - sentences:
-      - "(zapn|vypn)(i|out) světlo {name}"
+      - "nastav[it] jas {name} na {brightness} [procent]"
     domains:
       - "light"
-  # - sentences:
-  #     - "set [the] brightness of [the] {name} to {brightness} percent"
-  #     - "set [the] {name} brightness to {brightness} percent"
-  #   domains:
-  #     - "light"
-  #   light_supports_brightness: true
+    light_supports_brightness: true
 
-  # - sentences:
-  #     - "set [the] [color of [the]] {name} to {color}"
-  #     - "set [the] {name} [color] to {color}"
-  #   domains:
-  #     - "light"
-  #   light_supports_color: true
+  - sentences:
+      - "nastav[it] barvu {name} na {color}"
+    domains:
+      - "light"
+    light_supports_color: true
 
-  # # doors and windows
-  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
-  # - "(open|close) [the] {area} (blinds|curtains|windows)"
-  # - sentences:
-  #     - "(open|close) [the] {name}"
-  #     - "(open|close) [the] {name} in [the] {area}"
-  #     - "is [the] {name} (open|closed)"
-  #   domains:
-  #     - "cover"
+  # doors and windows
+  - "(otevř(i|ít)|zavř(i|ít)) (žaluzie|rolet(y|u)|okn(a|o)) [v|ve|na] {area}"
+  - sentences:
+      - "(otevř(i|ít)|zavř(i|ít)) {name}"
+      - "(otevř(i|ít)|zavř(i|ít)) {name} [v|ve|na] {area}"
+      - "(je|jsou) {name} (otevřen[y|a]|zavřeny)"
+    domains:
+      - "cover"
 
-  # # locks
-  # - sentences:
-  #     - "(lock|unlock) [the] {name}"
-  #     - "is [the] {name} (locked|unlocked)"
-  #   domains:
-  #     - "lock"
+  # locks
+  - sentences:
+      - "((za|ode)mkn(i|out)) {name}"
+      - "(je|jsou) {name} (za|ode)mčeny"
+    domains:
+      - "lock"
 
   # generic on/off
   - sentences:
       - "(zapn|vypn)(i|out) {name}"
-      # - "turn (on|off) [the] {name} in [the] {area}"
-      # - "turn [the] {name} in [the] {area} (on|off)"
+      - "(je|jsou) {name} (zap|vyp)nut(a|y)"
     domains:
       - "switch"
       - "fan"
       - "media_player"
       - "input_boolean"
 
-  # # scripts and scenes
-  # - sentences:
-  #     - "run [the] {name} [script]"
-  #   domains:
-  #     - "script"
+  # scripts and scenes
+  - sentences:
+      - "(aktiv(uj|ovat)|spusti[t]) skript {name}"
+    domains:
+      - "script"
 
-  # - sentences:
-  #     - "activate [the] {name} [scene]"
-  #   domains:
-  #     - "scene"
+  - sentences:
+      - "aktiv(uj|ovat) scénu {name}"
+    domains:
+      - "scene"
 
-  # # timers
-  # - "(set|start|create) [a] timer for {seconds} seconds"
-  # - "(set|start|create) [a] timer for 1 minute"
-  # - "(set|start|create) [a] timer for {minutes} minutes"
-  # - "(set|start|create) [a] timer for 1 minute and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} minutes and {seconds} seconds"
-  # - "(set|start|create) [a] timer for {minutes} and a half minutes"
-  # - "(set|start|create) [a] timer for 1 hour"
-  # - "(set|start|create) [a] timer for {hours} hours"
-  # - "(set|start|create) [a] timer for {hours} and a half hours"
-  # - "(set|start|create) [a] timer for 1 hour and 1 minute"
-  # - "(set|start|create) [a] timer for 1 hour and {minutes} minutes"
-  # - "(set|start|create) [a] timer for {hours} hours and {minutes} minutes"
+  # timers
+  - "(nastav[it]|spusti[t]) časovač na {seconds} (vteřin[y]|sekund[y])"
+  - "(nastav[it]|spusti[t]) časovač na 1 minutu"
+  - "(nastav[it]|spusti[t]) časovač na {minutes} minut[y]"
+  - "(nastav[it]|spusti[t]) časovač na 1 minutu a {seconds} (sekund[y]|vteřin[y])"
+  - "(nastav[it]|spusti[t]) časovač na {minutes} minut[u|y] a {seconds} (sekund[y]|vteřin[y])"
+  - "(nastav[it]|spusti[t]) časovač na jednu hodinu"
+  - "(nastav[it]|spusti[t]) časovač na {hours} hodin[y]"
+  - "(nastav[it]|spusti[t]) časovač na 1 hodinu a 1 minutu"
+  - "(nastav[it]|spusti[t]) časovač na 1 hodinu a {minutes} minut[u|y]"
+  - "(nastav[it]|spusti[t]) časovač na {hours} hodin[u|y] a {minutes} minut[u|y]"
 
-  # - "(cancel|stop) [the|my] timer"
-  # - "(cancel|stop) all [[of ](the|my)] timers"
-  # - "(pause|resume) [the|my] timer"
-  # - "timer status"
-  # - "status of [the|my] timer[s]"
-  # - "[how much] time [is] left on [the|my] timer[s]"
+  - "(zruš[it]|zastav[it]) časovač"
+  - "(přeruš[it]|obnov[it]) časovač"
+  - "stav časovače"
+  - "kolik času zbývá na časovači"
 
-  # # media
-  # - "(pause|resume)"
-  # - "next [(track|item)]"
-  # - "skip [[this ](track|song)]"
-  # - sentences:
-  #     - "(pause|resume) [the] {name}"
-  #     - "next [(track|item)] on [the] {name}"
-  #     - "skip [[the ](track|song)] on [the] {name}"
-  #   domains:
-  #     - "media_player"
+  # media
+  - "(pauza|pokrač(uj|ovat))"
+  - "další [(stopa|skladba|položka|písnička)]"
+  - "přeskoč [[tuto ](stopu|skladbu|položku|písničku)]"
+  - sentences:
+      - "(přeruš[it]|obnovit) {name}"
+      - "další [(stopa|skladba|položka|písnička)] [na|v|ve] {name}"
+      - "přeskoč [[tuto ](stopu|skladbu|položku|písničku)] [na|v|ve] {name}"
+    domains:
+      - "media_player"
 
-  # # temperature
-  # - "(what is|what's) the (temp|temperature)"
-  # - "(what is|what's) the (temp|temperature) in [the] {area}"
-  # - "(what is|what's) the {area} (temp|temperature)"
-  # - sentences:
-  #     - "(what is|what's) the {name} (temp|temperature)"
-  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
-  #   domains:
-  #     - "climate"
+  # temperature
+  - "jaká je [tady] teplota"
+  - "kolik je [tady] stupňů"
+  - "jaká je teplota [v|ve|na] {area}"
+  - "kolik je [v|ve|na] {area} stupňů"
+  - sentences:
+      - "jaká je teplota [v|ve|na] {name}"
+      - "kolik (je|má) stupňů [v|ve|na] {name}"
+    domains:
+      - "climate"
 
-  # # sensors
+  # sensors
   # - sentences:
   #     - "what is [the [value of [the]]] {name}"
   #   domains:
   #     - "sensor"
+
+  # todo
+  - sentences:
+      - "při(dej|piš) {todo_item} (na|do) [mého|můj] seznam {name}"
+    domains:
+      - "todo"
