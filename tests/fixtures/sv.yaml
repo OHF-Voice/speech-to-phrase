@@ -1,0 +1,48 @@
+---
+language: "sv"
+
+fixtures:
+  areas:
+    - name: "Kök"
+    - name: "Kontor"
+
+  entities:
+    - name: "Sänglampa"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "Golvlampa"
+      domain: "light"
+      light_supports_brightness: false
+      light_supports_color: false
+
+    - name: "Stockholm"
+      domain: "weather"
+
+    - name: "Termostat"
+      domain: "climate"
+
+    - name: "Garagedörr"
+      domain: "cover"
+
+    - name: "Skjutdörr"
+      domain: "cover"
+
+    - name: "Ytterdörr"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Festläge"
+      domain: "script"
+
+    - name: "Stämningsbelysning"
+      domain: "scene"
+
+    - name: "Luftfuktighet Ute"
+      domain: "sensor"
+
+    - name: "Inköpslista"
+      domain: "todo"
