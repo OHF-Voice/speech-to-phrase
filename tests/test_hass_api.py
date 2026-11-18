@@ -119,6 +119,7 @@ async def test_system_and_pipeline_languages() -> None:
                 {"result": {"exposed_entities": {}}},
             ),
             ("get_states", {"result": []}),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             ("config/entity_registry/get_entries", {"result": {}}),
@@ -170,6 +171,7 @@ async def test_unexposed_and_disabled_entities() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -210,6 +212,7 @@ async def test_areas_and_floors() -> None:
             ),
             ("homeassistant/expose_entity/list", {"result": {"exposed_entities": {}}}),
             ("get_states", {"result": []}),
+            ("config/device_registry/list", {"result": []}),
             (
                 "config/floor_registry/list",
                 {
@@ -289,6 +292,7 @@ async def test_entity_names() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -336,6 +340,99 @@ async def test_entity_names() -> None:
 
 
 @pytest.mark.asyncio
+async def test_entity_names_use_device_name() -> None:
+    """Test that an entity without a name override is prefixed with its
+    device's name, matching Home Assistant's own name resolution
+    (has_entity_name + original_name)."""
+    mock_websocket = MockWebsocket(
+        [
+            (None, {"type": "auth_required"}),
+            ("auth", {"type": "auth_ok"}),
+            ("get_config", {"result": {"language": "en"}}),
+            (
+                "assist_pipeline/pipeline/list",
+                {"result": {"pipelines": []}},
+            ),
+            (
+                "homeassistant/expose_entity/list",
+                {
+                    "result": {
+                        "exposed_entities": {
+                            "sensor.temperature": {"conversation": True},
+                            "sensor.no_device": {"conversation": True},
+                            "climate.device_name_only": {"conversation": True},
+                        }
+                    }
+                },
+            ),
+            ("get_states", {"result": []}),
+            (
+                "config/device_registry/list",
+                {
+                    "result": [
+                        {
+                            "id": "device_1",
+                            "name": "Living Room AC",
+                            "name_by_user": None,
+                        },
+                        {
+                            "id": "device_2",
+                            "name": "Renamed AC",
+                            "name_by_user": "User's AC",
+                        },
+                    ]
+                },
+            ),
+            ("config/floor_registry/list", {"result": []}),
+            ("config/area_registry/list", {"result": []}),
+            (
+                "config/entity_registry/get_entries",
+                {
+                    "result": {
+                        "sensor.temperature": {
+                            "original_name": "Temperature",
+                            "has_entity_name": True,
+                            "device_id": "device_1",
+                        },
+                        "sensor.no_device": {
+                            "original_name": "Battery",
+                            "has_entity_name": True,
+                            "device_id": None,
+                        },
+                        "climate.device_name_only": {
+                            "original_name": None,
+                            "has_entity_name": True,
+                            "use_device_name": True,
+                            "device_id": "device_2",
+                        },
+                    }
+                },
+            ),
+            (
+                "conversation/sentences/list",
+                {"result": {"trigger_sentences": []}},
+            ),
+        ]
+    )
+
+    with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
+        ha_info = await get_hass_info("<token>", "<url>")
+        entities_by_id = {e.entity_id: e for e in ha_info.things.entities}
+
+        # Device name (no name_by_user) + original_name
+        assert entities_by_id["sensor.temperature"].names == [
+            "Living Room AC Temperature"
+        ]
+
+        # No device: falls back to bare original_name, as before
+        assert entities_by_id["sensor.no_device"].names == ["Battery"]
+
+        # use_device_name: name_by_user overrides the device's own name,
+        # and original_name is not appended
+        assert entities_by_id["climate.device_name_only"].names == ["User's AC"]
+
+
+@pytest.mark.asyncio
 async def test_light_features() -> None:
     """Test that light entities report supported features."""
     mock_websocket = MockWebsocket(
@@ -379,6 +476,7 @@ async def test_light_features() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -458,6 +556,7 @@ async def test_fan_features() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -537,6 +636,7 @@ async def test_cover_features() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -618,6 +718,7 @@ async def test_media_player_features() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             (
@@ -684,6 +785,7 @@ async def test_automation_script_answers() -> None:
                     ]
                 },
             ),
+            ("config/device_registry/list", {"result": []}),
             ("config/floor_registry/list", {"result": []}),
             ("config/area_registry/list", {"result": []}),
             ("config/entity_registry/get_entries", {"result": {}}),
