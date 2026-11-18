@@ -342,6 +342,19 @@ MODELS: Dict[str, Model] = {
         sentences_language="tr",
         number_language="tr",
     ),
+    Language.PORTUGUESE_BRAZIL.value: Model(
+        id="pt_BR-coqui",
+        type=ModelType.COQUI_STT,
+        language="pt_BR",
+        language_family="pt",
+        description="Portuguese (Brazil) Coqui STT model",
+        version="0.1.1",
+        author="Francis Tyers",
+        url="https://github.com/coqui-ai/STT-models",
+        casing=WordCasing.LOWER,
+        sentences_language="pt_BR",
+        number_language="pt_BR",
+    ),
 }
 
 DEFAULT_MODEL = MODELS[Language.ENGLISH]
