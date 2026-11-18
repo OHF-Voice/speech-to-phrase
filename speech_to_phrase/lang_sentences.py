@@ -14,6 +14,7 @@ class SentenceBlock:
 
     sentences: list[str]
     domains: Optional[set[str]] = None
+    device_class: Optional[set[str]] = None
 
     # Domain-specific features
     light_supports_color: Optional[bool] = None
@@ -27,7 +28,9 @@ class SentenceBlock:
     @staticmethod
     def from_dict(block_dict: dict[str, Any]) -> "SentenceBlock":
         block = SentenceBlock(
-            sentences=block_dict["sentences"], domains=set(block_dict["domains"])
+            sentences=block_dict["sentences"],
+            domains=set(block_dict["domains"]),
+            device_class=set(block_dict["device_class"]),
         )
 
         for supports_field in fields(block):
@@ -45,6 +48,9 @@ class SentenceBlock:
         context: dict[str, Any] = {}
         if self.domains:
             context["domain"] = list(self.domains)
+
+        if self.device_class:
+            context["device_class"] = list(self.device_class)
 
         for supports_field in fields(self):
             if "supports" not in supports_field.name:
